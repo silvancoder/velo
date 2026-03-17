@@ -1,0 +1,463 @@
+{
+    "common": {
+        "compose": "Compose",
+        "settings": "Settings",
+        "help": "Help",
+        "unread_changes": "{{count}} pending change",
+        "unread_changes_plural": "{{count}} pending changes",
+        "show": "Show",
+        "more": "{{count}} more",
+        "less": "Show less",
+        "loading_inbox": "Loading your inbox...",
+        "retry": "Retry",
+        "clear": "Clear",
+        "pending_ops": "Pending operations",
+        "pending_ops_desc": "Changes waiting to sync to the server",
+        "failed_ops": "Failed operations",
+        "failed_ops_desc": "Changes that could not be synced after multiple retries",
+        "offline": "You're offline — changes will sync when you reconnect",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "later": "Later",
+        "update_now": "Update Now",
+        "updating": "Updating...",
+        "v_available": "Velo v{{version}} is available"
+    },
+    "categories": {
+        "primary": "Primary",
+        "promotions": "Promotions",
+        "social": "Social",
+        "updates": "Updates",
+        "newsletters": "Newsletters",
+        "spam": "Spam",
+        "trash": "Trash",
+        "finance": "Finance",
+        "travel": "Travel"
+    },
+    "days": {
+        "short": {
+            "sun": "Sun",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat"
+        }
+    },
+    "nav": {
+        "inbox": "Inbox",
+        "starred": "Starred",
+        "snoozed": "Snoozed",
+        "sent": "Sent",
+        "drafts": "Drafts",
+        "trash": "Trash",
+        "spam": "Spam",
+        "all_mail": "All Mail",
+        "tasks": "Tasks",
+        "calendar": "Calendar",
+        "attachments": "Attachments",
+        "smart_folders": "Smart Folders",
+        "labels": "Labels",
+        "archive": "Archive"
+    },
+    "sync": {
+        "syncing": "Syncing...",
+        "syncing_messages": "Syncing: {{current}}/{{total}} messages",
+        "syncing_labels": "Syncing labels...",
+        "building_threads": "Building threads... ({{current}}/{{total}})",
+        "complete": "Sync complete",
+        "failed": "Sync failed",
+        "failed_with_error": "Sync failed: {{error}}"
+    },
+    "settings": {
+        "title": "Settings",
+        "back_to_inbox": "Back to Inbox",
+        "tabs": {
+            "general": "General",
+            "notifications": "Notifications",
+            "composing": "Composing",
+            "mail_rules": "Mail Rules",
+            "people": "People",
+            "accounts": "Accounts",
+            "shortcuts": "Shortcuts",
+            "ai": "AI",
+            "about": "About",
+            "developer": "Developer"
+        },
+        "sections": {
+            "appearance": "Appearance",
+            "startup": "Startup",
+            "privacy_security": "Privacy & Security",
+            "storage": "Storage",
+            "sending": "Sending",
+            "behavior": "Behavior",
+            "signatures": "Signatures",
+            "templates": "Templates",
+            "labels": "Labels",
+            "filters": "Filters"
+        },
+        "general": {
+            "language": "Language",
+            "theme": "Theme",
+            "theme_options": {
+                "system": "System",
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "reading_pane": "Reading pane",
+            "reading_pane_options": {
+                "right": "Right",
+                "bottom": "Bottom",
+                "hidden": "Off"
+            },
+            "email_density": "Email density",
+            "email_density_options": {
+                "compact": "Compact",
+                "default": "Default",
+                "spacious": "Spacious"
+            },
+            "font_size": "Font size",
+            "font_size_options": {
+                "small": "Small",
+                "default": "Default",
+                "large": "Large",
+                "xlarge": "Extra Large"
+            },
+            "accent_color": "Accent color",
+            "inbox_view": "Inbox view mode",
+            "inbox_view_options": {
+                "unified": "Unified",
+                "split": "Split (Categories)"
+            },
+            "reduce_motion": "Reduce motion",
+            "reduce_motion_desc": "Disable animated background effects (fixes flickering on some GPUs)"
+        },
+        "startup": {
+            "title": "Startup",
+            "launch_at_login": "Launch at login",
+            "launch_at_login_desc": "Start Velo automatically when you log in (minimized to tray)"
+        },
+        "privacy": {
+            "title": "Privacy & Security",
+            "block_images": "Block remote images",
+            "block_images_desc": "Hides tracking pixels and remote images until you choose to load them",
+            "phishing_detection": "Phishing link detection",
+            "phishing_detection_desc": "Scan message links for phishing indicators and show warnings",
+            "sensitivity": "Detection sensitivity",
+            "sensitivity_options": {
+                "low": "Low (fewer warnings)",
+                "default": "Default",
+                "high": "High (more warnings)"
+            }
+        },
+        "storage": {
+            "attachment_cache": "Attachment cache",
+            "mb_used": "{{count}} MB used",
+            "calculating": "Calculating...",
+            "clear_cache": "Clear Cache",
+            "clearing": "Clearing...",
+            "max_cache_size": "Max cache size"
+        },
+        "notifications": {
+            "enable": "Enable notifications",
+            "smart": "Smart notifications",
+            "smart_desc": "Only notify for selected categories and VIP senders",
+            "category_filters": "Category Filters",
+            "notify_for_categories": "Notify for categories",
+            "vip_senders": "VIP Senders",
+            "vip_desc": "These senders always trigger notifications regardless of category",
+            "remove": "Remove",
+            "add": "Add",
+            "email_placeholder": "email@example.com"
+        },
+        "composing": {
+            "undo_send_delay": "Undo send delay",
+            "seconds": "{{count}} seconds",
+            "send_and_archive": "Send and archive",
+            "send_and_archive_desc": "Automatically archive threads after sending a reply",
+            "default_reply_action": "Default reply action",
+            "reply": "Reply",
+            "reply_all": "Reply All",
+            "mark_as_read": "Mark as read",
+            "mark_as_read_options": {
+                "instant": "Instantly",
+                "2s": "After 2 seconds",
+                "manual": "Manually"
+            },
+            "signatures": "Signatures",
+            "templates": "Templates"
+        },
+        "mail_rules": {
+            "labels": {
+                "title": "Labels",
+                "desc": "Manage your custom labels"
+            },
+            "filters": {
+                "title": "Filters",
+                "desc": "Automatically perform actions on incoming mail"
+            },
+            "smart_labels": {
+                "title": "Smart Labels",
+                "desc": "Enable or disable AI-powered automatic labeling"
+            },
+            "smart_folders": {
+                "title": "Smart Folders",
+                "desc": "Virtual folders based on search queries"
+            },
+            "quick_steps": {
+                "title": "Quick Steps",
+                "desc": "Automation with a single click"
+            }
+        },
+        "people": {
+            "contacts": "Contacts",
+            "contacts_desc": "Manage your address book and contact details",
+            "subscriptions": "Subscriptions",
+            "subscriptions_desc": "Review and manage your newsletter subscriptions"
+        },
+        "accounts": {
+            "mail_accounts": "Mail Accounts",
+            "mail_accounts_desc": "Manage your connected email addresses",
+            "calendar_accounts": "Calendar Accounts",
+            "calendar_accounts_desc": "Connected calendars and event sources",
+            "google_api": "Google API",
+            "google_api_desc": "Use your own Google Cloud Console credentials",
+            "sync": "Sync",
+            "sync_period": "Sync period",
+            "sync_desc": "How much mail to keep offline for each account",
+            "send_as": {
+                "title": "Send-As Aliases",
+                "desc": "Manage your primary address and verified aliases",
+                "no_aliases": "No aliases found",
+                "primary": "Primary",
+                "default": "Default",
+                "set_default": "Set as Default"
+            }
+        },
+        "ai": {
+            "provider": {
+                "title": "AI Provider",
+                "desc": "Select your AI service provider"
+            },
+            "local_server": {
+                "title": "Local Server",
+                "desc": "Configuration for local LLM servers (LM Studio, Ollama)"
+            },
+            "api_key": {
+                "title": "API Key",
+                "desc": "Your private key for the selected AI provider"
+            },
+            "features": {
+                "title": "AI Features",
+                "desc": "Enable or disable specific AI capabilities"
+            },
+            "auto_draft": {
+                "title": "Auto-Draft Replies",
+                "desc": "Automatically create reply drafts using AI"
+            },
+            "categories": {
+                "title": "Categories",
+                "desc": "Automatic classification of incoming emails"
+            },
+            "writing_style": {
+                "title": "Learn Writing Style",
+                "desc": "AI learns from your sent mail to mimic your tone",
+                "analyze": "Analyze Style",
+                "analyzing": "Analyzing...",
+                "reanalyze": "Re-analyze"
+            },
+            "bundling": {
+                "title": "Bundling & Delivery Schedules",
+                "desc": "Batch delivery of non-urgent emails",
+                "bundle": "Bundle",
+                "at": "at"
+            }
+        },
+        "developer": {
+            "app_info": "App Info",
+            "app_version": "App version",
+            "tauri_version": "Tauri version",
+            "webview_version": "WebView version",
+            "platform": "Platform",
+            "updates": "Updates",
+            "software_updates": "Software updates",
+            "available": "v{{version}} available",
+            "up_to_date": "Up to date",
+            "update_restart": "Update & Restart",
+            "updating": "Updating...",
+            "check_updates": "Check for Updates",
+            "checking": "Checking...",
+            "dev_tools": "Developer Tools",
+            "open_devtools": "Open DevTools",
+            "devtools_desc": "Open the WebView developer tools inspector"
+        },
+        "about": {
+            "title": "Velo Mail",
+            "description": "A fast, open-source desktop email client built with privacy in mind. Your emails stay on your machine — no cloud, no tracking.",
+            "version": "Version {{version}}",
+            "loading": "Loading...",
+            "links": "Links",
+            "website": "Website",
+            "repo": "GitHub Repository",
+            "contact": "Contact",
+            "license": "License",
+            "apache": "Apache License 2.0",
+            "license_desc": "Licensed under the Apache License, Version 2.0. You may obtain a copy of the License at",
+            "copyright": "Copyright 2025 Velo Mail. You may use, distribute, and modify this software under the terms of the Apache 2.0 license. This software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND."
+        },
+        "shortcuts": {
+            "global": "Global Shortcut",
+            "quick_compose": "Quick compose",
+            "quick_compose_desc": "Open compose window from any app",
+            "press_keys": "Press keys...",
+            "change": "Change",
+            "instructions": "Click a shortcut to rebind it. Press any key or key combination to set.",
+            "reset_all": "Reset all",
+            "press_key": "Press key...",
+            "reset_to": "Reset to"
+        },
+        "sidebar": {
+            "title": "Sidebar Navigation",
+            "desc": "Drag to reorder items. Toggle visibility for each section.",
+            "move_up": "Move up",
+            "move_down": "Move down",
+            "hide": "Hide",
+            "show": "Show",
+            "always_visible": "Inbox is always visible",
+            "reset": "Reset to defaults"
+        }
+    },
+    "composer": {
+        "placeholder": "Write your message...",
+        "drop_files": "Drop files to attach",
+        "pop_out": "Open in new window",
+        "subject": "Subject",
+        "to": "To",
+        "cc": "Cc",
+        "bcc": "Bcc",
+        "header_labels": {
+            "reply": "Reply",
+            "reply_all": "Reply All",
+            "forward": "Forward",
+            "new_message": "New Message"
+        },
+        "status": {
+            "saving": "Saving...",
+            "saved": "Draft saved",
+            "no_account": "No account"
+        },
+        "schedule_send": "Schedule send",
+        "save_draft": "Save Draft"
+    },
+    "email_list": {
+        "no_messages": "No messages found",
+        "smart_folder": "Smart Folder",
+        "inbox_title": "Inbox — {{category}}",
+        "conversation_count": "{{count}} conversation",
+        "conversation_count_plural": "{{count}} conversations",
+        "selected_count": "{{count}} selected",
+        "select_all": "Select all",
+        "other_emails": "Other emails",
+        "tooltips": {
+            "archive": "Archive selected",
+            "delete": "Delete selected",
+            "not_spam": "Not spam",
+            "report_spam": "Report spam",
+            "clear_selection": "Clear selection"
+        },
+        "status": {
+            "loading_more": "Loading more...",
+            "all_loaded": "All conversations loaded"
+        },
+        "filters": {
+            "all": "All",
+            "unread": "Unread",
+            "read": "Read"
+        },
+        "empty_states": {
+            "search": {
+                "title": "No results found",
+                "subtitle": "Try a different search term"
+            },
+            "filter": {
+                "title": "No {{filter}} emails",
+                "subtitle": "Try changing the filter"
+            },
+            "no_account": {
+                "title": "No account connected",
+                "subtitle": "Add a Gmail account to get started"
+            },
+            "inbox": {
+                "all": {
+                    "title": "You're all caught up",
+                    "subtitle": "No new conversations"
+                },
+                "primary": {
+                    "title": "Primary is clear",
+                    "subtitle": "No important conversations"
+                },
+                "updates": {
+                    "title": "No updates",
+                    "subtitle": "Notifications and transactional emails appear here"
+                },
+                "promotions": {
+                    "title": "No promotions",
+                    "subtitle": "Marketing and promotional emails appear here"
+                },
+                "social": {
+                    "title": "No social emails",
+                    "subtitle": "Social network notifications appear here"
+                },
+                "newsletters": {
+                    "title": "No newsletters",
+                    "subtitle": "Newsletters and subscriptions appear here"
+                }
+            },
+            "starred": {
+                "title": "No starred conversations",
+                "subtitle": "Star emails to find them here"
+            },
+            "snoozed": {
+                "title": "No snoozed emails",
+                "subtitle": "Snoozed emails will appear here"
+            },
+            "sent": {
+                "title": "No sent messages"
+            },
+            "drafts": {
+                "title": "No drafts"
+            },
+            "trash": {
+                "title": "Trash is empty"
+            },
+            "spam": {
+                "title": "No spam",
+                "subtitle": "Looking good!"
+            },
+            "all": {
+                "title": "No emails yet"
+            },
+            "smart_folder": {
+                "title": "No matching emails",
+                "subtitle": "Try adjusting the smart folder query"
+            },
+            "default": {
+                "title": "Nothing here",
+                "subtitle": "No conversations with this label"
+            }
+        },
+        "loading": "Loading messages...",
+        "search_placeholder": "Search mail...",
+        "sort_by": "Sort by"
+    },
+    "sidebar": {
+        "add_smart_folder": "Add smart folder",
+        "add_label": "Add label",
+        "edit_label": "Edit label",
+        "expand": "Expand sidebar",
+        "collapse": "Collapse sidebar",
+        "switch_unified": "Switch to unified inbox",
+        "switch_split": "Switch to split inbox"
+    }
+}

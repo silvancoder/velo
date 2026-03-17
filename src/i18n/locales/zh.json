@@ -1,0 +1,463 @@
+{
+    "common": {
+        "compose": "写信",
+        "settings": "设置",
+        "help": "帮助",
+        "unread_changes": "{{count}} 个待处理更改",
+        "unread_changes_plural": "{{count}} 个待处理更改",
+        "show": "显示",
+        "more": "还有 {{count}} 个",
+        "less": "收起",
+        "loading_inbox": "正在加载收件箱...",
+        "retry": "重试",
+        "clear": "清除",
+        "pending_ops": "待处理操作",
+        "pending_ops_desc": "等待同步到服务器的更改",
+        "failed_ops": "失败操作",
+        "failed_ops_desc": "多次重试后仍无法同步的更改",
+        "offline": "您已离线 — 重新连接后将自动同步更改",
+        "confirm": "确认",
+        "cancel": "取消",
+        "later": "稍后",
+        "update_now": "立即更新",
+        "updating": "正在更新...",
+        "v_available": "Velo v{{version}} 已可用"
+    },
+    "categories": {
+        "primary": "主要",
+        "promotions": "促销",
+        "social": "社交",
+        "updates": "更新",
+        "newsletters": "时事通讯",
+        "spam": "垃圾邮件",
+        "trash": "已删除",
+        "finance": "财务",
+        "travel": "旅游"
+    },
+    "days": {
+        "short": {
+            "sun": "周日",
+            "mon": "周一",
+            "tue": "周二",
+            "wed": "周三",
+            "thu": "周四",
+            "fri": "周五",
+            "sat": "周六"
+        }
+    },
+    "nav": {
+        "inbox": "收件箱",
+        "starred": "已加星标",
+        "snoozed": "已延后",
+        "sent": "已发送",
+        "drafts": "草稿",
+        "trash": "已删除",
+        "spam": "垃圾邮件",
+        "all_mail": "所有邮件",
+        "tasks": "任务",
+        "calendar": "日历",
+        "attachments": "附件",
+        "smart_folders": "常用文件夹",
+        "labels": "标签",
+        "archive": "归档"
+    },
+    "sync": {
+        "syncing": "正在同步...",
+        "syncing_messages": "正在同步：{{current}}/{{total}} 封邮件",
+        "syncing_labels": "正在同步标签...",
+        "building_threads": "正在构建会话... ({{current}}/{{total}})",
+        "complete": "同步完成",
+        "failed": "同步失败",
+        "failed_with_error": "同步失败：{{error}}"
+    },
+    "settings": {
+        "title": "设置",
+        "back_to_inbox": "返回收件箱",
+        "tabs": {
+            "general": "通用",
+            "notifications": "通知",
+            "composing": "写信",
+            "mail_rules": "邮件规则",
+            "people": "联系人",
+            "accounts": "账号",
+            "shortcuts": "快捷键",
+            "ai": "AI 助手",
+            "about": "关于",
+            "developer": "开发者"
+        },
+        "sections": {
+            "appearance": "外观",
+            "startup": "启动",
+            "privacy_security": "隐私与安全",
+            "storage": "存储",
+            "sending": "发送",
+            "behavior": "行为",
+            "signatures": "签名",
+            "templates": "模板",
+            "labels": "标签",
+            "filters": "过滤器"
+        },
+        "general": {
+            "language": "语言",
+            "theme": "主题",
+            "theme_options": {
+                "system": "跟随系统",
+                "light": "浅色",
+                "dark": "深色"
+            },
+            "reading_pane": "阅读窗格",
+            "reading_pane_options": {
+                "right": "右侧",
+                "bottom": "底部",
+                "hidden": "禁用"
+            },
+            "email_density": "邮件密度",
+            "email_density_options": {
+                "compact": "紧凑",
+                "default": "默认",
+                "spacious": "宽松"
+            },
+            "font_size": "字体大小",
+            "font_size_options": {
+                "small": "小",
+                "default": "标准",
+                "large": "大",
+                "xlarge": "超大"
+            },
+            "accent_color": "主题色",
+            "inbox_view": "收件箱视图",
+            "inbox_view_options": {
+                "unified": "合并视图",
+                "split": "分栏视图（分类）"
+            },
+            "reduce_motion": "减少动画",
+            "reduce_motion_desc": "禁用动画背景效果（解决部分 GPU 的闪烁问题）"
+        },
+        "startup": {
+            "title": "启动",
+            "launch_at_login": "登录时自动启动",
+            "launch_at_login_desc": "登录系统时自动启动 Velo（最小化到托盘）"
+        },
+        "privacy": {
+            "title": "隐私与安全",
+            "block_images": "阻止远程图像",
+            "block_images_desc": "隐藏追踪像素和远程图像，直到您选择加载它们",
+            "phishing_detection": "钓鱼链接检测",
+            "phishing_detection_desc": "扫描邮件链接中的钓鱼指标并显示警告",
+            "sensitivity": "检测灵敏度",
+            "sensitivity_options": {
+                "low": "低（较少警告）",
+                "default": "默认",
+                "high": "高（较多警告）"
+            }
+        },
+        "storage": {
+            "attachment_cache": "附件缓存",
+            "mb_used": "已使用 {{count}} MB",
+            "calculating": "正在计算...",
+            "clear_cache": "清空缓存",
+            "clearing": "正在清空...",
+            "max_cache_size": "最大缓存容量"
+        },
+        "notifications": {
+            "enable": "启用通知",
+            "smart": "智能通知",
+            "smart_desc": "仅对选定的分类和 VIP 发件人进行通知",
+            "category_filters": "分类过滤",
+            "notify_for_categories": "针对这些分类进行通知",
+            "vip_senders": "VIP 发件人",
+            "vip_desc": "这些发件人的邮件将始终触发通知，不受分类限制",
+            "remove": "移除",
+            "add": "添加",
+            "email_placeholder": "email@example.com"
+        },
+        "composing": {
+            "undo_send_delay": "撤回发送延迟",
+            "seconds": "{{count}} 秒",
+            "send_and_archive": "发送后存档",
+            "send_and_archive_desc": "发送回复后自动存档会话",
+            "default_reply_action": "默认回复操作",
+            "reply": "回复",
+            "reply_all": "全部回复",
+            "mark_as_read": "标记为已读",
+            "mark_as_read_options": {
+                "instant": "立即",
+                "2s": "2 秒后",
+                "manual": "手动"
+            },
+            "signatures": "签名",
+            "templates": "模板"
+        },
+        "mail_rules": {
+            "labels": {
+                "title": "标签",
+                "desc": "管理您的自定义标签"
+            },
+            "filters": {
+                "title": "过滤器",
+                "desc": "对收到的邮件自动执行操作"
+            },
+            "smart_labels": {
+                "title": "智能标签",
+                "desc": "启用或禁用 AI 驱动的自动标记"
+            },
+            "smart_folders": {
+                "title": "智能文件夹",
+                "desc": "基于搜索查询的虚拟文件夹"
+            },
+            "quick_steps": {
+                "title": "快捷步骤",
+                "desc": "一键执行自动化操作"
+            }
+        },
+        "people": {
+            "contacts": "联系人",
+            "contacts_desc": "管理您的地址簿和联系人详情",
+            "subscriptions": "订阅",
+            "subscriptions_desc": "查看和管理您的邮件列表订阅"
+        },
+        "accounts": {
+            "mail_accounts": "邮件账号",
+            "mail_accounts_desc": "管理您连接的电子邮件地址",
+            "calendar_accounts": "日历账号",
+            "calendar_accounts_desc": "连接的日历和事件源",
+            "google_api": "Google API",
+            "google_api_desc": "使用您自己的 Google Cloud Console 凭据",
+            "sync": "同步",
+            "sync_period": "同步周期",
+            "sync_desc": "每个账号保持离线状态的邮件数量",
+            "send_as": {
+                "title": "发件人别名",
+                "desc": "管理您的主要地址和已验证的别名",
+                "no_aliases": "未找到别名",
+                "primary": "主要",
+                "default": "默认",
+                "set_default": "设为默认"
+            }
+        },
+        "ai": {
+            "provider": {
+                "title": "AI 提供商",
+                "desc": "选择您的 AI 服务提供商"
+            },
+            "local_server": {
+                "title": "本地服务器",
+                "desc": "本地 LLM 服务器配置 (LM Studio, Ollama)"
+            },
+            "api_key": {
+                "title": "API 密钥",
+                "desc": "所选 AI 提供商的私有密钥"
+            },
+            "features": {
+                "title": "AI 功能",
+                "desc": "启用或禁用特定的 AI 能力"
+            },
+            "auto_draft": {
+                "title": "自动草稿回复",
+                "desc": "使用 AI 自动创建回复草稿"
+            },
+            "categories": {
+                "title": "分类",
+                "desc": "自动对收到的邮件进行分类"
+            },
+            "writing_style": {
+                "title": "学习写作风格",
+                "desc": "AI 从您已发送的邮件中学习以模仿您的语气",
+                "analyze": "分析风格",
+                "analyzing": "正在分析...",
+                "reanalyze": "重新分析"
+            },
+            "bundling": {
+                "title": "分类与投递计划",
+                "desc": "批量投递非紧急邮件",
+                "bundle": "分类",
+                "at": "于"
+            }
+        },
+        "developer": {
+            "app_info": "应用信息",
+            "app_version": "应用版本",
+            "tauri_version": "Tauri 版本",
+            "webview_version": "WebView 版本",
+            "platform": "平台",
+            "updates": "更新",
+            "software_updates": "软件更新",
+            "available": "可用的 v{{version}} 版本",
+            "up_to_date": "已是最新版本",
+            "update_restart": "更新并重启",
+            "updating": "正在更新...",
+            "check_updates": "检查更新",
+            "checking": "正在检查...",
+            "dev_tools": "开发者工具",
+            "open_devtools": "打开开发者工具",
+            "devtools_desc": "打开 WebView 开发者工具检查器"
+        },
+        "about": {
+            "title": "Velo Mail",
+            "description": "基于隐私考虑构建的快速、开源桌面邮件客户端。您的邮件保留在您的机器上 —— 无云端，无追踪。",
+            "version": "版本 {{version}}",
+            "loading": "正在加载...",
+            "links": "链接",
+            "website": "网站",
+            "repo": "GitHub 仓库",
+            "contact": "联系方式",
+            "license": "许可证",
+            "apache": "Apache License 2.0",
+            "license_desc": "根据 Apache 许可证 2.0 版授权。您可以从以下地址获得许可证副本：",
+            "copyright": "Copyright 2025 Velo Mail. 您可以在 Apache 2.0 许可证条款下使用、分发和修改此软件。此软件按“原样”分发，不附带任何明示或暗示的保证或条件。"
+        },
+        "shortcuts": {
+            "global": "全局快捷键",
+            "quick_compose": "快速写信",
+            "quick_compose_desc": "从任何应用打开写信窗口",
+            "press_keys": "按下按键...",
+            "change": "更改",
+            "instructions": "点击快捷键以重新绑定。按下任何按键或组合键进行设置。",
+            "reset_all": "重置全部",
+            "press_key": "按下按键...",
+            "reset_to": "重置为"
+        },
+        "sidebar": {
+            "title": "侧边栏导航",
+            "desc": "拖动以重新排序项目。切换每个部分的可见性。",
+            "move_up": "上移",
+            "move_down": "下移",
+            "hide": "隐藏",
+            "show": "显示",
+            "always_visible": "收件箱始终可见",
+            "reset": "重置为默认值"
+        }
+    },
+    "composer": {
+        "placeholder": "输入您的邮件内容...",
+        "drop_files": "拖放文件以添加附件",
+        "pop_out": "在新窗口中打开",
+        "subject": "主题",
+        "to": "收件人",
+        "cc": "抄送",
+        "bcc": "密送",
+        "header_labels": {
+            "reply": "回复",
+            "reply_all": "全部回复",
+            "forward": "转发",
+            "new_message": "新邮件"
+        },
+        "status": {
+            "saving": "正在保存...",
+            "saved": "草稿已保存",
+            "no_account": "未连接账号"
+        },
+        "schedule_send": "定时发送",
+        "save_draft": "保存草稿"
+    },
+    "email_list": {
+        "no_messages": "未找到邮件",
+        "smart_folder": "智能文件夹",
+        "inbox_title": "收件箱 — {{category}}",
+        "conversation_count": "{{count}} 个会话",
+        "conversation_count_plural": "{{count}} 个会话",
+        "selected_count": "已选择 {{count}} 个",
+        "select_all": "全选",
+        "other_emails": "其他邮件",
+        "tooltips": {
+            "archive": "存档所选",
+            "delete": "删除所选",
+            "not_spam": "不是垃圾邮件",
+            "report_spam": "举报垃圾邮件",
+            "clear_selection": "清除选择"
+        },
+        "status": {
+            "loading_more": "正在加载更多...",
+            "all_loaded": "所有会话已加载"
+        },
+        "filters": {
+            "all": "全部",
+            "unread": "未读",
+            "read": "已读"
+        },
+        "empty_states": {
+            "search": {
+                "title": "未找到结果",
+                "subtitle": "尝试不同的搜索词"
+            },
+            "filter": {
+                "title": "没有 {{filter}} 邮件",
+                "subtitle": "尝试更改过滤器"
+            },
+            "no_account": {
+                "title": "未连接账号",
+                "subtitle": "添加 Gmail 账号以开始使用"
+            },
+            "inbox": {
+                "all": {
+                    "title": "全部处理完成",
+                    "subtitle": "没有新会话"
+                },
+                "primary": {
+                    "title": "主要收件箱已空",
+                    "subtitle": "没有重要的会话"
+                },
+                "updates": {
+                    "title": "没有更新",
+                    "subtitle": "通知和交易类邮件将显示在这里"
+                },
+                "promotions": {
+                    "title": "没有推广邮件",
+                    "subtitle": "广告和营销类邮件将显示在这里"
+                },
+                "social": {
+                    "title": "没有社交邮件",
+                    "subtitle": "社交网络通知将显示在这里"
+                },
+                "newsletters": {
+                    "title": "没有订阅邮件",
+                    "subtitle": "新闻稿和订阅邮件将显示在这里"
+                }
+            },
+            "starred": {
+                "title": "没有星标会话",
+                "subtitle": "为邮件加星标以便在此找到它们"
+            },
+            "snoozed": {
+                "title": "没有延后邮件",
+                "subtitle": "延后的邮件将显示在这里"
+            },
+            "sent": {
+                "title": "没有发出的邮件"
+            },
+            "drafts": {
+                "title": "没有草稿"
+            },
+            "trash": {
+                "title": "回收站已空"
+            },
+            "spam": {
+                "title": "没有垃圾邮件",
+                "subtitle": "看起来不错！"
+            },
+            "all": {
+                "title": "目前没有邮件"
+            },
+            "smart_folder": {
+                "title": "没有匹配的邮件",
+                "subtitle": "尝试调整智能文件夹查询条件"
+            },
+            "default": {
+                "title": "空空如也",
+                "subtitle": "此标签下没有会话"
+            }
+        },
+        "loading": "正在加载邮件...",
+        "search_placeholder": "搜索邮件...",
+        "sort_by": "排序方式"
+    },
+    "sidebar": {
+        "add_smart_folder": "添加智能文件夹",
+        "add_label": "添加标签",
+        "edit_label": "编辑标签",
+        "expand": "展开侧边栏",
+        "collapse": "收起侧边栏",
+        "switch_unified": "切换到统一收件箱",
+        "switch_split": "切换到分栏收件箱"
+    }
+}
