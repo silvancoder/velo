@@ -7,7 +7,10 @@ import { HelpSidebar } from "./HelpSidebar";
 import { HelpSearchBar } from "./HelpSearchBar";
 import { HelpCardGrid } from "./HelpCardGrid";
 
+import { useTranslation } from "react-i18next";
+
 export function HelpPage() {
+    const { t } = useTranslation();
     const { topic } = useParams({ strict: false }) as { topic?: string };
     const activeTopic =
         topic && HELP_CATEGORIES.some((c) => c.id === topic) ? topic : "getting-started";
@@ -56,11 +59,11 @@ export function HelpPage() {
                 <button
                     onClick={() => navigateToLabel("inbox")}
                     className="p-1.5 -ml-1 rounded-md text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors"
-                    title="Back to Inbox"
+                    title={t("help.back_to_inbox")}
                 >
                     <ArrowLeft size={18} />
                 </button>
-                <h1 className="text-base font-semibold text-text-primary">Help</h1>
+                <h1 className="text-base font-semibold text-text-primary">{t("help.title")}</h1>
             </div>
 
             {/* Body: sidebar nav + content */}
@@ -81,7 +84,7 @@ export function HelpPage() {
                                         return (
                                             <div key={categoryId}>
                                                 <h2 className="text-xs font-medium text-text-tertiary uppercase tracking-wider mb-3">
-                                                    {cat?.label ?? categoryId}
+                                                    {cat ? t(`help.categories.${cat.id}`) : categoryId}
                                                 </h2>
                                                 <HelpCardGrid
                                                     cards={cards}
@@ -96,7 +99,7 @@ export function HelpPage() {
                                 // Empty search state
                                 <div className="flex flex-col items-center justify-center py-16 text-text-tertiary">
                                     <Search size={32} className="mb-3 opacity-40" />
-                                    <p className="text-sm">No results for &ldquo;{searchQuery}&rdquo;</p>
+                                    <p className="text-sm">{t("help.no_results", { query: searchQuery })}</p>
                                 </div>
                             )
                         ) : (
@@ -104,7 +107,7 @@ export function HelpPage() {
                             activeCategory && (
                                 <div>
                                     <h2 className="text-lg font-semibold text-text-primary mb-4">
-                                        {activeCategory.label}
+                                        {t(`help.categories.${activeCategory.id}`)}
                                     </h2>
                                     <HelpCardGrid
                                         cards={activeCategory.cards}

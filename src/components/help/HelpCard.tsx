@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { navigateToSettings } from "@/router/navigate";
 import type { HelpCard as HelpCardData } from "@/constants/helpContent";
+import { useTranslation } from "react-i18next";
 
 interface HelpCardProps {
     card: HelpCardData;
@@ -9,6 +10,7 @@ interface HelpCardProps {
 }
 
 export function HelpCard({ card, isExpanded, onToggle }: HelpCardProps) {
+    const { t } = useTranslation();
     const Icon = card.icon;
 
     return (
@@ -22,8 +24,8 @@ export function HelpCard({ card, isExpanded, onToggle }: HelpCardProps) {
                     <Icon size={16} />
                 </div>
                 <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-medium text-text-primary">{card.title}</h3>
-                    <p className="text-xs text-text-tertiary mt-0.5 truncate">{card.summary}</p>
+                    <h3 className="text-sm font-medium text-text-primary">{t(`help.cards.${card.id}.title`)}</h3>
+                    <p className="text-xs text-text-tertiary mt-0.5 truncate">{t(`help.cards.${card.id}.summary`)}</p>
                 </div>
                 <ChevronRight
                     size={14}
@@ -40,7 +42,7 @@ export function HelpCard({ card, isExpanded, onToggle }: HelpCardProps) {
                 <div className="overflow-hidden">
                     <div className="px-4 pb-4 ml-11 border-t border-border-secondary/50 pt-3 space-y-3">
                         <p className="text-xs text-text-secondary leading-relaxed">
-                            {card.description}
+                            {t(`help.cards.${card.id}.description`)}
                         </p>
 
                         {card.tips && card.tips.length > 0 && (
@@ -48,7 +50,7 @@ export function HelpCard({ card, isExpanded, onToggle }: HelpCardProps) {
                                 {card.tips.map((tip, i) => (
                                     <li key={i} className="flex items-start gap-2 text-xs text-text-secondary">
                                         <span className="text-text-tertiary mt-0.5 shrink-0">•</span>
-                                        <span className="flex-1">{tip.text}</span>
+                                        <span className="flex-1">{t(`help.cards.${card.id}.tips.${i}.text`)}</span>
                                         {tip.shortcut && (
                                             <kbd className="shrink-0 px-1.5 py-0.5 text-[0.625rem] bg-bg-secondary border border-border-secondary rounded text-text-tertiary font-mono">
                                                 {tip.shortcut}
@@ -67,7 +69,7 @@ export function HelpCard({ card, isExpanded, onToggle }: HelpCardProps) {
                                 }}
                                 className="text-xs text-accent hover:text-accent-hover transition-colors"
                             >
-                                Open in Settings &rarr;
+                                {t("help.open_in_settings")}
                             </button>
                         )}
                     </div>

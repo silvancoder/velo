@@ -34,6 +34,12 @@ export function useActiveLabel(): string {
         if (match.routeId === "/calendar") {
             return "calendar";
         }
+        if (match.routeId === "/tasks") {
+            return "tasks";
+        }
+        if (match.routeId === "/attachments") {
+            return "attachments";
+        }
         if (match.routeId === "/help/$topic" || match.routeId === "/help") {
             return "help";
         }

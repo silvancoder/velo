@@ -506,7 +506,9 @@ export function EmailList({ width, listRef }: { width?: number; listRef?: React.
                     <h2 className="text-sm font-semibold text-text-primary capitalize flex items-center gap-1.5">
                         {isSmartFolder && <FolderSearch size={14} className="text-accent shrink-0" />}
                         {isSmartFolder
-                            ? activeSmartFolder?.name ?? t("email_list.smart_folder")
+                            ? (activeSmartFolder?.isDefault
+                                ? t(`smart_folder.${activeSmartFolder.id.replace("sf-", "").replace("-", "_")}`)
+                                : activeSmartFolder?.name ?? t("email_list.smart_folder"))
                             : activeLabel === "inbox" && inboxViewMode === "split" && activeCategory !== "All"
                                 ? t("email_list.inbox_title", { category: t(`categories.${activeCategory.toLowerCase()}`, { defaultValue: activeCategory }) })
                                 : LABEL_MAP[activeLabel] !== undefined

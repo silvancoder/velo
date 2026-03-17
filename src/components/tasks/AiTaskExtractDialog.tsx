@@ -1,18 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { X, Loader2, Sparkles, Calendar, Flag } from "lucide-react";
 import { extractTask } from "@/services/ai/taskExtraction";
 import { insertTask, getIncompleteTaskCount } from "@/services/db/tasks";
 import type { TaskPriority } from "@/services/db/tasks";
 import type { DbMessage } from "@/services/db/messages";
 import { useTaskStore } from "@/stores/taskStore";
-
-const PRIORITY_OPTIONS: { value: TaskPriority; label: string; color: string }[] = [
-    { value: "none", label: "None", color: "text-text-tertiary" },
-    { value: "low", label: "Low", color: "text-blue-400" },
-    { value: "medium", label: "Medium", color: "text-amber-400" },
-    { value: "high", label: "High", color: "text-orange-500" },
-    { value: "urgent", label: "Urgent", color: "text-red-500" },
-];
 
 interface AiTaskExtractDialogProps {
     threadId: string;
@@ -29,6 +22,16 @@ export function AiTaskExtractDialog({
     onClose,
     onCreated,
 }: AiTaskExtractDialogProps) {
+    const { t } = useTranslation();
+
+    const PRIORITY_OPTIONS: { value: TaskPriority; label: string; color: string }[] = [
+        { value: "none", label: t("tasks.filters.priority.none"), color: "text-text-tertiary" },
+        { value: "low", label: t("tasks.filters.priority.low"), color: "text-blue-400" },
+        { value: "medium", label: t("tasks.filters.priority.medium"), color: "text-amber-400" },
+        { value: "high", label: t("tasks.filters.priority.high"), color: "text-orange-500" },
+        { value: "urgent", label: t("tasks.filters.priority.urgent"), color: "text-red-500" },
+    ];
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [title, setTitle] = useState("");
@@ -52,7 +55,7 @@ export function AiTaskExtractDialog({
                 }
             } catch (err) {
                 if (cancelled) return;
-                setError(err instanceof Error ? err.message : "Failed to extract task");
+                setError(err instanceof Error ? err.message : t("tasks.extraction.failed_extract"));
             } finally {
                 if (!cancelled) setLoading(false);
             }
@@ -83,7 +86,7 @@ export function AiTaskExtractDialog({
             onCreated?.(taskId);
             onClose();
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Failed to create task");
+            setError(err instanceof Error ? err.message : t("tasks.extraction.failed_create"));
             setCreating(false);
         }
     }, [title, description, priority, dueDate, accountId, threadId, onCreated, onClose]);
@@ -96,7 +99,7 @@ export function AiTaskExtractDialog({
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border-secondary">
                     <div className="flex items-center gap-2">
                         <Sparkles size={16} className="text-accent" />
-                        <h3 className="text-sm font-semibold text-text-primary">Create Task from Email</h3>
+                        <h3 className="text-sm font-semibold text-text-primary">{t("tasks.extraction.title")}</h3>
                     </div>
                     <button onClick={onClose} className="p-1 text-text-tertiary hover:text-text-primary">
                         <X size={16} />
@@ -108,7 +111,7 @@ export function AiTaskExtractDialog({
                     {loading ? (
                         <div className="flex flex-col items-center justify-center py-8 gap-3">
                             <Loader2 size={24} className="animate-spin text-accent" />
-                            <p className="text-sm text-text-secondary">Extracting task from email...</p>
+                            <p className="text-sm text-text-secondary">{t("tasks.extraction.extracting")}</p>
                         </div>
                     ) : error && !title ? (
                         <div className="text-center py-8">
@@ -118,7 +121,7 @@ export function AiTaskExtractDialog({
                         <>
                             {/* Title */}
                             <div>
-                                <label className="block text-xs font-medium text-text-secondary mb-1.5">Title</label>
+                                <label className="block text-xs font-medium text-text-secondary mb-1.5">{t("tasks.extraction.field_title")}</label>
                                 <input
                                     type="text"
                                     value={title}
@@ -130,7 +133,7 @@ export function AiTaskExtractDialog({
 
                             {/* Description */}
                             <div>
-                                <label className="block text-xs font-medium text-text-secondary mb-1.5">Description</label>
+                                <label className="block text-xs font-medium text-text-secondary mb-1.5">{t("tasks.extraction.field_description")}</label>
                                 <textarea
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
@@ -144,7 +147,7 @@ export function AiTaskExtractDialog({
                                 <div className="flex-1">
                                     <label className="block text-xs font-medium text-text-secondary mb-1.5">
                                         <Flag size={11} className="inline mr-1" />
-                                        Priority
+                                        {t("tasks.extraction.field_priority")}
                                     </label>
                                     <select
                                         value={priority}
@@ -159,7 +162,7 @@ export function AiTaskExtractDialog({
                                 <div className="flex-1">
                                     <label className="block text-xs font-medium text-text-secondary mb-1.5">
                                         <Calendar size={11} className="inline mr-1" />
-                                        Due date
+                                        {t("tasks.extraction.field_due_date")}
                                     </label>
                                     <input
                                         type="date"
@@ -184,14 +187,14 @@ export function AiTaskExtractDialog({
                             onClick={onClose}
                             className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
                         >
-                            Cancel
+                            {t("common.cancel")}
                         </button>
                         <button
                             onClick={handleCreate}
                             disabled={!title.trim() || creating}
                             className="px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-lg transition-colors disabled:opacity-50"
                         >
-                            {creating ? "Creating..." : "Create Task"}
+                            {creating ? t("tasks.extraction.creating_button") : t("tasks.extraction.create_button")}
                         </button>
                     </div>
                 )}

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import type { DbCalendarEvent } from "@/services/db/calendarEvents";
 
 interface WeekViewProps {
@@ -8,9 +9,9 @@ interface WeekViewProps {
 }
 
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
-const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
+    const { t } = useTranslation();
     const weekStart = new Date(currentDate);
     weekStart.setDate(weekStart.getDate() - weekStart.getDay());
     weekStart.setHours(0, 0, 0, 0);
@@ -68,7 +69,9 @@ export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
                     const isToday = day.toDateString() === todayStr;
                     return (
                         <div key={i} className="px-2 py-2 text-center border-r border-border-secondary">
-                            <div className="text-xs text-text-tertiary">{DAY_NAMES[day.getDay()]}</div>
+                            <div className="text-xs text-text-tertiary">
+                                {(t("calendar.days.short", { returnObjects: true }) as string[])[day.getDay()]}
+                            </div>
                             <div className={`text-sm font-medium mt-0.5 w-7 h-7 flex items-center justify-center mx-auto rounded-full ${isToday ? "bg-accent text-white" : "text-text-primary"
                                 }`}>
                                 {day.getDate()}
@@ -80,7 +83,9 @@ export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
 
             {/* All-day events row */}
             <div className="grid grid-cols-[60px_repeat(7,1fr)] border-b border-border-primary shrink-0">
-                <div className="border-r border-border-secondary px-1 py-1 text-[0.625rem] text-text-tertiary">all-day</div>
+                <div className="border-r border-border-secondary px-1 py-1 text-[0.625rem] text-text-tertiary">
+                    {t("calendar.misc.all_day_label")}
+                </div>
                 {days.map((day, i) => {
                     const allDay = allDayByDay.get(day.getDate()) ?? [];
                     return (
@@ -91,7 +96,7 @@ export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
                                     onClick={() => onEventClick(e)}
                                     className="w-full text-left text-[0.625rem] px-1 py-0.5 rounded bg-accent/10 text-accent truncate hover:bg-accent/20 transition-colors"
                                 >
-                                    {e.summary ?? "Event"}
+                                    {e.summary ?? t("calendar.event_modal.field_summary")}
                                 </button>
                             ))}
                         </div>
@@ -106,7 +111,7 @@ export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
                         <div key={hour} className="contents">
                             <div className="border-r border-b border-border-secondary h-12 px-1 flex items-start justify-end">
                                 <span className="text-[0.625rem] text-text-tertiary -mt-1.5">
-                                    {hour === 0 ? "" : `${hour % 12 || 12}${hour < 12 ? "am" : "pm"}`}
+                                    {hour === 0 ? "" : (hour === 12 ? "12pm" : (hour < 12 ? `${hour}am` : `${hour - 12}pm`))}
                                 </span>
                             </div>
                             {days.map((day, di) => {
@@ -118,9 +123,9 @@ export function WeekView({ currentDate, events, onEventClick }: WeekViewProps) {
                                                 key={e.id}
                                                 onClick={() => onEventClick(e)}
                                                 className="absolute inset-x-0.5 text-[0.625rem] px-1 py-0.5 rounded bg-accent/15 text-accent truncate hover:bg-accent/25 transition-colors"
-                                                title={e.summary ?? "Event"}
+                                                title={e.summary ?? t("calendar.event_modal.field_summary")}
                                             >
-                                                {e.summary ?? "Event"}
+                                                {e.summary ?? t("calendar.event_modal.field_summary")}
                                             </button>
                                         ))}
                                     </div>

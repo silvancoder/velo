@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { Trash2, Pencil } from "lucide-react";
 import { useAccountStore } from "@/stores/accountStore";
 import {
@@ -11,6 +12,7 @@ import {
 import { useSmartFolderStore } from "@/stores/smartFolderStore";
 
 export function SmartFolderEditor() {
+    const { t } = useTranslation();
     const activeAccountId = useAccountStore((s) => s.activeAccountId);
     const reloadStore = useSmartFolderStore((s) => s.loadFolders);
     const [folders, setFolders] = useState<DbSmartFolder[]>([]);
@@ -77,11 +79,12 @@ export function SmartFolderEditor() {
     }, []);
 
     const handleDelete = useCallback(async (id: string) => {
+        if (!window.confirm(t("settings.mail_rules.smart_folders.delete_confirm"))) return;
         await deleteSmartFolder(id);
         if (editingId === id) resetForm();
         await loadFolders();
         await reloadStore(activeAccountId ?? undefined);
-    }, [editingId, resetForm, loadFolders, reloadStore, activeAccountId]);
+    }, [editingId, resetForm, loadFolders, reloadStore, activeAccountId, t]);
 
     return (
         <div className="space-y-3">
@@ -92,10 +95,12 @@ export function SmartFolderEditor() {
                 >
                     <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-text-primary flex items-center gap-2">
-                            {folder.name}
+                            {folder.is_default === 1
+                                ? t(`settings.mail_rules.smart_folders.default_${folder.id.replace("sf-", "").replace(/-/g, "_")}`)
+                                : folder.name}
                             {folder.is_default === 1 && (
                                 <span className="text-[0.625rem] bg-accent/15 text-accent px-1.5 py-0.5 rounded">
-                                    Default
+                                    {t("settings.mail_rules.smart_folders.default_label")}
                                 </span>
                             )}
                         </div>
@@ -107,7 +112,7 @@ export function SmartFolderEditor() {
                         <button
                             onClick={() => handleEdit(folder)}
                             className="p-1 text-text-tertiary hover:text-text-primary"
-                            title="Edit"
+                            title={t("common.edit")}
                         >
                             <Pencil size={13} />
                         </button>
@@ -115,7 +120,7 @@ export function SmartFolderEditor() {
                             <button
                                 onClick={() => handleDelete(folder.id)}
                                 className="p-1 text-text-tertiary hover:text-danger"
-                                title="Delete"
+                                title={t("common.delete")}
                             >
                                 <Trash2 size={13} />
                             </button>
@@ -130,20 +135,20 @@ export function SmartFolderEditor() {
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Folder name"
+                        placeholder={t("settings.mail_rules.smart_folders.name_placeholder")}
                         className="w-full px-3 py-1.5 bg-bg-tertiary border border-border-primary rounded text-sm text-text-primary outline-none focus:border-accent"
                     />
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search query (e.g. is:unread from:boss)"
+                        placeholder={t("settings.mail_rules.smart_folders.query_placeholder")}
                         className="w-full px-3 py-1.5 bg-bg-tertiary border border-border-primary rounded text-sm text-text-primary outline-none focus:border-accent"
                     />
                     <div className="flex gap-3">
                         <div className="flex-1">
                             <label className="text-xs text-text-secondary block mb-1">
-                                Icon name
+                                {t("settings.mail_rules.smart_folders.icon_label")}
                             </label>
                             <input
                                 type="text"
@@ -153,12 +158,12 @@ export function SmartFolderEditor() {
                                 className="w-full px-3 py-1 bg-bg-tertiary border border-border-primary rounded text-xs text-text-primary outline-none focus:border-accent"
                             />
                             <p className="text-[0.625rem] text-text-tertiary mt-0.5">
-                                Search, MailOpen, Paperclip, Star, FolderSearch, Inbox, Clock, Tag
+                                {t("settings.mail_rules.smart_folders.icon_hint")}
                             </p>
                         </div>
                         <div className="flex-1">
                             <label className="text-xs text-text-secondary block mb-1">
-                                Color (optional)
+                                {t("settings.mail_rules.smart_folders.color_label")}
                             </label>
                             <input
                                 type="text"
@@ -176,13 +181,13 @@ export function SmartFolderEditor() {
                             disabled={!name.trim() || !query.trim()}
                             className="px-3 py-1.5 text-xs font-medium text-white bg-accent hover:bg-accent-hover rounded-md transition-colors disabled:opacity-50"
                         >
-                            {editingId ? "Update" : "Save"}
+                            {editingId ? t("common.update") : t("common.save")}
                         </button>
                         <button
                             onClick={resetForm}
                             className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary rounded-md transition-colors"
                         >
-                            Cancel
+                            {t("common.cancel")}
                         </button>
                     </div>
                 </div>
@@ -191,7 +196,7 @@ export function SmartFolderEditor() {
                     onClick={() => setShowForm(true)}
                     className="text-xs text-accent hover:text-accent-hover"
                 >
-                    + Add smart folder
+                    {t("settings.mail_rules.smart_folders.add_folder")}
                 </button>
             )}
         </div>

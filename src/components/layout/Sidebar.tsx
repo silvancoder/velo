@@ -485,7 +485,9 @@ export function Sidebar({ collapsed, onAddAccount }: SidebarProps) {
                                     />
                                     {!collapsed && (
                                         <>
-                                            <span className="flex-1 truncate">{folder.name}</span>
+                                            <span className="flex-1 truncate">
+                                                {folder.isDefault ? t(`smart_folder.${folder.id.replace("sf-", "").replace("-", "_")}`) : folder.name}
+                                            </span>
                                             {count > 0 && (
                                                 <span className="text-[0.625rem] bg-accent/15 text-accent px-1.5 rounded-full leading-normal">
                                                     {count}
@@ -638,10 +640,10 @@ export function Sidebar({ collapsed, onAddAccount }: SidebarProps) {
                         activeAccountId ?? undefined,
                     );
                 }}
-                title="New Smart Folder"
+                title={t("sidebar.new_smart_folder")}
                 fields={[
-                    { key: "name", label: "Name", placeholder: "e.g. Unread from boss" },
-                    { key: "query", label: "Search query", placeholder: "e.g. is:unread from:boss" },
+                    { key: "name", label: t("sidebar.smart_folder_name"), placeholder: t("sidebar.smart_folder_name_placeholder") },
+                    { key: "query", label: t("sidebar.smart_folder_query"), placeholder: t("sidebar.smart_folder_query_placeholder") },
                 ]}
             />
 

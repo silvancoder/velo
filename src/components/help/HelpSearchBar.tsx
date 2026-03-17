@@ -1,4 +1,5 @@
 import { Search, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface HelpSearchBarProps {
     query: string;
@@ -6,6 +7,7 @@ interface HelpSearchBarProps {
 }
 
 export function HelpSearchBar({ query, onChange }: HelpSearchBarProps) {
+    const { t } = useTranslation();
     return (
         <div className="relative mb-5">
             <Search
@@ -16,7 +18,7 @@ export function HelpSearchBar({ query, onChange }: HelpSearchBarProps) {
                 type="text"
                 value={query}
                 onChange={(e) => onChange(e.target.value)}
-                placeholder="Search help topics..."
+                placeholder={t("help.search_placeholder")}
                 className="w-full pl-9 pr-9 py-2 text-sm rounded-lg bg-bg-secondary border border-border-secondary text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent transition-colors"
             />
             {query && (

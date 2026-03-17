@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { Trash2, Pencil, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
 import { TextField } from "@/components/ui/TextField";
 import { useAccountStore } from "@/stores/accountStore";
@@ -14,6 +15,7 @@ import type { FilterCriteria } from "@/services/db/filters";
 import { backfillSmartLabels } from "@/services/smartLabels/backfillService";
 
 export function SmartLabelEditor() {
+    const { t } = useTranslation();
     const activeAccountId = useAccountStore((s) => s.activeAccountId);
     const [rules, setRules] = useState<DbSmartLabelRule[]>([]);
     const [labels, setLabels] = useState<DbLabel[]>([]);
@@ -113,10 +115,11 @@ export function SmartLabelEditor() {
     }, []);
 
     const handleDelete = useCallback(async (id: string) => {
+        if (!window.confirm(t("settings.mail_rules.smart_labels.delete_confirm"))) return;
         await deleteSmartLabelRule(id);
         if (editingId === id) resetForm();
         await loadRules();
-    }, [editingId, resetForm, loadRules]);
+    }, [editingId, resetForm, loadRules, t]);
 
     const handleToggleEnabled = useCallback(async (rule: DbSmartLabelRule) => {
         await updateSmartLabelRule(rule.id, { isEnabled: rule.is_enabled !== 1 });
@@ -129,9 +132,9 @@ export function SmartLabelEditor() {
         setBackfillResult(null);
         try {
             const count = await backfillSmartLabels(activeAccountId);
-            setBackfillResult(`Applied ${count} label${count !== 1 ? "s" : ""} to existing emails.`);
+            setBackfillResult(t("settings.mail_rules.smart_labels.backfill_success", { count }));
         } catch (err) {
-            setBackfillResult("Backfill failed. Check your AI provider settings.");
+            setBackfillResult(t("settings.mail_rules.smart_labels.backfill_failed"));
             console.error("Smart label backfill failed:", err);
         } finally {
             setBackfilling(false);
@@ -152,7 +155,7 @@ export function SmartLabelEditor() {
                     className="text-xs text-accent hover:text-accent-hover disabled:opacity-50 flex items-center gap-1.5"
                 >
                     {backfilling && <Loader2 size={12} className="animate-spin" />}
-                    {backfilling ? "Applying to existing emails..." : "Apply to existing emails"}
+                    {backfilling ? t("settings.mail_rules.smart_labels.backfill_applying") : t("settings.mail_rules.smart_labels.backfill_apply")}
                 </button>
             )}
 
@@ -170,7 +173,7 @@ export function SmartLabelEditor() {
                             {getLabelName(rule.label_id)}
                             {rule.is_enabled !== 1 && (
                                 <span className="text-[0.625rem] bg-bg-tertiary text-text-tertiary px-1.5 py-0.5 rounded">
-                                    Disabled
+                                    {t("common.disabled")}
                                 </span>
                             )}
                         </div>
@@ -183,7 +186,7 @@ export function SmartLabelEditor() {
                             onClick={() => handleToggleEnabled(rule)}
                             className={`w-8 h-4 rounded-full transition-colors relative ${rule.is_enabled === 1 ? "bg-accent" : "bg-bg-tertiary"
                                 }`}
-                            title={rule.is_enabled === 1 ? "Disable" : "Enable"}
+                            title={rule.is_enabled === 1 ? t("common.disable") : t("common.enable")}
                         >
                             <span
                                 className={`absolute top-0.5 left-0.5 w-3 h-3 bg-white rounded-full transition-transform shadow ${rule.is_enabled === 1 ? "translate-x-4" : ""
@@ -210,13 +213,13 @@ export function SmartLabelEditor() {
                 <div className="border border-border-primary rounded-md p-3 space-y-3">
                     {labels.length > 0 ? (
                         <div>
-                            <div className="text-xs font-medium text-text-secondary mb-1.5">Label</div>
+                            <div className="text-xs font-medium text-text-secondary mb-1.5">{t("settings.mail_rules.smart_labels.label_label")}</div>
                             <select
                                 value={labelId}
                                 onChange={(e) => setLabelId(e.target.value)}
                                 className="w-full bg-bg-tertiary text-text-primary text-xs px-2 py-1.5 rounded border border-border-primary"
                             >
-                                <option value="">Select a label...</option>
+                                <option value="">{t("settings.mail_rules.smart_labels.select_label")}</option>
                                 {labels.map((l) => (
                                     <option key={l.id} value={l.id}>{l.name}</option>
                                 ))}
@@ -224,16 +227,16 @@ export function SmartLabelEditor() {
                         </div>
                     ) : (
                         <div className="text-xs text-text-tertiary">
-                            No user labels found. Create a label first.
+                            {t("settings.mail_rules.smart_labels.no_labels_found")}
                         </div>
                     )}
 
                     <div>
-                        <div className="text-xs font-medium text-text-secondary mb-1.5">AI Description</div>
+                        <div className="text-xs font-medium text-text-secondary mb-1.5">{t("settings.mail_rules.smart_labels.description_label")}</div>
                         <textarea
                             value={aiDescription}
                             onChange={(e) => setAiDescription(e.target.value)}
-                            placeholder="e.g., Job applications and career opportunities"
+                            placeholder={t("settings.mail_rules.smart_labels.description_placeholder")}
                             rows={2}
                             className="w-full bg-bg-tertiary text-text-primary text-xs px-2 py-1.5 rounded border border-border-primary resize-none placeholder:text-text-tertiary"
                         />
@@ -245,7 +248,7 @@ export function SmartLabelEditor() {
                             className="flex items-center gap-1 text-xs text-text-secondary hover:text-text-primary"
                         >
                             {showCriteria ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-                            Optional filter criteria
+                            {t("settings.mail_rules.smart_labels.optional_criteria")}
                         </button>
 
                         {showCriteria && (
@@ -254,25 +257,25 @@ export function SmartLabelEditor() {
                                     type="text"
                                     value={criteriaFrom}
                                     onChange={(e) => setCriteriaFrom(e.target.value)}
-                                    placeholder="From contains..."
+                                    placeholder={t("settings.mail_rules.filters.from_contains")}
                                 />
                                 <TextField
                                     type="text"
                                     value={criteriaTo}
                                     onChange={(e) => setCriteriaTo(e.target.value)}
-                                    placeholder="To contains..."
+                                    placeholder={t("settings.mail_rules.filters.to_contains")}
                                 />
                                 <TextField
                                     type="text"
                                     value={criteriaSubject}
                                     onChange={(e) => setCriteriaSubject(e.target.value)}
-                                    placeholder="Subject contains..."
+                                    placeholder={t("settings.mail_rules.filters.subject_contains")}
                                 />
                                 <TextField
                                     type="text"
                                     value={criteriaBody}
                                     onChange={(e) => setCriteriaBody(e.target.value)}
-                                    placeholder="Body contains..."
+                                    placeholder={t("settings.mail_rules.filters.body_contains")}
                                 />
                                 <label className="flex items-center gap-1.5 text-xs text-text-secondary">
                                     <input
@@ -281,7 +284,7 @@ export function SmartLabelEditor() {
                                         onChange={(e) => setCriteriaHasAttachment(e.target.checked)}
                                         className="rounded"
                                     />
-                                    Has attachment
+                                    {t("settings.mail_rules.filters.has_attachment")}
                                 </label>
                             </div>
                         )}
@@ -293,13 +296,13 @@ export function SmartLabelEditor() {
                             disabled={!labelId || !aiDescription.trim()}
                             className="px-3 py-1.5 text-xs font-medium text-white bg-accent hover:bg-accent-hover rounded-md transition-colors disabled:opacity-50"
                         >
-                            {editingId ? "Update" : "Save"}
+                            {editingId ? t("common.update") : t("common.save")}
                         </button>
                         <button
                             onClick={resetForm}
                             className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary rounded-md transition-colors"
                         >
-                            Cancel
+                            {t("common.cancel")}
                         </button>
                     </div>
                 </div>
@@ -308,7 +311,7 @@ export function SmartLabelEditor() {
                     onClick={() => setShowForm(true)}
                     className="text-xs text-accent hover:text-accent-hover"
                 >
-                    + Add smart label
+                    {t("settings.mail_rules.smart_labels.add_rule")}
                 </button>
             )}
         </div>

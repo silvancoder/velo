@@ -1,4 +1,5 @@
 import { Download, Eye, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { formatFileSize, getFileIcon, canPreview } from "@/utils/fileTypeHelpers";
 import type { AttachmentWithContext } from "@/services/db/attachments";
 
@@ -9,18 +10,19 @@ interface AttachmentListItemProps {
     onJumpToEmail: () => void;
 }
 
-function formatShortDate(timestamp: number | null): string {
-    if (!timestamp) return "";
-    return new Date(timestamp).toLocaleDateString(undefined, {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-    });
-}
-
 export function AttachmentListItem({ attachment, onPreview, onDownload, onJumpToEmail }: AttachmentListItemProps) {
+    const { t, i18n } = useTranslation();
     const previewable = canPreview(attachment.mime_type, attachment.filename);
-    const senderName = attachment.from_name || attachment.from_address || "Unknown";
+    const senderName = attachment.from_name || attachment.from_address || t("attachments.item.unknown_sender");
+
+    const formatShortDate = (timestamp: number | null): string => {
+        if (!timestamp) return "";
+        return new Date(timestamp).toLocaleDateString(i18n.language === "zh" ? "zh-CN" : "en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+        });
+    };
 
     return (
         <div className="group flex items-center gap-3 px-3 py-2 hover:bg-bg-hover rounded-md transition-colors">
@@ -29,7 +31,7 @@ export function AttachmentListItem({ attachment, onPreview, onDownload, onJumpTo
 
             {/* Filename */}
             <span className="text-sm text-text-primary truncate min-w-0 flex-1" title={attachment.filename ?? undefined}>
-                {attachment.filename ?? "Unnamed"}
+                {attachment.filename ?? t("attachments.item.unnamed")}
             </span>
 
             {/* Sender */}
@@ -53,7 +55,7 @@ export function AttachmentListItem({ attachment, onPreview, onDownload, onJumpTo
                     <button
                         onClick={onPreview}
                         className="p-1.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-colors"
-                        title="Preview"
+                        title={t("attachments.actions.preview")}
                     >
                         <Eye size={14} />
                     </button>
@@ -61,14 +63,14 @@ export function AttachmentListItem({ attachment, onPreview, onDownload, onJumpTo
                 <button
                     onClick={onDownload}
                     className="p-1.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-colors"
-                    title="Download"
+                    title={t("attachments.actions.download")}
                 >
                     <Download size={14} />
                 </button>
                 <button
                     onClick={onJumpToEmail}
                     className="p-1.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-colors"
-                    title="Jump to email"
+                    title={t("attachments.actions.jump_to_email")}
                 >
                     <ExternalLink size={14} />
                 </button>

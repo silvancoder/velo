@@ -812,15 +812,14 @@ export function SettingsPage() {
                                 <>
                                     <Section title={t("settings.sections.labels")}>
                                         <p className="text-xs text-text-tertiary mb-3">
-                                            {/* Note: Labels section description could be translated too if needed */}
-                                            Create, rename, recolor, delete, or reorder your Gmail labels.
+                                            {t("settings.mail_rules.labels.desc")}
                                         </p>
                                         <LabelEditor />
                                     </Section>
 
-                                    <Section title="Filters">
+                                    <Section title={t("settings.sections.filters")}>
                                         <p className="text-xs text-text-tertiary mb-3">
-                                            Filters automatically apply actions to new incoming emails during sync.
+                                            {t("settings.mail_rules.filters.desc")}
                                         </p>
                                         <FilterEditor />
                                     </Section>
@@ -966,20 +965,20 @@ export function SettingsPage() {
                                     <Section title={t("settings.accounts.google_api")}>
                                         <div className="space-y-3">
                                             <TextField
-                                                label="Client ID"
+                                                label={t("settings.accounts.google_api_client_id")}
                                                 size="md"
                                                 type="text"
                                                 value={clientId}
                                                 onChange={(e) => setClientId(e.target.value)}
-                                                placeholder="Google OAuth Client ID"
+                                                placeholder={t("settings.accounts.google_api_client_id_placeholder")}
                                             />
                                             <TextField
-                                                label="Client Secret"
+                                                label={t("settings.accounts.google_api_client_secret")}
                                                 size="md"
                                                 type="password"
                                                 value={clientSecret}
                                                 onChange={(e) => setClientSecret(e.target.value)}
-                                                placeholder="Google OAuth Client Secret"
+                                                placeholder={t("settings.accounts.google_api_client_secret_placeholder")}
                                             />
                                             <Button
                                                 variant="primary"
@@ -1078,19 +1077,19 @@ export function SettingsPage() {
                                                 }}
                                                 className="w-48 bg-bg-tertiary text-text-primary text-sm px-3 py-1.5 rounded-md border border-border-primary focus:border-accent outline-none"
                                             >
-                                                <option value="claude">Claude (Anthropic)</option>
-                                                <option value="openai">OpenAI</option>
-                                                <option value="gemini">Gemini (Google)</option>
-                                                <option value="ollama">Local AI (Ollama / LMStudio)</option>
-                                                <option value="copilot">GitHub Copilot</option>
+                                                <option value="claude">{t("settings.ai.providers.claude")}</option>
+                                                <option value="openai">{t("settings.ai.providers.openai")}</option>
+                                                <option value="gemini">{t("settings.ai.providers.gemini")}</option>
+                                                <option value="ollama">{t("settings.ai.providers.ollama")}</option>
+                                                <option value="copilot">{t("settings.ai.providers.copilot")}</option>
                                             </select>
                                         </SettingRow>
                                         <p className="text-xs text-text-tertiary">
-                                            {aiProvider === "claude" && `Uses ${PROVIDER_MODELS.claude.find((m) => m.id === claudeModel)?.label ?? claudeModel}.`}
-                                            {aiProvider === "openai" && `Uses ${PROVIDER_MODELS.openai.find((m) => m.id === openaiModel)?.label ?? openaiModel}.`}
-                                            {aiProvider === "gemini" && `Uses ${PROVIDER_MODELS.gemini.find((m) => m.id === geminiModel)?.label ?? geminiModel}.`}
-                                            {aiProvider === "ollama" && "Connect to a local Ollama or LMStudio server. No API key required."}
-                                            {aiProvider === "copilot" && `Uses ${PROVIDER_MODELS.copilot.find((m) => m.id === copilotModel)?.label ?? copilotModel}. Requires a GitHub PAT with models:read permission.`}
+                                            {aiProvider === "claude" && t("settings.ai.claude_desc", { model: PROVIDER_MODELS.claude.find((m) => m.id === claudeModel)?.label ?? claudeModel })}
+                                            {aiProvider === "openai" && t("settings.ai.openai_desc", { model: PROVIDER_MODELS.openai.find((m) => m.id === openaiModel)?.label ?? openaiModel })}
+                                            {aiProvider === "gemini" && t("settings.ai.gemini_desc", { model: PROVIDER_MODELS.gemini.find((m) => m.id === geminiModel)?.label ?? geminiModel })}
+                                            {aiProvider === "ollama" && t("settings.ai.ollama_desc")}
+                                            {aiProvider === "copilot" && t("settings.ai.copilot_desc", { model: PROVIDER_MODELS.copilot.find((m) => m.id === copilotModel)?.label ?? copilotModel })}
                                         </p>
                                     </Section>
 
@@ -1162,10 +1161,10 @@ export function SettingsPage() {
                                             <div className="space-y-3">
                                                 <TextField
                                                     label={
-                                                        aiProvider === "claude" ? "Anthropic API Key"
-                                                            : aiProvider === "openai" ? "OpenAI API Key"
-                                                                : aiProvider === "copilot" ? "GitHub Personal Access Token"
-                                                                    : "Google AI API Key"
+                                                        aiProvider === "claude" ? t("settings.ai.anthropic_key")
+                                                            : aiProvider === "openai" ? t("settings.ai.openai_key")
+                                                                : aiProvider === "copilot" ? t("settings.ai.github_token")
+                                                                    : t("settings.ai.google_key")
                                                     }
                                                     size="md"
                                                     type="password"
@@ -1182,13 +1181,13 @@ export function SettingsPage() {
                                                         else setGeminiApiKey(e.target.value);
                                                     }}
                                                     placeholder={
-                                                        aiProvider === "claude" ? "sk-ant-..."
-                                                            : aiProvider === "openai" ? "sk-..."
-                                                                : aiProvider === "copilot" ? "ghp_..."
-                                                                    : "AI..."
+                                                        aiProvider === "claude" ? t("settings.ai.placeholder_claude")
+                                                            : aiProvider === "openai" ? t("settings.ai.placeholder_openai")
+                                                                : aiProvider === "copilot" ? t("settings.ai.placeholder_github")
+                                                                    : t("settings.ai.placeholder_google")
                                                     }
                                                 />
-                                                <SettingRow label="Model">
+                                                <SettingRow label={t("settings.ai.model")}>
                                                     <select
                                                         value={
                                                             aiProvider === "claude" ? claudeModel
@@ -1628,13 +1627,13 @@ function DeveloperTab() {
             const a = arch();
             const archLabel = a === "aarch64" || a === "arm" ? "ARM" : a === "x86_64" ? "x64" : a;
             if (p === "macos") {
-                setPlatformLabel(a === "aarch64" ? "macOS (Apple Silicon)" : `macOS (${archLabel})`);
+                setPlatformLabel(a === "aarch64" ? t("settings.developer.platforms.macos_silicon") : t("settings.developer.platforms.macos", { arch: archLabel }));
             } else if (p === "windows") {
-                setPlatformLabel(`Windows (${archLabel})`);
+                setPlatformLabel(t("settings.developer.platforms.windows", { arch: archLabel }));
             } else if (p === "linux") {
-                setPlatformLabel(`Linux (${archLabel})`);
+                setPlatformLabel(t("settings.developer.platforms.linux", { arch: archLabel }));
             } else {
-                setPlatformLabel(`${p} (${archLabel})`);
+                setPlatformLabel(t("settings.developer.platforms.other", { platform: p, arch: archLabel }));
             }
 
             // Check if there's already a known update
@@ -1782,7 +1781,7 @@ function AboutTab() {
                 </p>
             </Section>
 
-            <Section title="Links">
+            <Section title={t("settings.about.links")}>
                 <div className="space-y-1">
                     <button
                         onClick={() => openExternal("https://velomail.app")}
@@ -1790,7 +1789,7 @@ function AboutTab() {
                     >
                         <Globe size={16} className="text-text-tertiary shrink-0" />
                         <div className="min-w-0 flex-1">
-                            <span className="text-sm text-text-primary">Website</span>
+                            <span className="text-sm text-text-primary">{t("settings.about.website")}</span>
                             <p className="text-xs text-text-tertiary">velomail.app</p>
                         </div>
                         <ExternalLink size={14} className="text-text-tertiary shrink-0" />
@@ -1802,7 +1801,7 @@ function AboutTab() {
                     >
                         <Github size={16} className="text-text-tertiary shrink-0" />
                         <div className="min-w-0 flex-1">
-                            <span className="text-sm text-text-primary">GitHub Repository</span>
+                            <span className="text-sm text-text-primary">{t("settings.about.repo")}</span>
                             <p className="text-xs text-text-tertiary">avihaymenahem/velo</p>
                         </div>
                         <ExternalLink size={14} className="text-text-tertiary shrink-0" />
@@ -1814,7 +1813,7 @@ function AboutTab() {
                     >
                         <Mail size={16} className="text-text-tertiary shrink-0" />
                         <div className="min-w-0 flex-1">
-                            <span className="text-sm text-text-primary">Contact</span>
+                            <span className="text-sm text-text-primary">{t("settings.about.contact")}</span>
                             <p className="text-xs text-text-tertiary">info@velomail.app</p>
                         </div>
                         <ExternalLink size={14} className="text-text-tertiary shrink-0" />
@@ -1963,7 +1962,7 @@ function ShortcutsTab() {
                 )}
             </div>
             {SHORTCUTS.map((section) => (
-                <Section key={section.category} title={section.category}>
+                <Section key={section.category} title={t(`settings.shortcuts.labels.${section.category}`)}>
                     <div className="space-y-1">
                         {section.items.map((item) => {
                             const currentKey = keyMap[item.id] ?? item.keys;
@@ -1976,7 +1975,7 @@ function ShortcutsTab() {
                                     className="flex items-center justify-between py-2 px-1"
                                 >
                                     <span className="text-sm text-text-secondary">
-                                        {item.desc}
+                                        {t(`settings.shortcuts.commands.${item.id}`)}
                                     </span>
                                     <div className="flex items-center gap-2 ml-4 shrink-0">
                                         <button
@@ -1990,7 +1989,7 @@ function ShortcutsTab() {
                                                     : "bg-bg-tertiary text-text-tertiary hover:text-text-primary border border-border-primary"
                                                 }`}
                                         >
-                                            {isRecording ? "Press key..." : currentKey}
+                                            {isRecording ? t("settings.shortcuts.press_key") : currentKey}
                                         </button>
                                         {!isDefault && (
                                             <button
@@ -2013,6 +2012,7 @@ function ShortcutsTab() {
 }
 
 function ImapCalDavSection() {
+    const { t } = useTranslation();
     const accounts = useAccountStore((s) => s.accounts);
     const activeAccountId = useAccountStore((s) => s.activeAccountId);
     const [account, setAccount] = useState<import("@/services/db/accounts").DbAccount | null>(null);
@@ -2030,7 +2030,7 @@ function ImapCalDavSection() {
     if (!isImap || !account) return null;
 
     return (
-        <Section title="Calendar (CalDAV)">
+        <Section title={t("settings.accounts.caldav.title")}>
             <CalDavSettingsInline account={account} onSaved={() => {
                 // Reload account
                 import("@/services/db/accounts").then(({ getAccount }) => {
@@ -2129,7 +2129,7 @@ function SidebarNavEditor() {
                                 <ChevronDown size={14} />
                             </button>
                             <Icon size={16} className="shrink-0 ml-1" />
-                            <span className="flex-1 truncate">{t(`nav.${nav.id}`, { defaultValue: nav.label })}</span>
+                            <span className="flex-1 truncate">{t(`nav.${nav.id.replace("-", "_")}`, { defaultValue: nav.label })}</span>
                             <button
                                 onClick={() => toggleItem(index)}
                                 disabled={isInbox}

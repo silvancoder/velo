@@ -1,11 +1,13 @@
 import { HELP_CATEGORIES } from "@/constants/helpContent";
 import { navigateToHelp } from "@/router/navigate";
+import { useTranslation } from "react-i18next";
 
 interface HelpSidebarProps {
     activeTopic: string;
 }
 
 export function HelpSidebar({ activeTopic }: HelpSidebarProps) {
+    const { t } = useTranslation();
     return (
         <nav className="w-48 border-r border-border-primary py-2 overflow-y-auto shrink-0 bg-bg-primary/30">
             {HELP_CATEGORIES.map((category) => {
@@ -21,7 +23,7 @@ export function HelpSidebar({ activeTopic }: HelpSidebarProps) {
                             }`}
                     >
                         <Icon size={15} className="shrink-0 mt-0.5" />
-                        <span>{category.label}</span>
+                        <span>{t(`help.categories.${category.id}`)}</span>
                     </button>
                 );
             })}

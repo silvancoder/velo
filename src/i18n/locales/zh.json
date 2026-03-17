@@ -3,6 +3,14 @@
         "compose": "写信",
         "settings": "设置",
         "help": "帮助",
+        "back_to_inbox": "返回到收件箱",
+        "save": "保存",
+        "update": "更新",
+        "cancel": "取消",
+        "edit": "编辑",
+        "delete": "删除",
+        "enable": "启用",
+        "disable": "禁用",
         "unread_changes": "{{count}} 个待处理更改",
         "unread_changes_plural": "{{count}} 个待处理更改",
         "show": "显示",
@@ -17,11 +25,26 @@
         "failed_ops_desc": "多次重试后仍无法同步的更改",
         "offline": "您已离线 — 重新连接后将自动同步更改",
         "confirm": "确认",
-        "cancel": "取消",
         "later": "稍后",
+        "attachments": "附件",
+        "relative_time": {
+            "m_ago": "{{count}}分钟前",
+            "h_ago": "{{count}}小时前",
+            "d_ago": "{{count}}天前",
+            "mo_ago": "{{count}}个月前",
+            "y_ago": "{{count}}年前"
+        },
+        "locale": "zh-CN",
+        "date_month_year": "{{year}}年{{month}}",
+        "date_week_same_month": "{{year}}年{{month}} {{start}}-{{end}}日",
+        "date_week_diff_month": "{{year}}年 {{startMonth}}{{startDay}}日 - {{endMonth}}{{endDay}}日",
         "update_now": "立即更新",
         "updating": "正在更新...",
-        "v_available": "Velo v{{version}} 已可用"
+        "v_available": "Velo v{{version}} 已可用",
+        "add_account": "添加账号",
+        "accounts": "账号",
+        "velo": "Velo",
+        "select_email": "选择一封邮件进行阅读"
     },
     "categories": {
         "primary": "主要",
@@ -54,6 +77,7 @@
         "trash": "已删除",
         "spam": "垃圾邮件",
         "all_mail": "所有邮件",
+        "all": "所有邮件",
         "tasks": "任务",
         "calendar": "日历",
         "attachments": "附件",
@@ -130,6 +154,7 @@
                 "unified": "合并视图",
                 "split": "分栏视图（分类）"
             },
+            "balance_mode": "平衡模式",
             "reduce_motion": "减少动画",
             "reduce_motion_desc": "禁用动画背景效果（解决部分 GPU 的闪烁问题）"
         },
@@ -171,6 +196,80 @@
             "add": "添加",
             "email_placeholder": "email@example.com"
         },
+        "signatures": {
+            "title": "签名",
+            "name_placeholder": "签名名称",
+            "default_label": "默认",
+            "set_default": "设为默认",
+            "add_signature": "+ 添加签名",
+            "html_mode": "HTML 源码",
+            "switch_visual": "切换到可视化编辑器",
+            "edit_html": "编辑 HTML 源码"
+        },
+        "templates": {
+            "title": "模板",
+            "name_placeholder": "模板名称",
+            "subject_placeholder": "主题（可选）",
+            "shortcut_placeholder": "快捷方式（可选，如 /thanks）",
+            "add_template": "+ 添加模板",
+            "insert_variable": "插入变量",
+            "variables": {
+                "first_name": "收件人的名字",
+                "last_name": "收件人的姓氏",
+                "email": "收件人的邮箱地址",
+                "my_name": "您的显示名称",
+                "my_email": "您的邮箱地址",
+                "subject": "邮件主题",
+                "date": "今天的日期",
+                "day": "星期几"
+            }
+        },
+        "filters": {
+            "title": "过滤器",
+            "name_placeholder": "过滤器名称",
+            "criteria_title": "匹配条件",
+            "actions_title": "执行操作",
+            "apply_label": "应用标签",
+            "archive": "存档",
+            "star": "加星标",
+            "mark_read": "标记为已读",
+            "trash": "移动到已删除",
+            "from_contains": "发件人包含...",
+            "to_contains": "收件人包含...",
+            "subject_contains": "主题包含...",
+            "body_contains": "正文包含...",
+            "from": "发件人",
+            "to": "收件人",
+            "subject": "主题",
+            "body": "正文",
+            "has_attachment": "有附件",
+            "disabled": "已禁用",
+            "add_filter": "+ 添加过滤器",
+            "none": "无",
+            "no_criteria": "无条件",
+            "invalid_criteria": "无效条件"
+        },
+        "smart_folders": {
+            "title": "常用文件夹",
+            "name_placeholder": "文件夹名称",
+            "query_placeholder": "搜索查询（例如 is:unread from:boss）",
+            "icon_label": "图标名称",
+            "icon_hint": "Search, MailOpen, Paperclip, Star, FolderSearch, Inbox, Clock, Tag",
+            "color_label": "颜色（可选）",
+            "add_folder": "+ 添加常用文件夹",
+            "default_label": "默认"
+        },
+        "contacts": {
+            "title": "联系人",
+            "search_placeholder": "搜索联系人...",
+            "no_matching": "未找到匹配的联系人",
+            "no_contacts": "暂无联系人",
+            "total_count": "共 {{count}} 个联系人",
+            "total_count_plural": "共 {{count}} 个联系人",
+            "display_name_placeholder": "显示名称",
+            "edit_name": "编辑名称",
+            "delete_contact": "删除联系人"
+        },
         "composing": {
             "undo_send_delay": "撤回发送延迟",
             "seconds": "{{count}} 秒",
@@ -191,30 +290,169 @@
         "mail_rules": {
             "labels": {
                 "title": "标签",
-                "desc": "管理您的自定义标签"
+                "desc": "创建、重命名、更改颜色、删除或重新排序您的 Gmail 标签。",
+                "add_label": "+ 添加标签",
+                "new_label": "新标签",
+                "edit_label": "编辑标签",
+                "name_placeholder": "标签名称",
+                "color_label": "颜色",
+                "save_label": "保存标签",
+                "no_user_labels": "没有用户标签",
+                "delete_confirm": "您确定要删除此标签吗？",
+                "delete_failed": "删除标签失败",
+                "save_failed": "保存标签失败",
+                "no_color": "无颜色",
+                "move_up": "上移",
+                "move_down": "下移"
             },
             "filters": {
                 "title": "过滤器",
-                "desc": "对收到的邮件自动执行操作"
+                "desc": "过滤器在同步期间自动对新收到的邮件执行操作。",
+                "add_filter": "+ 添加过滤器",
+                "new_filter": "新过滤器",
+                "edit_filter": "编辑过滤器",
+                "name_label": "过滤器名称",
+                "name_placeholder": "输入过滤器名称",
+                "criteria_title": "匹配条件",
+                "actions_title": "操作",
+                "condition_type": "条件类型",
+                "value_label": "值",
+                "add_condition": "添加条件",
+                "add_action": "添加操作",
+                "save_filter": "保存过滤器",
+                "delete_confirm": "您确定要删除此过滤器吗？",
+                "from_contains": "发件人包含...",
+                "to_contains": "收件人包含...",
+                "subject_contains": "主题包含...",
+                "body_contains": "正文包含...",
+                "has_attachment": "有附件",
+                "none": "无",
+                "no_criteria": "无条件",
+                "invalid_criteria": "无效条件",
+                "disabled": "已禁用",
+                "conditions": {
+                    "from": "发件人",
+                    "to": "收件人",
+                    "subject": "主题",
+                    "body": "正文"
+                },
+                "actions": {
+                    "apply_label": "应用标签",
+                    "archive": "归档",
+                    "mark_read": "标记为已读",
+                    "star": "加星",
+                    "trash": "回收站"
+                }
             },
             "smart_labels": {
                 "title": "智能标签",
-                "desc": "启用或禁用 AI 驱动的自动标记"
+                "desc": "启用或禁用 AI 驱动的自动标记",
+                "add_rule": "+ 添加智能标签",
+                "new_rule": "新智能标签规则",
+                "edit_rule": "编辑智能标签规则",
+                "label_label": "标签",
+                "select_label": "选择一个标签...",
+                "no_labels_found": "未找到用户标签。请先创建一个标签。",
+                "description_label": "AI 描述",
+                "description_placeholder": "例如：商务旅行收据",
+                "optional_criteria": "可选的过滤条件",
+                "backfill_applying": "正在应用于现有邮件...",
+                "backfill_success": "已将 {{count}} 个标签应用于现有邮件。",
+                "backfill_failed": "回填失败。请检查您的 AI 提供商设置。",
+                "save_rule": "保存规则",
+                "delete_confirm": "您确定要删除此智能标签规则吗？"
             },
             "smart_folders": {
                 "title": "智能文件夹",
-                "desc": "基于搜索查询的虚拟文件夹"
+                "desc": "基于搜索查询的虚拟文件夹",
+                "add_folder": "+ 添加智能文件夹",
+                "new_folder": "新智能文件夹",
+                "edit_folder": "编辑智能文件夹",
+                "name_label": "文件夹名称",
+                "query_label": "搜索查询",
+                "query_placeholder": "is:unread from:boss",
+                "icon_label": "图标",
+                "icon_hint": "Search, MailOpen, Paperclip, Star, FolderSearch, Inbox, Clock, Tag",
+                "color_label": "颜色",
+                "save_folder": "保存文件夹",
+                "delete_confirm": "您确定要删除此智能文件夹吗？",
+                "default_label": "默认",
+                "default_unread": "未读",
+                "default_attachments": "有附件",
+                "default_starred_recent": "本周星标"
             },
             "quick_steps": {
                 "title": "快捷步骤",
-                "desc": "一键执行自动化操作"
+                "desc": "一键执行自动化操作",
+                "add_step": "+ 添加快捷步骤",
+                "new_step": "新快捷步骤",
+                "edit_step": "编辑快捷步骤",
+                "name_label": "步骤名称",
+                "name_placeholder": "快捷步骤名称",
+                "description_label": "描述（可选）",
+                "description_placeholder": "描述（可选）",
+                "shortcut_label": "快捷键（可选）",
+                "shortcut_placeholder": "例如：Ctrl+Shift+1",
+                "icon_label": "图标（可选）",
+                "icon_placeholder": "例如：Archive, Star",
+                "actions_label": "操作链",
+                "add_action": "添加操作",
+                "remove_action": "删除操作",
+                "select_label": "选择标签...",
+                "select_category": "选择分类...",
+                "select_duration": "选择持续时间...",
+                "continue_on_error": "出错时继续（即使其中一个失败也运行剩余的操作）",
+                "save_step": "保存快捷步骤",
+                "delete_confirm": "您确定要删除此快捷步骤吗？",
+                "invalid_actions": "无效操作",
+                "actions": {
+                    "archive": "归档",
+                    "trash": "回收站",
+                    "markRead": "标记为已读",
+                    "markUnread": "标记为未读",
+                    "star": "加星",
+                    "unstar": "取消加星",
+                    "pin": "固定",
+                    "unpin": "取消固定",
+                    "applyLabel": "应用标签",
+                    "removeLabel": "移除标签",
+                    "moveToCategory": "移至分类",
+                    "reply": "回复",
+                    "replyAll": "回复全部",
+                    "forward": "转发",
+                    "snooze": "稍后提醒",
+                    "spam": "举报警告邮件",
+                    "notSpam": "不是垃圾邮件"
+                },
+                "durations": {
+                    "1_hour": "1 小时",
+                    "4_hours": "4 小时",
+                    "tomorrow": "明天",
+                    "2_days": "2 天",
+                    "1_week": "1 周"
+                }
             }
         },
         "people": {
             "contacts": "联系人",
             "contacts_desc": "管理您的地址簿和联系人详情",
             "subscriptions": "订阅",
-            "subscriptions_desc": "查看和管理您的邮件列表订阅"
+            "subscriptions_desc": "查看和管理您的邮件列表订阅",
+            "subscriptions_manager": {
+                "no_account": "未选择活动账号。",
+                "loading": "正在加载订阅...",
+                "search_placeholder": "搜索发件人...",
+                "unsubscribe_bulk": "退订 ({{count}})",
+                "senders_count": "检测到 {{count}} 个带有退订标头的发件人",
+                "status": {
+                    "unsubscribed": "已退订",
+                    "one_click": "一键退订"
+                },
+                "emails_count": "{{count}} 封邮件",
+                "unsubscribe": "退订",
+                "no_results": "未找到匹配的发件人。",
+                "no_subscriptions": "尚未检测到订阅。订阅将在邮件同步时显示。"
+            }
         },
         "accounts": {
             "mail_accounts": "邮件账号",
@@ -223,9 +461,11 @@
             "calendar_accounts_desc": "连接的日历和事件源",
             "google_api": "Google API",
             "google_api_desc": "使用您自己的 Google Cloud Console 凭据",
+            "google_api_client_id": "客户端 ID",
+            "google_api_client_id_placeholder": "Google OAuth 客户端 ID",
+            "google_api_client_secret": "客户端密钥",
+            "google_api_client_secret_placeholder": "Google OAuth 客户端密钥",
             "sync": "同步",
-            "sync_period": "同步周期",
-            "sync_desc": "每个账号保持离线状态的邮件数量",
             "send_as": {
                 "title": "发件人别名",
                 "desc": "管理您的主要地址和已验证的别名",
@@ -233,45 +473,112 @@
                 "primary": "主要",
                 "default": "默认",
                 "set_default": "设为默认"
+            },
+            "no_accounts": "未连接电子邮件账号",
+            "status": {
+                "waiting": "正在等待...",
+                "done": "已完成",
+                "failed": "失败",
+                "reauthorize": "重新授权",
+                "resyncing": "正在同步...",
+                "resync": "重新同步",
+                "remove": "移除"
+            },
+            "check_mail": "检查新邮件",
+            "sync_now": "立即同步",
+            "full_resync": "强制全量重新同步",
+            "full_resync_desc": "重新下载此账号的所有邮件。如果您发现邮件丢失或同步问题，请使用此选项。",
+            "sync_period": "同步周期",
+            "sync_from": "同步邮件范围",
+            "sync_options": {
+                "30_days": "最近 30 天",
+                "90_days": "最近 90 天",
+                "180_days": "最近 6 个月",
+                "1_year": "最近 1 年"
+            },
+            "sync_apply": "同步周期的更改将应用于新账号或在全量重新同步后生效。",
+            "caldav": {
+                "title": "日历 (CalDAV)",
+                "connected": "已连接",
+                "desc": "连接 CalDAV 日历服务器，为此 IMAP 账号启用日历功能。",
+                "server_url": "CalDAV 服务器 URL",
+                "server_url_placeholder": "https://caldav.example.com/",
+                "username": "用户名",
+                "username_placeholder": "your@email.com",
+                "password": "密码 / 应用专用密码",
+                "password_placeholder": "应用专用密码",
+                "testing": "正在测试...",
+                "test_connection": "测试连接",
+                "saving": "正在保存..."
             }
         },
         "ai": {
-            "provider": {
-                "title": "AI 提供商",
-                "desc": "选择您的 AI 服务提供商"
-            },
-            "local_server": {
-                "title": "本地服务器",
-                "desc": "本地 LLM 服务器配置 (LM Studio, Ollama)"
-            },
-            "api_key": {
-                "title": "API 密钥",
-                "desc": "所选 AI 提供商的私有密钥"
-            },
+            "provider": "AI 提供商",
+            "provider_desc": "配置用于智能分类、摘要和草稿生成的 AI 模型。",
+            "provider_label": "提供商",
+            "api_key": "API 密钥",
+            "save_key": "保存密钥",
+            "test_connection": "测试连接",
+            "testing": "正在测试...",
+            "connected": "连接成功！",
+            "connection_failed": "连接失败。请检查您的密钥和模型。",
             "features": {
                 "title": "AI 功能",
-                "desc": "启用或禁用特定的 AI 能力"
+                "enable": "启用 AI 助手",
+                "enable_desc": "为整个应用中的各种智能功能提供动力。",
+                "auto_categorize": "智能分类",
+                "auto_categorize_desc": "自动将收到的邮件分类为社交、推广等。",
+                "auto_summarize": "智能摘要",
+                "auto_summarize_desc": "在邮件列表中显示长邮件会话的简明摘要。"
             },
             "auto_draft": {
-                "title": "自动草稿回复",
-                "desc": "使用 AI 自动创建回复草稿"
+                "title": "智能回复",
+                "enable": "启用自动草稿",
+                "enable_desc": "打开邮件时自动生成建议的回复草稿。",
+                "learn_style": "个性化风格",
+                "learn_style_desc": "从您已发送的邮件中学习，生成符合您写作风格的回复。",
+                "profile": "写作风格档案",
+                "reanalyze": "重新分析风格",
+                "reanalyze_desc": "强制重新分析您已发送的邮件，以更新您的写作风格档案。",
+                "analyzing": "正在分析风格..."
             },
             "categories": {
-                "title": "分类",
-                "desc": "自动对收到的邮件进行分类"
+                "title": "分类操作",
+                "desc": "选择如何处理由 AI 助手识别的邮件。",
+                "archive_desc": "自动归档这些分类可以帮助您保持主要收件箱专注于重要的事项。",
+                "auto_archive": "自动归档 {{category}}",
+                "skip_inbox": "自动将 {{category}} 邮件移出主要收件箱。"
             },
-            "writing_style": {
-                "title": "学习写作风格",
-                "desc": "AI 从您已发送的邮件中学习以模仿您的语气",
-                "analyze": "分析风格",
-                "analyzing": "正在分析...",
-                "reanalyze": "重新分析"
+            "local_server": "本地 AI 服务器",
+            "server_url": "服务器 URL",
+            "model_name": "模型名称",
+            "model": "模型",
+            "claude_desc": "使用 {{model}}。",
+            "openai_desc": "使用 {{model}}。",
+            "gemini_desc": "使用 {{model}}。",
+            "ollama_desc": "连接到本地 Ollama 或 LMStudio 服务器。不需要 API 密钥。",
+            "copilot_desc": "使用 {{model}}。需要具有 models:read 权限的 GitHub PAT。",
+            "anthropic_key": "Anthropic API 密钥",
+            "openai_key": "OpenAI API 密钥",
+            "github_token": "GitHub 个人访问令牌",
+            "google_key": "Google AI API 密钥",
+            "placeholder_claude": "sk-ant-...",
+            "placeholder_openai": "sk-...",
+            "placeholder_github": "ghp_...",
+            "placeholder_google": "AI...",
+            "providers": {
+                "claude": "Claude (Anthropic)",
+                "openai": "OpenAI",
+                "gemini": "Gemini (Google)",
+                "ollama": "本地 AI (Ollama / LMStudio)",
+                "copilot": "GitHub Copilot"
             },
             "bundling": {
-                "title": "分类与投递计划",
-                "desc": "批量投递非紧急邮件",
-                "bundle": "分类",
-                "at": "于"
+                "title": "邮件聚合",
+                "desc": "将时事通讯和促销邮件聚合在一起，使收件箱更整洁。定时投递会将匹配的邮件移出收件箱，并在您选择的时间以聚合形式重新显示。",
+                "bundle": "聚合",
+                "schedule": "定时",
+                "at": "在"
             }
         },
         "developer": {
@@ -290,7 +597,14 @@
             "checking": "正在检查...",
             "dev_tools": "开发者工具",
             "open_devtools": "打开开发者工具",
-            "devtools_desc": "打开 WebView 开发者工具检查器"
+            "devtools_desc": "打开 WebView 开发者工具检查器",
+            "platforms": {
+                "macos_silicon": "macOS (Apple Silicon)",
+                "macos": "macOS ({{arch}})",
+                "windows": "Windows ({{arch}})",
+                "linux": "Linux ({{arch}})",
+                "other": "{{platform}} ({{arch}})"
+            }
         },
         "about": {
             "title": "Velo Mail",
@@ -315,7 +629,58 @@
             "instructions": "点击快捷键以重新绑定。按下任何按键或组合键进行设置。",
             "reset_all": "重置全部",
             "press_key": "按下按键...",
-            "reset_to": "重置为"
+            "reset_to": "重置为",
+            "labels": {
+                "Navigation": "导航",
+                "Actions": "操作",
+                "App": "应用"
+            },
+            "commands": {
+                "nav": {
+                    "next": "下一个会话",
+                    "prev": "上一个会话",
+                    "open": "打开会话",
+                    "msgNext": "会话中的下一条消息",
+                    "msgPrev": "会话中的上一条消息",
+                    "goInbox": "转到收件箱",
+                    "goStarred": "转到星标",
+                    "goSent": "转到已发送",
+                    "goDrafts": "转到草稿",
+                    "goPrimary": "转到主要",
+                    "goUpdates": "转到更新",
+                    "goPromotions": "转到推广",
+                    "goSocial": "转到社交",
+                    "goNewsletters": "转到订阅邮件",
+                    "goTasks": "转到任务",
+                    "goAttachments": "转到附件",
+                    "escape": "关闭 / 返回"
+                },
+                "action": {
+                    "compose": "撰写新邮件",
+                    "reply": "回复",
+                    "replyAll": "全部回复",
+                    "forward": "转发",
+                    "archive": "归档",
+                    "delete": "删除",
+                    "spam": "举报垃圾邮件 / 不是垃圾邮件",
+                    "star": "加星 / 取消星标",
+                    "pin": "固定 / 取消固定",
+                    "unsubscribe": "退订",
+                    "mute": "静音 / 取消静音",
+                    "createTaskFromEmail": "从邮件创建任务 (AI)",
+                    "moveToFolder": "移动到文件夹/标签",
+                    "selectAll": "全选",
+                    "selectFromHere": "从此处全选"
+                },
+                "app": {
+                    "commandPalette": "命令面板",
+                    "toggleSidebar": "切换侧边栏",
+                    "send": "发送邮件",
+                    "askInbox": "向 AI 询问您的收件箱",
+                    "help": "显示键盘快捷键",
+                    "syncFolder": "同步当前文件夹"
+                }
+            }
         },
         "sidebar": {
             "title": "侧边栏导航",
@@ -386,7 +751,7 @@
             },
             "no_account": {
                 "title": "未连接账号",
-                "subtitle": "添加 Gmail 账号以开始使用"
+                "subtitle": "添加邮箱账号以开始使用"
             },
             "inbox": {
                 "all": {
@@ -453,11 +818,2322 @@
     },
     "sidebar": {
         "add_smart_folder": "添加智能文件夹",
+        "new_smart_folder": "新建智能文件夹",
+        "smart_folder_name": "名称",
+        "smart_folder_name_placeholder": "例如：老板的未读邮件",
+        "smart_folder_query": "搜索查询",
+        "smart_folder_query_placeholder": "例如：is:unread from:boss",
         "add_label": "添加标签",
         "edit_label": "编辑标签",
         "expand": "展开侧边栏",
         "collapse": "收起侧边栏",
-        "switch_unified": "切换到统一收件箱",
-        "switch_split": "切换到分栏收件箱"
+        "switch_unified": "Switch to unified inbox",
+        "switch_split": "Switch to split inbox"
+    },
+    "search": {
+        "placeholder": "搜索... (from: to: has:attachment)",
+        "save_as_smart_folder": "保存为智能文件夹",
+        "save_modal": {
+            "title": "保存为智能文件夹",
+            "name_label": "名称"
+        }
+    },
+    "smart_folder": {
+        "unread": "未读",
+        "attachments": "有附件",
+        "starred_recent": "本周星标"
+    },
+    "tasks": {
+        "title": "任务",
+        "search_placeholder": "搜索任务...",
+        "add_task_placeholder": "添加任务...",
+        "add_task_thread_placeholder": "为当前会话添加任务...",
+        "filters": {
+            "status": {
+                "active": "正在进行",
+                "all": "全部",
+                "completed": "已完成"
+            },
+            "priority": {
+                "all": "所有优先级",
+                "urgent": "紧急",
+                "high": "高",
+                "medium": "中",
+                "low": "低",
+                "none": "无"
+            },
+            "grouping": {
+                "none": "不分组",
+                "priority": "按优先级分组",
+                "dueDate": "按截止日期分组",
+                "tag": "按标签分组"
+            }
+        },
+        "bulk_actions": {
+            "selected": "已选择 {{count}} 个",
+            "complete": "完成",
+            "delete": "删除",
+            "clear": "取消选择"
+        },
+        "empty_states": {
+            "no_tasks": "暂无任务",
+            "no_tasks_search": "尝试使用不同的关键词搜索",
+            "no_tasks_desc": "在上方添加任务，或在邮件会话中按 't' 键添加",
+            "no_linked_tasks": "该会话没有关联的任务"
+        },
+        "extraction": {
+            "title": "从邮件创建任务",
+            "extracting": "正在从邮件中提取任务...",
+            "failed_extract": "提取任务失败",
+            "failed_create": "创建任务失败",
+            "field_title": "标题",
+            "field_description": "描述",
+            "field_priority": "优先级",
+            "field_due_date": "截止日期",
+            "create_button": "创建任务",
+            "creating_button": "正在创建..."
+        },
+        "due_dates": {
+            "overdue": "逾期 {{count}} 天",
+            "today": "今天",
+            "tomorrow": "明天",
+            "days": "{{count}} 天"
+        },
+        "group_labels": {
+            "no_due_date": "无截止日期",
+            "overdue": "逾期",
+            "today": "今天",
+            "tomorrow": "明天",
+            "this_week": "本周",
+            "later": "以后",
+            "untagged": "无标签"
+        },
+        "tooltips": {
+            "open_page": "打开任务页面"
+        }
+    },
+    "calendar": {
+        "title": "日历",
+        "today": "今天",
+        "prev": "上一个",
+        "next": "下一个",
+        "create_event": "创建",
+        "edit_event": "编辑",
+        "delete_event": "删除",
+        "views": {
+            "day": "日",
+            "week": "周",
+            "month": "月"
+        },
+        "days": {
+            "sun": "周日",
+            "mon": "周一",
+            "tue": "周二",
+            "wed": "周三",
+            "thu": "周四",
+            "fri": "周五",
+            "sat": "周六",
+            "short": [
+                "日",
+                "一",
+                "二",
+                "三",
+                "四",
+                "五",
+                "六"
+            ]
+        },
+        "months": {
+            "long": [
+                "一月",
+                "二月",
+                "三月",
+                "四月",
+                "五月",
+                "六月",
+                "七月",
+                "八月",
+                "九月",
+                "十月",
+                "十一月",
+                "十二月"
+            ],
+            "short": [
+                "1月",
+                "2月",
+                "3月",
+                "4月",
+                "5月",
+                "6月",
+                "7月",
+                "8月",
+                "9月",
+                "10月",
+                "11月",
+                "12月"
+            ]
+        },
+        "loading": "正在加载日历...",
+        "empty_states": {
+            "connect_account": "连接账户以使用日历",
+            "not_configured": "此账户尚未配置日历。",
+            "not_configured_desc": "对于 IMAP 账户，请在设置中配置 CalDAV。"
+        },
+        "sidebar": {
+            "title": "日历列表",
+            "primary": "主日历",
+            "toggle_list": "切换日历列表"
+        },
+        "reauth": {
+            "title": "日历需要重新授权",
+            "desc": "您的账户在添加日历权限之前已连接。请重新授权以授予日历访问权限——您的邮件和数据不会受到影响。",
+            "button": "重新授权",
+            "waiting": "正在等待授权..."
+        },
+        "errors": {
+            "access_denied": "日历访问错误",
+            "reauth_failed": "重新授权失败",
+            "api_not_enabled": "重新授权后日历访问仍然被拒绝。请确保在您的 Google Cloud Console 项目中启用了 Google Calendar API。请访问 console.cloud.google.com → API 和服务 → 启用 \"Google Calendar API\"。"
+        },
+        "event_modal": {
+            "create_title": "创建事件",
+            "edit_title": "编辑事件",
+            "field_summary": "标题",
+            "field_summary_placeholder": "事件标题",
+            "field_calendar": "日历",
+            "field_start": "开始",
+            "field_end": "结束",
+            "field_location": "地点",
+            "field_location_placeholder": "添加地点",
+            "field_description": "描述",
+            "field_description_placeholder": "添加描述",
+            "field_attendees": "参与者",
+            "action_save": "保存",
+            "action_saving": "正在保存...",
+            "action_delete": "删除",
+            "action_deleting": "正在删除...",
+            "confirm_delete": "删除此事件？",
+            "confirm_delete_yes": "是的，删除",
+            "all_day": "全天"
+        },
+        "misc": {
+            "more_events": "还有 {{count}} 项",
+            "all_day_label": "全天"
+        }
+    },
+    "attachments": {
+        "title": "附件",
+        "count": "({{count}})",
+        "search_placeholder": "搜索附件...",
+        "loading": "加载附件中...",
+        "no_attachments_title": "暂无附件",
+        "no_attachments_subtitle": "您邮件中的附件将显示在这里",
+        "no_matching_title": "未找到匹配的附件",
+        "no_matching_subtitle": "请尝试调整过滤器或搜索查询",
+        "view_grid": "网格视图",
+        "view_list": "列表视图",
+        "actions": {
+            "preview": "预览",
+            "download": "下载",
+            "jump_to_email": "跳转到邮件"
+        },
+        "filters": {
+            "types": {
+                "all": "所有类型",
+                "images": "图片",
+                "pdfs": "PDF",
+                "documents": "文档",
+                "spreadsheets": "表格",
+                "archives": "压缩包",
+                "other": "其他"
+            },
+            "senders": {
+                "all": "所有发件人"
+            },
+            "dates": {
+                "all": "任何时间",
+                "today": "今天",
+                "week": "过去一周",
+                "month": "过去一月",
+                "year": "过去一年"
+            },
+            "sizes": {
+                "all": "任何大小",
+                "small": "< 1 MB",
+                "medium": "1–10 MB",
+                "large": "> 10 MB"
+            }
+        },
+        "item": {
+            "unnamed": "未命名",
+            "unknown_sender": "未知"
+        },
+        "help": {
+            "title": "帮助",
+            "back_to_inbox": "返回收件箱",
+            "search_placeholder": "搜索帮助主题...",
+            "no_results": "没有找到关于“{{query}}”的结果",
+            "open_in_settings": "在设置中打开 →",
+            "categories": {
+                "getting-started": "入门指南",
+                "reading-email": "阅读邮件",
+                "composing": "写信与发送",
+                "search-navigation": "搜索与导航",
+                "organization": "组织整理",
+                "productivity": "效能",
+                "ai-features": "AI 功能",
+                "newsletters": "通讯订阅",
+                "notifications-contacts": "通知与联系人",
+                "security": "安全与隐私",
+                "calendar": "日历",
+                "tasks": "任务",
+                "appearance": "外观与布局",
+                "accounts-system": "账号与系统"
+            },
+            "cards": {
+                "add-account": {
+                    "title": "添加您的电子邮件账号",
+                    "summary": "连接 Gmail 或 IMAP/SMTP 账号以开始使用应用。",
+                    "description": "点击侧边栏顶部的账号切换器来添加账号。对于 Gmail，请按照使用您自己的 Google Cloud 凭据的 OAuth 登录流程进行操作。对于其他提供商（Outlook、Yahoo、iCloud、Fastmail 等），选择“添加 IMAP 账号”并输入您的电子邮件和密码 —— 热门提供商的服务器设置会自动发现。您可以添加任何类型的多个账号，并立即在它们之间切换。每个账号都独立同步，拥有自己的收件箱、标签和设置。",
+                    "tips": [
+                        {
+                            "text": "账号切换器始终显示在侧边栏的顶部。"
+                        },
+                        {
+                            "text": "Gmail 账号使用 OAuth；IMAP 账号使用密码或应用专用密码。"
+                        },
+                        {
+                            "text": "每个账号都有自己的标签、过滤器和同步状态。"
+                        },
+                        {
+                            "text": "在设置 > 账号中删除或重新授权账号。"
+                        }
+                    ]
+                },
+                "initial-sync": {
+                    "title": "初始同步",
+                    "summary": "首次同步会下载您的邮件历史记录。",
+                    "description": "当您添加新账号时，应用会执行初始同步，下载您过去一年（可配置）的电子邮件。这会建立一个本地数据库，用于快速离线搜索和浏览。根据您的收件箱大小，这可能需要几分钟。在同步在后台运行的同时，您可以正常使用应用 —— 阅读、起草和发送而无需等待。初始同步后，应用将切换到增量同步（每 60 秒一次），仅获取新更改。Gmail 使用 History API 进行增量同步；IMAP 使用基于 UID 的跟踪。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 账号中更改同步周期（30 天到 1 年）。"
+                        },
+                        {
+                            "text": "在初始同步期间，应用完全可用。"
+                        },
+                        {
+                            "text": "初始同步完成后，增量同步每 60 秒运行一次。"
+                        },
+                        {
+                            "text": "Gmail：如果同步历史过期（约离线 30 天），应用会自动回退到全量同步。"
+                        },
+                        {
+                            "text": "IMAP：如果文件夹 UIDVALIDITY 发生变化，应用会自动重新同步该文件夹。"
+                        }
+                    ]
+                },
+                "client-id-setup": {
+                    "title": "Google Client ID 设置",
+                    "summary": "设置您自己的 Google Cloud OAuth 凭据（仅限 Gmail）。",
+                    "description": "此步骤仅适用于 Gmail 账号。应用使用您自己的 Google Cloud 项目进行 OAuth 身份验证 —— 这意味着您的凭据保留在您的设备上，绝不会共享。当您首次添加 Gmail 账号时，设置向导会引导您创建 Google Cloud 项目、启用 Gmail 和日历 API，并生成 OAuth Client ID。该过程大约需要 5 分钟。应用使用 PKCE 身份验证，因此不需要 Client Secret。IMAP/SMTP 账号不需要 Client ID。",
+                    "tips": [
+                        {
+                            "text": "转到 console.cloud.google.com 创建您的项目。"
+                        },
+                        {
+                            "text": "同时启用 Gmail API 和 Google Calendar API。"
+                        },
+                        {
+                            "text": "在创建 OAuth 凭据时选择“桌面桌面”。"
+                        },
+                        {
+                            "text": "您的 Client ID 存储在本地 —— 绝不会发送到外部服务器。"
+                        },
+                        {
+                            "text": "稍后在设置 > 关于中更新您的 Client ID。"
+                        },
+                        {
+                            "text": "IMAP 账号完全跳过此步骤 —— 不需要 Google Cloud 项目。"
+                        }
+                    ]
+                },
+                "imap-smtp-setup": {
+                    "title": "IMAP/SMTP 账号设置",
+                    "summary": "通过 IMAP 和 SMTP 添加非 Gmail 电子邮件账号。",
+                    "description": "要添加 IMAP/SMTP 账号，请在账号切换器中点击“添加 IMAP 账号”。设置向导有四个步骤：(1) 输入您的电子邮件、显示名称和密码或 OAuth2 凭据；(2) 配置 IMAP 服务器设置（主机、端口、安全性）；(3) 配置 SMTP 服务器设置；(4) 测试连接。对于 Outlook、Yahoo、iCloud、Fastmail、Zoho、AOL 和 GMX 等热门提供商，当您输入电子邮件地址时，服务器设置会被自动发现。Outlook/Hotmail 账号需要 OAuth2 身份验证（微软已禁用基本密码验证）。Yahoo 支持 OAuth2 和应用密码。您的凭据在存储到本地之前使用 AES-256-GCM 进行加密。",
+                    "tips": [
+                        {
+                            "text": "自动发现适用于 Outlook、Yahoo、iCloud、Fastmail、Zoho、AOL 和 GMX。"
+                        },
+                        {
+                            "text": "Outlook/Hotmail 需要 OAuth2 —— 在 Azure Portal 中注册应用以获取 Client ID。"
+                        },
+                        {
+                            "text": "Yahoo 支持 OAuth2 或应用密码 —— 推荐使用 OAuth2。"
+                        },
+                        {
+                            "text": "对于 OAuth2，在您的应用注册中将重定向 URI 设置为 http://localhost:17248。"
+                        },
+                        {
+                            "text": "对于其他提供商，请查看您的电子邮件提供商的帮助页面以获取 IMAP/SMTP 设置。"
+                        },
+                        {
+                            "text": "安全选项：SSL/TLS（最安全）、STARTTLS 或无。"
+                        },
+                        {
+                            "text": "在保存之前会测试 IMAP 和 SMTP 连接。"
+                        },
+                        {
+                            "text": "IMAP 文件夹会自动映射到侧边栏中的标签。"
+                        }
+                    ]
+                },
+                "outlook-setup": {
+                    "title": "Outlook 账号设置",
+                    "summary": "连接 Outlook、Hotmail 或 Live 账号的分步指南。",
+                    "description": "微软要求 Outlook/Hotmail/Live 账号使用 OAuth2 —— 基本密码已禁用。您需要在 Azure Portal 中注册一个应用以获取 Client ID。操作步骤如下：(1) 在 developer.microsoft.com/microsoft-365/dev-program 加入 Microsoft 365 开发人员计划以获取免费的 Azure 租户 —— 在目录外创建应用已弃用。(2) 使用您的 M365 开发人员账号 (admin@yourname.onmicrosoft.com) 登录 portal.azure.com，而不是使用您的个人 Outlook 账号。(3) 转到 Microsoft Entra ID → 应用注册 → 新注册。名称可以随意，将“支持的账户类型”设置为“任何组织目录中的账户和个人 Microsoft 账户”，并将重定向 URI 设置为“公共客户端/原生 (移动和桌面)” → http://localhost:17248。(4) 从概览页面复制应用程序 (客户端) ID。(5) 转到 API 权限 → 添加权限 → Microsoft Graph → 委托权限 → 添加：offline_access, email, openid, profile, User.Read。如果您能在“我的组织使用的 API”下找到“Office 365 Exchange Online”，也请从那里添加 IMAP.AccessAsUser.All 和 SMTP.Send。如果找不到，请通过清单 JSON 添加它们（见提示）。(6) 转到身份验证（左侧栏） → 滚动到“高级设置” → 将“允许公共客户端流”设置为“是” → 保存。(7) 在应用中，选择“添加 IMAP 账号”，输入您的个人 Outlook 电子邮件，粘贴 Client ID，将 Client Secret 留空，然后点击“使用 Microsoft 登录”。服务器设置会自动填充（IMAP: imap-mail.outlook.com:993 SSL, SMTP: smtp-mail.outlook.com:587 STARTTLS）。注意：新的 Outlook.com 账号可能需要长达 24 小时才能被微软激活 IMAP/SMTP 访问。",
+                    "tips": [
+                        {
+                            "text": "加入 M365 开发人员计划以获取免费 Azure 租户并注册应用。"
+                        },
+                        {
+                            "text": "使用 M365 开发人员账号登录 Azure Portal，而不是个人 Outlook。"
+                        },
+                        {
+                            "text": "平台类型必须是“公共客户端/原生 (移动和桌面)”（不是 Web 或 SPA）。"
+                        },
+                        {
+                            "text": "重定向 URI 必须完全一致：http://localhost:17248"
+                        },
+                        {
+                            "text": "Client Secret 是可选的 —— 在桌面应用中保持为空（PKCE 处理安全性）。"
+                        },
+                        {
+                            "text": "在身份验证 → 高级设置中启用“允许公共客户端流”。"
+                        },
+                        {
+                            "text": "如果 API 权限中未出现“Office 365 Exchange Online”，可通过清单添加：添加 resourceAppId '00000002-0000-0ff1-ce00-000000000000'，包含 IMAP scope id '5df07973-7d5d-46ed-f847-aeb6baeacb0b' 和 SMTP scope id '258f6531-ecdc-4944-8c5f-82fee32d369b'。"
+                        },
+                        {
+                            "text": "仅适用于个人 Microsoft 账号 (outlook.com, hotmail.com, live.com)。"
+                        },
+                        {
+                            "text": "新账号可能需要长达 24 小时后才能启用 IMAP/SMTP 访问。"
+                        },
+                        {
+                            "text": "令牌会自动刷新 —— 您无需再次登录。"
+                        }
+                    ]
+                },
+                "thread-view": {
+                    "title": "会话视图",
+                    "summary": "电子邮件按对话分组。",
+                    "description": "所有相关的电子邮件都会自动分组成会话线程。点击邮件列表中的会话即可将其打开，并查看对话中的每条消息，最新消息位于底部。每条消息都显示发件人、时间戳和完整的格式化内容。内联附件和图像直接显示在消息正文中。您可以直接在线程中回复单条消息，而无需打开完整的写信界面。",
+                    "tips": [
+                        {
+                            "text": "打开会话"
+                        },
+                        {
+                            "text": "在会话之间导航"
+                        },
+                        {
+                            "text": "返回列表"
+                        },
+                        {
+                            "text": "从操作栏将线程弹出到独立窗口。"
+                        },
+                        {
+                            "text": "内联回复让您可以在不离开线程的情况下回复特定消息。"
+                        }
+                    ]
+                },
+                "reading-pane": {
+                    "title": "阅读窗格位置",
+                    "summary": "选择右侧、底部或隐藏布局。",
+                    "description": "阅读窗格在邮件列表旁边显示所选会话的内容。您可以将其放置在邮件列表右侧（最适合宽屏）、下方（适合窄屏）或完全隐藏（点击打开模式）。邮件列表宽度也是可调的 —— 拖动分隔线即可调整大小。您的布局偏好会自动保存并恢复。",
+                    "tips": [
+                        {
+                            "text": "在宽度超过 1400px 的屏幕上，右侧窗格效果最佳。"
+                        },
+                        {
+                            "text": "底部窗格为阅读宽邮件提供了更多的水平空间。"
+                        },
+                        {
+                            "text": "隐藏模式仅显示邮件列表；点击会话以全宽打开它。"
+                        },
+                        {
+                            "text": "拖动列表和窗格之间的分隔线以调整宽度。"
+                        }
+                    ]
+                },
+                "mark-as-read": {
+                    "title": "已读标记行为",
+                    "summary": "控制何时将邮件标记为已读。",
+                    "description": "选择打开会话时何时将其标记为已读：选择它时立即标记、在短暂延迟后标记（给您快速浏览的时间），或者仅在您手动标记时标记。如果您将未读计数作为待办事项指标，并且不想仅仅因为扫视了几眼就被标记为已读，此设置非常有用。",
+                    "tips": [
+                        {
+                            "text": "“立即”在您打开会话时立即标记为已读。"
+                        },
+                        {
+                            "text": "“延迟后”在标记之前等待几秒钟。"
+                        },
+                        {
+                            "text": "“仅手动”从不自动标记 —— 由您自己控制。"
+                        }
+                    ]
+                },
+                "read-filter": {
+                    "title": "已读/未读过滤器",
+                    "summary": "过滤邮件列表以显示全部、未读或已读会话。",
+                    "description": "使用邮件列表顶部的过滤器下拉菜单来缩小显示范围。选择“全部”查看每个会话，“未读”专注于仍需处理的会话，或“已读”查看您已打开的会话。过滤器适用于您当前查看的任何文件夹或标签。您的过滤器偏好会跨会话保存并恢复。",
+                    "tips": [
+                        {
+                            "text": "过滤器下拉菜单位于邮件列表标题中，在会话计数旁边。"
+                        },
+                        {
+                            "text": "选项：全部、未读、已读。"
+                        },
+                        {
+                            "text": "结合标签或智能文件夹进行精确过滤。"
+                        },
+                        {
+                            "text": "您的过滤器偏好在重启后仍然有效。"
+                        }
+                    ]
+                },
+                "print-export": {
+                    "title": "打印与导出线程",
+                    "summary": "打印线程或将其导出为 .eml 文件。",
+                    "description": "从操作栏中，您可以打印整个线程或将其导出为 .eml 文件。打印会生成对话的整洁格式化视图，包含标题和时间戳，然后打开系统打印对话框。导出将线程保存为标准的 RFC 2822 .eml 文件，可在任何邮件客户端中打开 —— 适用于备份、法律记录或在应用外共享。",
+                    "tips": [
+                        {
+                            "text": "点击操作栏中的“打印”图标打印线程。"
+                        },
+                        {
+                            "text": "点击操作栏中的“下载”图标导出为 .eml。"
+                        },
+                        {
+                            "text": " .eml 格式是任何邮件客户端都可读取的通用标准。"
+                        },
+                        {
+                            "text": "打印视图包含所有消息、发件人和时间戳。"
+                        }
+                    ]
+                },
+                "raw-message": {
+                    "title": "查看原始邮件源码",
+                    "summary": "检查任何电子邮件的原始 MIME 源码。",
+                    "description": "右键点击线程中的任何消息，然后选择“查看源码”以查看完整的原始 MIME 源码。这会显示所有标题（包括路由、身份验证和自定义标题）、原始消息体以及 MIME 结构。适用于调试寄送问题、验证身份验证标题或了解电子邮件的构建方式。",
+                    "tips": [
+                        {
+                            "text": "右键点击消息并选择“查看源码”。"
+                        },
+                        {
+                            "text": "显示所有标题：From, To, Authentication-Results, DKIM 等。"
+                        },
+                        {
+                            "text": "适用于调试寄送或垃圾邮件过滤器问题。"
+                        },
+                        {
+                            "text": "源代码视图在可滚动的模态窗口中打开。"
+                        }
+                    ]
+                },
+                "new-email": {
+                    "title": "撰写新邮件",
+                    "summary": "带有格式和附件的富文本编辑器。",
+                    "description": "写信界面使用 TipTap 驱动的富文本编辑器。您可以格式化文本（加粗、倾斜、列表、链接、代码块），添加文件附件，插入签名并选择模板 —— 所有这些都在一个地方完成。写信界面作为面板显示在屏幕底部。通过自动完成添加收件人（按您给他们发邮件的频率排序），设置主题并撰写您的消息。",
+                    "tips": [
+                        {
+                            "text": "打开写信界面"
+                        },
+                        {
+                            "text": "发送邮件"
+                        },
+                        {
+                            "text": "收件人自动完成按联系频率排序。"
+                        },
+                        {
+                            "text": "使用工具栏或 Markdown 风格的快捷键进行格式化。"
+                        },
+                        {
+                            "text": "按 Escape 键关闭写信界面（草稿会自动保存）。"
+                        }
+                    ]
+                },
+                "reply-forward": {
+                    "title": "回复、回复全部与转发",
+                    "summary": "回复邮件或转发给他人。",
+                    "description": "回复仅将您的响应发送给原始发件人。回复全部包括会话中的每个人（收件人和抄送）。转发让您可以将邮件连同您自己的消息发送给新的人。您可以在写信设置中设置默认回复操作（回复 vs 回复全部），这样按下回复快捷键就会执行您预期的操作。内联回复功能还允许您直接在会话视图中回复特定的邮件。",
+                    "tips": [
+                        {
+                            "text": "回复"
+                        },
+                        {
+                            "text": "回复全部"
+                        },
+                        {
+                            "text": "转发"
+                        },
+                        {
+                            "text": "在设置中设置默认回复模式（回复或回复全部）。"
+                        },
+                        {
+                            "text": "内联回复让您无需打开完整的写信界面即可进行响应。"
+                        }
+                    ]
+                },
+                "undo-send": {
+                    "title": "撤销发送",
+                    "summary": "在发送邮件后的短暂窗口内取消发送。",
+                    "description": "点击发送后，会出现一个带有“撤销”按钮的提示通知。在邮件实际送达之前点击它即可取消发送。您可以设置此窗口的持续时间 —— 5 到 30 秒。在撤销窗口期间，邮件会排在本地队列中，尚未发送到 Google 服务器。一旦窗口过期，邮件就会发出且无法召回。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 写信中设置撤销延迟（5-30 秒）。"
+                        },
+                        {
+                            "text": "发送后，撤销提示会显示在屏幕底部。"
+                        },
+                        {
+                            "text": "在撤销窗口期间关闭应用仍会发送邮件。"
+                        }
+                    ]
+                },
+                "schedule-send": {
+                    "title": "定时发送",
+                    "summary": "现在写好，稍后在选定时间发送。",
+                    "description": "撰写邮件并安排在特定的日期和时间发送。这对于在下班后、周末或在不同时区编写邮件而不想立即发送非常有用。从快速预设（明天早上、周一早上）中选择，或选取自定义日期和时间。定时发送的邮件会出现在您的草稿箱中，直到发送时间为止。您可以在发送时间之前取消或重新安排它们。",
+                    "tips": [
+                        {
+                            "text": "点击发送按钮旁边的下拉箭头来安排时间。"
+                        },
+                        {
+                            "text": "快速预设：明天上午 (9am), 明天下午 (1pm), 周一上午。"
+                        },
+                        {
+                            "text": "在设置 > 写信中查看和管理定时发送的邮件。"
+                        },
+                        {
+                            "text": "在发送之前的任何时间取消定时发送。"
+                        }
+                    ]
+                },
+                "send-archive": {
+                    "title": "发送并归档",
+                    "summary": "回复后自动归档会话。",
+                    "description": "启用后，发送回复会自动归档该会话 —— 从收件箱中移除，同时保持可在“所有邮件”中搜索。这能保持您的收件箱整洁，默认将回复视为“已完成”。如果您需要将会话放回收件箱，可以随时取消归档。在写信设置中打开或关闭此行为。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 写信中切换发送并归档。"
+                        },
+                        {
+                            "text": "被归档的会话仍可在所有邮件中搜索。"
+                        },
+                        {
+                            "text": "如果有人回复，会话会自动回到您的收件箱。"
+                        }
+                    ]
+                },
+                "signatures": {
+                    "title": "签名",
+                    "summary": "创建和管理电子邮件签名。",
+                    "description": "为不同的场景创建多个签名 —— 工作、私人、正式、休闲。签名支持富文本格式（加粗、链接、图片）。将一个设置为默认值以便在每次新邮件中自动插入，或者从写信界面的选择器中选择不同的签名。签名在设置中进行管理并持久化到本地。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 写信中创建签名。"
+                        },
+                        {
+                            "text": "设置一个自动插入到新邮件中的默认签名。"
+                        },
+                        {
+                            "text": "从写信界面的签名选择器中切换签名。"
+                        },
+                        {
+                            "text": "支持富文本：加粗、链接、图片等。"
+                        }
+                    ]
+                },
+                "templates": {
+                    "title": "模板",
+                    "summary": "常用消息的可重用邮件正文。",
+                    "description": "将常用的邮件正文保存为模板。写信时，打开模板选取器，一键即可将模板内容插入编辑器。模板非常适合重复性的邮件，如会议请求、状态更新或客户回复。您还可以为最常用的模板分配键盘快捷键，以便更快访问。模板变量支持动态内容。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 写信中创建模板。"
+                        },
+                        {
+                            "text": "从写信界面工具栏中的模板选取器图标插入模板。"
+                        },
+                        {
+                            "text": "为常用模板分配键盘快捷键。"
+                        },
+                        {
+                            "text": "模板支持像 {{name}} 这样的变量用于动态内容。"
+                        }
+                    ]
+                },
+                "from-aliases": {
+                    "title": "寄信地址别名",
+                    "summary": "使用不同的电子邮件地址发送。",
+                    "description": "如果您的 Gmail 账号配置了寄信地址别名（例如，工作别名或部门地址），写信界面中会出现一个“发件人”选择器，供您选择发送地址。别名会在您添加账号时从 Gmail 的寄信地址设置中同步。新邮件使用默认别名；回复默认使用原始邮件发送到的地址。寄信地址别名目前仅限 Gmail 功能。",
+                    "tips": [
+                        {
+                            "text": "别名会自动从您的 Gmail 寄信地址设置中获取。"
+                        },
+                        {
+                            "text": "发件人选择器仅在您的账号有多个别名时出现。"
+                        },
+                        {
+                            "text": "回复默认使用原始邮件最初发送到的地址。"
+                        },
+                        {
+                            "text": "在您的 Gmail 账号设置中设置默认别名。"
+                        },
+                        {
+                            "text": "寄信地址别名目前仅适用于 Gmail 账号。"
+                        }
+                    ]
+                },
+                "draft-autosave": {
+                    "title": "草稿自动保存",
+                    "summary": "草稿每 3 秒自动保存一次。",
+                    "description": "在您撰写邮件时，您的草稿每 3 秒会自动保存一次。如果应用关闭、电脑重启或您离开当前页面，您的草稿都会被保留。对于 Gmail 账号，草稿会在设备间同步。对于 IMAP 账号，草稿会保存到服务器的草稿文件夹中。保存是在后台静默进行的 —— 您永远无需手动保存。在侧边栏的草稿箱中找到您的草稿。",
+                    "tips": [
+                        {
+                            "text": "撰写时草稿每 3 秒自动保存一次。"
+                        },
+                        {
+                            "text": "Gmail 草稿同步到各设备；IMAP 草稿保存到服务器的草稿文件夹。"
+                        },
+                        {
+                            "text": "放心离开 —— 您的草稿已经保存。"
+                        },
+                        {
+                            "text": "在侧边栏的草稿箱中查找保存的草稿。"
+                        }
+                    ]
+                },
+                "search-operators": {
+                    "title": "搜索操作符",
+                    "summary": "使用 Gmail 风格的操作符优化搜索结果。",
+                    "description": "搜索使用 Gmail 风格的操作符进行精确过滤。通过整合多个操作符来找到您确切需要的内容。所有搜索都针对您的本地数据库运行，使用 FTS5 全文索引，因此结果是即时的。操作符可以自由组合 —— 它们使用 AND 逻辑，因此每个增加的操作符都会进一步缩小结果范围。",
+                    "tips": [
+                        {
+                            "text": "from:jane — 来自特定发件人的邮件"
+                        },
+                        {
+                            "text": "to:team@ — 发送到特定地址的邮件"
+                        },
+                        {
+                            "text": "subject:quarterly report — 匹配主题行"
+                        },
+                        {
+                            "text": "has:attachment — 仅包含附件的邮件"
+                        },
+                        {
+                            "text": "is:unread / is:starred / is:read — 按状态过滤"
+                        },
+                        {
+                            "text": "before:2024-06-01 / after:2024-01-01 — 日期范围过滤器"
+                        },
+                        {
+                            "text": "label:work — 按标签过滤"
+                        },
+                        {
+                            "text": "自由组合：from:jane subject:report has:attachment after:2024-01-01"
+                        }
+                    ]
+                },
+                "command-palette": {
+                    "title": "命令面板",
+                    "summary": "键盘驱动的搜索、导航和操作。",
+                    "description": "命令面板是应用中执行操作最快的方式。使用快捷键打开它，开始输入以搜索邮件、跳转到任何标签或文件夹、切换账号或触发操作。结果随输入更新。面板可同时搜索邮件内容、发件人姓名、主题行、标签和文件夹 —— 全部在一个输入框中完成。",
+                    "tips": [
+                        {
+                            "text": "打开命令面板"
+                        },
+                        {
+                            "text": "同样可以使用其打开"
+                        },
+                        {
+                            "text": "输入以搜索邮件、标签、文件夹和操作。"
+                        },
+                        {
+                            "text": "结果随您的输入即时更新。"
+                        },
+                        {
+                            "text": "按 Enter 打开第一个结果，或使用方向键导航。"
+                        }
+                    ]
+                },
+                "keyboard-shortcuts": {
+                    "title": "键盘快捷键",
+                    "summary": "无需鼠标即可导航和操作邮件。",
+                    "description": "几乎每个操作都有键盘快捷键，灵感来自 Superhuman 的键盘优先设计。当您在输入框、文本区域或富文本编辑器中输入时，快捷键会被禁用以避免冲突。应用支持双键序列（在 1 秒内先按 g 再按另一个键）进行导航命令。所有快捷键都是完全可自定义的 —— 在设置中重新绑定任何按键。",
+                    "tips": [
+                        {
+                            "text": "查看所有快捷键"
+                        },
+                        {
+                            "text": "导航：j/k (上/下), o (打开), Escape (返回)"
+                        },
+                        {
+                            "text": "会话内：上/下方向键在消息间导航"
+                        },
+                        {
+                            "text": "操作：e (归档), s (星标), # (删除), r (回复)"
+                        },
+                        {
+                            "text": "双键关联：先按 g 再按 i (收件箱), g 再按 s (星标), g 再按 t (已发送)"
+                        },
+                        {
+                            "text": "询问 Inbox (AI)"
+                        },
+                        {
+                            "text": "同步当前文件夹"
+                        },
+                        {
+                            "text": "在设置 > 快捷键中自定义所有快捷键。"
+                        },
+                        {
+                            "text": "快捷键在文本输入时禁用以防止冲突。"
+                        }
+                    ]
+                },
+                "labels": {
+                    "title": "标签",
+                    "summary": "通过颜色标记的标签来组织您的电子邮件。",
+                    "description": "标签的工作方式类似于 tags —— 可以为单个会话应用多个标签，以便以多种方式对其进行分类。创建带有颜色的自定义标签，以直观地区分各个类别。标签显示在侧边栏中以便快速过滤。您可以从侧边栏或设置中创建、编辑、重命名、更改颜色和删除标签。对于 Gmail 账号，标签会在设备间同步。对于 IMAP 账号，服务器文件夹会自动映射到侧边栏中的标签（例如，收件箱、已发送、草稿、已删除），自定义文件夹将显示为用户标签。",
+                    "tips": [
+                        {
+                            "text": "将线程拖放到侧边栏标签上以应用它们。"
+                        },
+                        {
+                            "text": "右键点击侧边栏中的标签进行编辑或删除。"
+                        },
+                        {
+                            "text": "点击侧边栏“标签”部分的 + 按钮创建一个。"
+                        },
+                        {
+                            "text": "一个线程可以同时拥有多个标签。"
+                        },
+                        {
+                            "text": "Gmail 标签会自动跨设备同步；IMAP 文件夹会自动映射到标签。"
+                        }
+                    ]
+                },
+                "smart-folders": {
+                    "title": "智能文件夹",
+                    "summary": "充当动态文件夹的已保存搜索。",
+                    "description": "智能文件夹是保存的搜索查询，像常规文件夹一样出现在侧边栏中。它们动态显示匹配查询的线程 —— 结果随着新邮件的到达而自动更新。在查询中使用任何搜索操作符。动态日期标记（如 __LAST_7_DAYS__ 或 __TODAY__）使结果相对于当前日期保持最新。智能文件夹会显示未读计数角标，就像常规文件夹一样。",
+                    "tips": [
+                        {
+                            "text": "点击侧边栏“智能文件夹”部分的 + 按钮。"
+                        },
+                        {
+                            "text": "使用搜索操作符：is:unread from:boss"
+                        },
+                        {
+                            "text": "动态标记：__LAST_7_DAYS__, __LAST_30_DAYS__, __TODAY__"
+                        },
+                        {
+                            "text": "每个智能文件夹在侧边栏中显示其未读计数。"
+                        },
+                        {
+                            "text": "在设置 > 邮件规则中编辑或删除智能文件夹。"
+                        }
+                    ]
+                },
+                "filters": {
+                    "title": "过滤器与规则",
+                    "summary": "按发件人、主题或内容自动对邮件进行排序。",
+                    "description": "创建自动处理新邮件的过滤规则。设置准则（按发件人地址、主题行或邮件内容匹配）并分配操作（应用标签、归档、移动到已删除、星标或标记为已读）。准则使用不区分大小写的子字符串匹配和 AND 逻辑 —— 必须满足所有准则。当多个过滤器匹配同一条消息时，它们的操作会合并在一起。过滤器在同步过程中自动运行于每条新消息。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 邮件规则中创建过滤器。"
+                        },
+                        {
+                            "text": "准则：按发件人、主题或内容匹配（AND 逻辑）。"
+                        },
+                        {
+                            "text": "操作：应用标签、归档、删除、星标、标记为已读。"
+                        },
+                        {
+                            "text": "多个匹配的过滤器合并其操作。"
+                        },
+                        {
+                            "text": "过滤器在后台同步期间针对每条新邮件自动运行。"
+                        }
+                    ]
+                },
+                "smart-labels": {
+                    "title": "智能标签",
+                    "summary": "使用纯英语描述进行 AI 驱动的自动标记。",
+                    "description": "使用自然语言描述哪些电子邮件应获得特定标签 —— 例如，“工作申请和职业机会” —— AI 会在每次同步期间自动标记匹配的电子邮件。您还可以添加可选的传统准则（来自、主题等），以便在 AI 介入前进行即时的确定性匹配。智能标签支持多标签分配，因此单个会话可以同时匹配多条规则。使用“应用到现有邮件”按钮将标签补填到当前的收件箱中。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 邮件规则 > 智能标签中创建智能标签。"
+                        },
+                        {
+                            "text": "用纯文本编写关于标签应匹配什么内容的描述。"
+                        },
+                        {
+                            "text": "可选：添加传统准则（来自、主题）以便在无 AI 的情况下即时匹配。"
+                        },
+                        {
+                            "text": "点击“应用到现有邮件”以追溯性地标记当前收件箱。"
+                        },
+                        {
+                            "text": "智能标签在同步期间针对每条新邮件自动运行。"
+                        },
+                        {
+                            "text": "需要激活 AI 提供商（Claude, GPT, 或 Gemini）。"
+                        }
+                    ]
+                },
+                "quick-steps": {
+                    "title": "快速步骤",
+                    "summary": "将多个操作合并为单击。",
+                    "description": "快速步骤让您可以将多个操作捆绑为一个。例如，创建一个快速步骤来应用标签、归档线程并将其标记为已读 —— 所有这些只需单击一下。共有 18 种可用的操作类型，包括标记、归档、删除、星标、标记已读/未读、回复、转发等。预设模板可帮助您入门，您也可以根据自己的工作流创建自定义模板。",
+                    "tips": [
+                        {
+                            "text": "从线程的操作栏访问快速步骤。"
+                        },
+                        {
+                            "text": "18 种可用操作：标签、归档、删除、星标、标记已读、回复、转发等。"
+                        },
+                        {
+                            "text": "在设置 > 邮件规则中创建和管理快速步骤。"
+                        },
+                        {
+                            "text": "预设模板可用作起点。"
+                        }
+                    ]
+                },
+                "star-pin-mute": {
+                    "title": "星标、置顶与静音",
+                    "summary": "标记、优先排序或隐藏对话。",
+                    "description": "星标线程以标记它们以便后续跟进 —— 星标线程在侧边栏有其自己的视图。置顶线程以将它们固定在邮件列表顶部，无论日期如何。静音线程以停止受其干扰 —— 静音线程会被自动归档，且该会话中的后续回复不会出现在您的收件箱中或触发通知。",
+                    "tips": [
+                        {
+                            "text": "星标 / 取消星标",
+                            "shortcut": "s"
+                        },
+                        {
+                            "text": "置顶 / 取消置顶",
+                            "shortcut": "p"
+                        },
+                        {
+                            "text": "静音 / 取消静音",
+                            "shortcut": "m"
+                        },
+                        {
+                            "text": "星标线程出现在侧边栏的星标视图中。"
+                        },
+                        {
+                            "text": "置顶线程固定在列表顶部，无论日期如何。"
+                        },
+                        {
+                            "text": "静音线程会被自动归档并抑制通知。"
+                        }
+                    ]
+                },
+                "archive-trash": {
+                    "title": "归档与删除",
+                    "summary": "从收件箱删除或永久删除。",
+                    "description": "归档会将线程从收件箱中移除，但保留在“所有邮件”中 —— 它仍然可以搜索和访问。删除会将线程移动到已删除文件夹。删除已经在已删除文件夹中的线程将永久从数据库中移除。这种两阶段删除防止了意外的永久删除。如果有新回复，归档的线程会回到您的收件箱。",
+                    "tips": [
+                        {
+                            "text": "归档",
+                            "shortcut": "e"
+                        },
+                        {
+                            "text": "删除",
+                            "shortcut": "#"
+                        },
+                        {
+                            "text": "同样支持 Delete 或 Backspace 键。"
+                        },
+                        {
+                            "text": "从已删除文件夹中删除将永久移除该线程。"
+                        },
+                        {
+                            "text": "归档线程在收到新回复时会回到收件箱。"
+                        }
+                    ]
+                },
+                "move-to-folder": {
+                    "title": "移动到文件夹",
+                    "summary": "快速将线程移动到任何文件夹或标签。",
+                    "description": "按下 V 键可打开一个可搜索的弹出窗口，您可以在其中选择目标文件夹或标签。键入内容以过滤列表，使用箭头键导航，然后按 Enter 移动线程。对于 Gmail 账号，移动会添加目标标签并从当前位置移除线程。对于 IMAP 账号，线程将被移动到服务器上的所选文件夹中。支持多选 —— 可以一次移动多个线程。",
+                    "tips": [
+                        {
+                            "text": "打开移动到对话框",
+                            "shortcut": "v"
+                        },
+                        {
+                            "text": "键入内容以搜索和过滤目标。"
+                        },
+                        {
+                            "text": "使用箭头键导航，使用 Enter 选择。"
+                        },
+                        {
+                            "text": "同样可以从操作栏和右键菜单使用。"
+                        },
+                        {
+                            "text": "适用于多选线程以进行批量移动。"
+                        }
+                    ]
+                },
+                "multi-select": {
+                    "title": "多选与批量操作",
+                    "summary": "选择多个线程进行批量操作。",
+                    "description": "点击线程以切换其选择状态。Shift + 点击以选择从上次选中的线程到当前点击的线程之间的范围。一旦您选择了多个线程，您执行的任何操作（归档、删除、星标、标记等）都会一次性应用于所有被选中的线程。键盘快捷键同样适用于您的选择 —— 按 e 归档所有选定线程，按 # 删除它们等。",
+                    "tips": [
+                        {
+                            "text": "选择所有线程",
+                            "shortcut": "Ctrl+A"
+                        },
+                        {
+                            "text": "从当前位置选择范围",
+                            "shortcut": "Ctrl+Shift+A"
+                        },
+                        {
+                            "text": "点击以切换单个线程的选择状态。"
+                        },
+                        {
+                            "text": "Shift + 点击以选择一系列线程。"
+                        },
+                        {
+                            "text": "所有键盘操作（归档、删除、星标）对所选内容均生效。"
+                        },
+                        {
+                            "text": "按 Escape 清除选择。"
+                        }
+                    ]
+                },
+                "bulk-actions": {
+                    "title": "批量操作栏",
+                    "summary": "选中多个线程时出现的工具栏。",
+                    "description": "当您选择两个或更多线程时，邮件列表顶部会出现一个批量操作栏。它为最常见的批量操作提供了一键按钮：归档、删除、标记为垃圾邮件和清除选择。当您希望在执行操作前直观确认您的选择时，这比使用键盘快捷键更快。该栏还会显示当前选择了多少个线程。",
+                    "tips": [
+                        {
+                            "text": "选择多个线程，然后使用该栏进行快速批量操作。"
+                        },
+                        {
+                            "text": "可用操作：归档、删除、垃圾邮件、清除选择。"
+                        },
+                        {
+                            "text": "该栏显示被选中线程的数量。"
+                        },
+                        {
+                            "text": "键盘快捷键与该栏在所选内容上同时生效。"
+                        }
+                    ]
+                },
+                "attachment-library": {
+                    "title": "附件库",
+                    "summary": "在一个地方浏览和搜索您所有的附件。",
+                    "description": "附件库为您提供所有电子邮件中每个附件的可搜索、可过滤视图。无需记住文件在哪个邮件中即可找到它们。按文件类型（图片、PDF、文档、电子表格、压缩包）、发件人、日期范围或文件大小进行过滤。在网格和列表视图之间切换。内联预览图片和 PDF，下载文件，或直接跳转到原始邮件对话。",
+                    "tips": [
+                        {
+                            "text": "转到附件",
+                            "shortcut": "g a"
+                        },
+                        {
+                            "text": "从侧边栏导航打开附件（回形针图标）。"
+                        },
+                        {
+                            "text": "按文件名、主题或发件人姓名搜索。"
+                        },
+                        {
+                            "text": "按类型、发件人、日期范围或文件大小过滤。"
+                        },
+                        {
+                            "text": "点击附件以预览、下载或跳转到邮件。"
+                        },
+                        {
+                            "text": "通过页眉中的切换按钮在网格和列表视图之间切换。"
+                        }
+                    ]
+                },
+                "drag-drop": {
+                    "title": "拖放操作",
+                    "summary": "将线程拖放到侧边栏标签上以应用它们。",
+                    "description": "从邮件列表中抓取一个或多个线程，并将它们拖动到侧边栏的任何标签上以应用该标签。当您悬停其上时，目标区域会高亮显示。这既适用于自定义标签，也适用于系统文件夹（如已删除）。当您放下多选线程时，它们都会被立即应用标签。",
+                    "tips": [
+                        {
+                            "text": "长按一个线程开始拖动。"
+                        },
+                        {
+                            "text": "拖放到侧边栏的任何标签上以应用该标签。"
+                        },
+                        {
+                            "text": "支持多选线程 —— 所有线程都会被标记。"
+                        },
+                        {
+                            "text": "当检测到有效放置时，侧边栏标签会高亮显示。"
+                        }
+                    ]
+                },
+                "snooze": {
+                    "title": "稍后提醒 (Snooze)",
+                    "summary": "暂时隐藏一个线程，稍后重新显示。",
+                    "description": "稍后提醒功能会将线程从收件箱中移除，并在您选择的日期和时间让它重新回来。这让您可以推迟处理目前无法处理的邮件，而不会弄丢它们。当提醒时间到达时，线程会重新出现在您的收件箱中，就像刚到的一样。稍后提醒的线程在侧边栏的稍后提醒文件夹中可见。从技术上讲，稍后提醒会移除 INBOX 标签并添加 SNOOZED 标签。",
+                    "tips": [
+                        {
+                            "text": "点击线程操作栏中的稍后提醒图标。"
+                        },
+                        {
+                            "text": "从预设中选择（今天晚些时候、明天、下周）或选取自定义时间。"
+                        },
+                        {
+                            "text": "在侧边栏的稍后提醒文件夹中查看所有提醒线程。"
+                        },
+                        {
+                            "text": "通过打开线程并点击“取消稍后提醒”来提早结束提醒。"
+                        }
+                    ]
+                },
+                "follow-up-reminders": {
+                    "title": "跟进提醒",
+                    "summary": "如果没有收到回复，获取提醒。",
+                    "description": "在发送重要邮件后，设置跟进提醒。如果没有人在您选择的时间内（例如 2 天、1 周）回复，您将收到提醒您跟进的通知。仅当会话中没有新回复时，提醒才会触发 —— 如果有人在截止日期前回复，提醒会自动取消。跟进提醒每 60 秒在后台检查一次。",
+                    "tips": [
+                        {
+                            "text": "从线程操作栏设置跟进提醒。"
+                        },
+                        {
+                            "text": "选择时间期限：1 天、2 天、1 周或自定义。"
+                        },
+                        {
+                            "text": "如果有回复在截止日期前到达，提醒会自动取消。"
+                        },
+                        {
+                            "text": "跟进到期时，您会收到桌面通知。"
+                        }
+                    ]
+                },
+                "split-inbox": {
+                    "title": "分类收件箱",
+                    "summary": "将您的收件箱分为多个类别选项卡。",
+                    "description": "分类收件箱将您的收件箱组织为五个类别选项卡：主要、社交、促销、动态和论坛。每个选项卡仅显示属于该类别的线程，让您可以专注于重要的内容。新邮件会自动通过 AI（或基于规则的后备策略）进行分类。通过侧边栏收件箱旁的图标切换分类收件箱。当分类模式关闭时，所有类别的邮件将一起显示。",
+                    "tips": [
+                        {
+                            "text": "通过侧边栏收件箱旁的分栏图标切换分类收件箱。"
+                        },
+                        {
+                            "text": "类别：主要、动态、促销、社交、订阅。"
+                        },
+                        {
+                            "text": "AI 在同步期间自动对新邮件进行分类。"
+                        },
+                        {
+                            "text": "基于规则的分类优先运行，AI 补填其余内容。"
+                        },
+                        {
+                            "text": "您可以在设置中自动归档“非主要”类别的邮件。"
+                        }
+                    ]
+                },
+                "spam": {
+                    "title": "垃圾邮件",
+                    "summary": "举报垃圾邮件或拯救合法邮件。",
+                    "description": "将不想要的邮件标记为垃圾邮件，将其移至垃圾邮件文件夹。该操作是根据上下文感知的：查看垃圾邮件文件夹时，按钮变为“非垃圾邮件”，这样您可以拯救被错误标记的合法邮件。对于 Gmail 账号，垃圾邮件报告会同步回 Gmail 以改进其垃圾邮件过滤器。对于 IMAP 账号，邮件会被移动到服务器的垃圾邮件文件夹中。",
+                    "tips": [
+                        {
+                            "text": "举报垃圾邮件 / 非垃圾邮件",
+                            "shortcut": "!"
+                        },
+                        {
+                            "text": "在垃圾邮件文件夹中，该快捷键将线程标记为非垃圾邮件。"
+                        },
+                        {
+                            "text": "Gmail 账号：垃圾邮件报告有助于随着时间的推移改进 Gmail 的过滤器。"
+                        },
+                        {
+                            "text": "IMAP 账号：邮件被移动到服务器上的相应文件夹。"
+                        }
+                    ]
+                },
+                "ai-overview": {
+                    "title": "AI 概览",
+                    "summary": "选择您的 AI 提供商并自带 API 密钥。",
+                    "description": "本应用支持三种 AI 提供商：Anthropic Claude, OpenAI GPT, 和 Google Gemini。您需要自带 API 密钥，这意味着您的邮件数据会直接发送到提供商的 API —— 不涉及中间人或第三方服务器。API 密钥安全地存储在您的本地数据库中。AI 功能包括会话摘要、智能回复、撰写辅助、文本转换和自然语言收件箱查询。您可以全局启用或禁用 AI 功能，并选择要使用的提供商。",
+                    "tips": [
+                        {
+                            "text": "在设置 > AI 中添加您的 API 密钥。"
+                        },
+                        {
+                            "text": "支持的提供商：Claude, OpenAI, 和 Gemini。"
+                        },
+                        {
+                            "text": "在设置中选择每个提供商要使用的模型（例如 Claude Haiku 4.5, GPT-4o Mini, Gemini 2.5 Flash）。"
+                        },
+                        {
+                            "text": "您的数据直接发送给提供商 API —— 无中间环节。"
+                        },
+                        {
+                            "text": "API 密钥安全地存储在您的本地数据库中。"
+                        },
+                        {
+                            "text": "AI 结果在本地缓存以减少 API 调用。"
+                        },
+                        {
+                            "text": "通过设置中的一个开关全局禁用 AI。"
+                        }
+                    ]
+                },
+                "thread-summaries": {
+                    "title": "会话摘要",
+                    "summary": "AI 生成的长会话简明扼要的概览。",
+                    "description": "对于包含多条消息的长线程，点击摘要按钮可获得由 AI 生成的简明概览。摘要汇集了整个对话中的关键点、决定和待办事项，让您不必阅读数十条消息。摘要会在本地缓存，因此您只需为 API 调用付费一次。尤其适用于您被抄送的情况，或者需要追赶进度的情况。",
+                    "tips": [
+                        {
+                            "text": "点击线程视图页眉中的摘要图标。"
+                        },
+                        {
+                            "text": "摘要已缓存 —— 后续查看是即时且免费的。"
+                        },
+                        {
+                            "text": "最适合 5 条以上消息的长会话。"
+                        },
+                        {
+                            "text": "捕捉关键决策、行动项目和核心要点。"
+                        }
+                    ]
+                },
+                "smart-replies": {
+                    "title": "智能回复",
+                    "summary": "AI 建议的快速回复选项。",
+                    "description": "查看线程时，AI 会分析最新消息并建议 2-3 个短语回复选项 —— 例如“听起来不错，谢谢！”、“让我查一下后再回复你”或“我下周二有空”。点击建议将其插入回复编辑器，然后根据需要进行编辑后再发送。智能回复节省了处理常规回复的时间。",
+                    "tips": [
+                        {
+                            "text": "智能回复建议出现在线程最后一条消息的下方。"
+                        },
+                        {
+                            "text": "点击建议将其插入回复编辑器。"
+                        },
+                        {
+                            "text": "发送前编辑建议 —— 它是起点而非终点。"
+                        },
+                        {
+                            "text": "建议是基于邮件内容进行的一定程度的上下文感知的。"
+                        }
+                    ]
+                },
+                "ai-compose": {
+                    "title": "AI 撰写与转换",
+                    "summary": "在 AI 的辅助下起草邮件或重写文本。",
+                    "description": "打开编辑器中的 AI 辅助面板以获得起草邮件的帮助。描述您想说的内容，AI 会生成草稿。您还可以选择现有文本并进行转换：更改语气（正式、休闲、友好）、修复语法和拼写、翻译成另一种语言、缩短或扩展文本，或简化复杂语言。所有转换都在编辑器内就地进行。",
+                    "tips": [
+                        {
+                            "text": "通过编辑器工具栏中的闪烁图标打开 AI 辅助。"
+                        },
+                        {
+                            "text": "描述您的邮件，AI 生成草稿。"
+                        },
+                        {
+                            "text": "选择文本进行转换：语气、语法、翻译、缩短、扩展。"
+                        },
+                        {
+                            "text": "转换会就地替换所选文本。"
+                        },
+                        {
+                            "text": "发送前审查并编辑 AI 输出。"
+                        }
+                    ]
+                },
+                "auto-drafts": {
+                    "title": "AI 自动草稿回复",
+                    "summary": "回复编辑器自动填充由 AI 生成的符合您写作风格的草稿。",
+                    "description": "当您点击回复或全部回复时，编辑器会自动填充为您写作风格相匹配的 AI 草稿。AI 通过分析您最近发送的 15 封邮件来学习您的风格 —— 它会捕捉您的语气、问候模式、结尾风格和典型措辞。风格概况按账号缓存，因此分析只进行一次。草稿也按线程和回复模式缓存。您可以重新生成草稿、清除并重新开始，或者直接编辑。如果您在草稿加载前开始输入，自动填充将被取消，因此您不会被打扰。自动草稿适用于回复和全部回复，不适用于转发。",
+                    "tips": [
+                        {
+                            "text": "在设置 > AI > 自动草稿回复中切换此功能。"
+                        },
+                        {
+                            "text": "写作风格是从您最近发送的 15 封邮件中学习的。"
+                        },
+                        {
+                            "text": "点击“重新生成”以获取同一线程的新草稿。"
+                        },
+                        {
+                            "text": "点击“清除”以移除草稿并从头开始撰写。"
+                        },
+                        {
+                            "text": "草稿加载前输入会取消自动填充。"
+                        },
+                        {
+                            "text": "草稿已缓存 —— 重新打开同一个回复是即时的。"
+                        },
+                        {
+                            "text": "在设置中点击“重新分析”以刷新您的写作风格概况。"
+                        }
+                    ]
+                },
+                "ask-inbox": {
+                    "title": "咨询收件箱",
+                    "summary": "用简单的中文询问有关您的邮件的问题。",
+                    "description": "提出关于收件箱的自然语言问题并获得 AI 驱动的回答。例如：“约翰关于 Q3 截止日期说了什么？”、“显示上个月的所有收据”或“总结我今天的未读邮件”。AI 会搜索您的本地邮件数据库，找到相关的会话，并生成包含具体邮件引用的全面回答。",
+                    "tips": [
+                        {
+                            "text": "从搜索区域或命令面板中打开“咨询收件箱”。"
+                        },
+                        {
+                            "text": "使用普通中文提问 —— 无需使用搜索操作符。"
+                        },
+                        {
+                            "text": "示例：“约翰逊那笔交易的状态如何？”"
+                        },
+                        {
+                            "text": "AI 会搜索您的本地数据库以查找相关邮件。"
+                        },
+                        {
+                            "text": "回答包含可以点击打开的具体会话引用。"
+                        }
+                    ]
+                },
+                "newsletter-bundles": {
+                    "title": "订阅邮件聚合",
+                    "summary": "按发件人对订阅邮件进行分组，并按计划投递。",
+                    "description": "将来自同一发件人的订阅邮件进行聚合，以便它们按您选择的计划（每日、每周或特定日期）投递。与其整天被订阅邮件打断，不如将它们保留并批量投递。每个聚合包将该发件人的所有邮件归组到单个侧边栏条目下。您可以为每个发件人创建聚合包，并为每个发件人设置不同的投递计划。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 联系人中管理聚合包。"
+                        },
+                        {
+                            "text": "选择投递频率：每日、每周或特定日期。"
+                        },
+                        {
+                            "text": "聚合的订阅邮件将一直保留到下一次投递时间。"
+                        },
+                        {
+                            "text": "每个发件人都可以拥有自己的投递计划。"
+                        }
+                    ]
+                },
+                "unsubscribe": {
+                    "title": "退订",
+                    "summary": "一键退订邮件列表。",
+                    "description": "在查看订阅邮件或营销邮件时，点击“退订”（或按 u）即可瞬间退订。应用会检测 List-Unsubscribe 标头，并在可用时使用 RFC 8058 一键 POST 方法自动处理该过程，或者回退到 mailto: 退订方式。您的退订操作会被记录，以便您跟踪已退订的内容。",
+                    "tips": [
+                        {
+                            "text": "退订当前会话",
+                            "shortcut": "u"
+                        },
+                        {
+                            "text": "可用时使用 RFC 8058 一键退订。"
+                        },
+                        {
+                            "text": "如果不支持一键退订，则回退到 mailto: 退订。"
+                        },
+                        {
+                            "text": "在设置 > 联系人中查看退订历史。"
+                        }
+                    ]
+                },
+                "notifications-vip": {
+                    "title": "通知与 VIP 发件人",
+                    "summary": "具有智能过滤功能的桌面通知。",
+                    "description": "新邮件到达时获取桌面通知。智能通知让您可以选择触发通知的收件箱类别（例如，仅限主要邮件），减少来自动态和促销邮件的干扰。添加 VIP 发件人，无论邮件属于哪个类别，他们总能触发通知 —— 对您的老板、主要客户或家人非常有用。静音的线程永远不会触发通知。通知使用您操作系统的原生通知系统。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 通知中启用通知。"
+                        },
+                        {
+                            "text": "智能通知：选择触发警报的类别。"
+                        },
+                        {
+                            "text": "添加无论分类如何总是发出通知的 VIP 发件人。"
+                        },
+                        {
+                            "text": "静音的线程永远不会触发通知。"
+                        },
+                        {
+                            "text": "使用操作系统的原生通知系统（Windows, macOS, Linux）。"
+                        }
+                    ]
+                },
+                "contact-sidebar": {
+                    "title": "联系人侧边栏",
+                    "summary": "查看联系人详情、历史记录和快捷操作。",
+                    "description": "点击发件人的姓名或头像即可打开联系人侧边栏。它会显示他们的个人资料照片（通过 Gravatar）、电子邮件地址、您给他们发邮件的频率、你们首次联系的时间、最近的对话线程、共享的附件以及快捷操作（撰写新邮件、复制地址）。该侧边栏让您无需离开收件箱即可了解与您交流的人的背景信息。",
+                    "tips": [
+                        {
+                            "text": "点击任何发件人姓名或头像以打开联系人侧边栏。"
+                        },
+                        {
+                            "text": "显示个人资料照片、电子邮件、联系频率和首次联系日期。"
+                        },
+                        {
+                            "text": "快捷操作：撰写新邮件、复制地址。"
+                        },
+                        {
+                            "text": "浏览最近共享的线程和附件。"
+                        },
+                        {
+                            "text": "为联系人添加备注以供自己参考。"
+                        }
+                    ]
+                },
+                "phishing-detection": {
+                    "title": "钓鱼检测",
+                    "summary": "自动扫描邮件链接中的威胁。",
+                    "description": "每封邮件的链接都会使用 10 条启发式规则进行扫描，以检测常见的钓鱼模式：基于 IP 的 URL、同形异义词/punycode 攻击、可疑的顶级域名（TLD）、URL 缩短服务、显示文本与实际 URL 不匹配、可疑的路径模式、品牌名称冒充、危险协议（javascript:, data:）、冒充公司的免费电子邮件地址以及子域名欺骗。风险邮件会显示警告横幅。您可以调整灵敏度（低、默认、高），并将信任的发件人加入白名单以抑制警告。",
+                    "tips": [
+                        {
+                            "text": "在设置中调整灵敏度（低 / 默认 / 高）。"
+                        },
+                        {
+                            "text": "低：仅捕捉明显的威胁。高：更激进，可能有误报。"
+                        },
+                        {
+                            "text": "将信任的发件人加入白名单以抑制警告。"
+                        },
+                        {
+                            "text": "10 条启发式规则涵盖了常见的钓鱼模式。"
+                        },
+                        {
+                            "text": "风险邮件顶部会出现警告横幅。"
+                        },
+                        {
+                            "text": "扫描结果会被缓存 —— 每个链接仅分析一次。"
+                        }
+                    ]
+                },
+                "auth-badges": {
+                    "title": "身份验证徽章 (SPF/DKIM/DMARC)",
+                    "summary": "查看发件人的身份是否经过验证。",
+                    "description": "每封邮件都会显示一个身份验证徽章，表明发件人是否通过了 SPF（发件人 IP 验证）、DKIM（邮件签名）和 DMARC（对齐策略）检查。绿色徽章意味着所有检查均已通过 —— 该邮件确实来自它所声称的发件人。红色徽章表示检查失败，这可能意味着邮件是伪造或冒充的。橙色表示部分通过。这些信息是从邮件的 Authentication-Results 标头中解析出来的。",
+                    "tips": [
+                        {
+                            "text": "绿色徽章：所有身份验证检查均已通过。"
+                        },
+                        {
+                            "text": "红色徽章：一个或多个检查失败 —— 可能存在冒充。"
+                        },
+                        {
+                            "text": "橙色徽章：部分通过 —— 某些检查结果不确定。"
+                        },
+                        {
+                            "text": "点击徽章以查看详细的 SPF、DKIM 和 DMARC 结果。"
+                        },
+                        {
+                            "text": "身份验证数据来自邮件的标头。"
+                        }
+                    ]
+                },
+                "remote-image-blocking": {
+                    "title": "远程图片屏蔽",
+                    "summary": "默认屏蔽追踪像素和远程图片。",
+                    "description": "远程图片（从外部服务器加载）默认会被屏蔽以保护您的隐私。许多营销邮件使用不可见的追踪像素，当您打开邮件时，这些像素会通知发件人。当图片被屏蔽时，您会看到图片原本所在位置的占位区域。您可以允许来自特定发件人的图片（他们会被加入白名单），或者在设置中全局禁用屏蔽。允许的发件人的图片在未来的邮件中会自动加载。",
+                    "tips": [
+                        {
+                            "text": "默认屏蔽图片以保护隐私。"
+                        },
+                        {
+                            "text": "点击邮件上的“显示图片”以加载该发件人的图片。"
+                        },
+                        {
+                            "text": "已允许的发件人会被记住 —— 下次图片会自动加载。"
+                        },
+                        {
+                            "text": "在设置 > 通用中全局禁用屏蔽。"
+                        },
+                        {
+                            "text": "屏蔽报告何时打开邮件的追踪像素。"
+                        }
+                    ]
+                },
+                "link-confirmation": {
+                    "title": "链接确认",
+                    "summary": "在浏览器中打开 URL 之前先预览它们。",
+                    "description": "当您点击邮件中的链接时，在打开它之前，确认对话框会显示实际的目标 URL。这可以防止您意外访问那些用友好的显示文本伪装其 URL 的恶意网站。对话框显示完整的 URL，以便您可以验证它看起来是否合法。您可以选择继续访问、复制 URL 或取消。这与钓鱼检测功能结合使用时特别有用。",
+                    "tips": [
+                        {
+                            "text": "每次点击链接都会显示包含实际 URL 的确认信息。"
+                        },
+                        {
+                            "text": "在继续操作前验证域名看起来是否合法。"
+                        },
+                        {
+                            "text": "如果不确定，复制 URL 以进行更详细的检查。"
+                        },
+                        {
+                            "text": "与钓鱼检测配合使用，提供多层保护。"
+                        }
+                    ]
+                },
+                "calendar-integration": {
+                    "title": "Google 日历集成",
+                    "summary": "在查看邮件的同时查看和管理您的日历。",
+                    "description": "直接从侧边栏访问您的 Google 日历。在日、周和月视图之间切换。通过颜色编码的日历支持（如果您有多个 Google 日历）查看您的所有活动。直接从应用中创建新活动，无需切换到浏览器。日历使用与您的电子邮箱相同的 Google 账号，并自动刷新。使用工具栏控件在日期之间导航。",
+                    "tips": [
+                        {
+                            "text": "从侧边栏导航打开日历。"
+                        },
+                        {
+                            "text": "从工具栏切换日、周和月视图。"
+                        },
+                        {
+                            "text": "点击时间槽以创建新活动。"
+                        },
+                        {
+                            "text": "支持多个 Google 日历的颜色编码。"
+                        },
+                        {
+                            "text": "日历使用与您的电子邮件相同的 Google OAuth 账号。"
+                        },
+                        {
+                            "text": "活动在后台自动刷新。"
+                        }
+                    ]
+                },
+                "task-manager": {
+                    "title": "任务管理器",
+                    "summary": "具有优先级、截止日期和子任务的完整任务管理功能。",
+                    "description": "Velo 包含一个内置的任务管理器，可通过侧边栏或 g 然后按 k 快捷键访问。创建带有标题、描述、优先级（无、低、中、高、紧急）、截止日期和标签的任务。任务可以有一级子任务，用于分解复杂项。拖动以重新排序任务，按状态或优先级过滤，并按优先级、截止日期或标签分组。已完成的任务可以显示或隐藏。任务侧边栏面板显示链接到当前邮件会话的任务。",
+                    "tips": [
+                        {
+                            "text": "转到任务页面",
+                            "shortcut": "g k"
+                        },
+                        {
+                            "text": "从侧边栏的“任务”项打开任务。"
+                        },
+                        {
+                            "text": "从任务侧边栏底部的输入框快速添加任务。"
+                        },
+                        {
+                            "text": "侧边栏角标显示您未完成的任务计数。"
+                        },
+                        {
+                            "text": "按状态（全部、进行中、已完成）或优先级过滤任务。"
+                        },
+                        {
+                            "text": "按优先级、截止日期或标签对任务进行分组。"
+                        }
+                    ]
+                },
+                "ai-task-extraction": {
+                    "title": "AI 任务提取",
+                    "summary": "按 t 使用 AI 从当前邮件中提取任务。",
+                    "description": "在查看邮件会话时，按 t 让 AI 分析对话并提取可执行任务。AI 会根据邮件内容识别任务标题、描述、建议的截止日期和优先级。对话框显示提取的任务，并带有可编辑字段 —— 在创建之前调整标题、描述、优先级或截止日期。该任务链接到邮件会话，因此您可以随时跳转回原始背景。也可从命令面板作为“从邮件创建任务 (AI)”使用。",
+                    "tips": [
+                        {
+                            "text": "从邮件提取任务",
+                            "shortcut": "t"
+                        },
+                        {
+                            "text": "也可在命令面板中使用（Ctrl+K → “从邮件创建任务”）。"
+                        },
+                        {
+                            "text": "在创建任务前编辑提取的字段。"
+                        },
+                        {
+                            "text": "该任务会链接回原始邮件会话。"
+                        },
+                        {
+                            "text": "需要激活 AI 提供商（Claude, GPT, 或 Gemini）。"
+                        }
+                    ]
+                },
+                "task-sidebar": {
+                    "title": "任务侧边栏面板",
+                    "summary": "查看和管理与当前邮件相关的任务。",
+                    "description": "通过操作栏（ListTodo 图标）切换任务侧边栏面板，以查看与当前邮件会话关联的任务。该面板显示关联任务及其状态、优先级和截止日期。您可以从面板快速添加新任务、切换完成状态或点击进入完整的任务页面。通过 AI 提取创建的任务会自动链接到其来源邮件。",
+                    "tips": [
+                        {
+                            "text": "通过操作栏按钮切换任务面板。"
+                        },
+                        {
+                            "text": "通过面板底部的输入框快速添加任务。"
+                        },
+                        {
+                            "text": "点击“查看所有任务”进入完整的任务页面。"
+                        },
+                        {
+                            "text": "AI 提取的任务会自动链接到邮件。"
+                        }
+                    ]
+                },
+                "recurring-tasks": {
+                    "title": "重复任务",
+                    "summary": "按计划自动重复的任务。",
+                    "description": "创建按计划重复的任务 —— 每日、每周、每月或每年，并可配置间隔。当您完成一个重复任务时，下一个实例会自动创建，其截止日期按重复间隔推进。这对于定期审查、周报、月度检查或任何重复性职责都非常有用。设置了计划的任务会出现重复图标。",
+                    "tips": [
+                        {
+                            "text": "在创建或编辑任务时设置重复。"
+                        },
+                        {
+                            "text": "选项：每日、每周、每月、每年以及间隔。"
+                        },
+                        {
+                            "text": "完成重复任务会自动创建下一个实例。"
+                        },
+                        {
+                            "text": "重复图标表示该任务设有计划。"
+                        }
+                    ]
+                },
+                "theme": {
+                    "title": "浅色与深色模式",
+                    "summary": "在浅色、深色或系统主题之间切换。",
+                    "description": "在浅色模式、深色模式或系统同步（跟随您的操作系统设置）之间选择。深色模式使用精心挑选的颜色，以便在弱光环境下舒适阅读，具有深色背景和柔和文本。主题会立即切换并持续到下次启动。动画梯度背景也会自适应 —— 浅色模式使用蓝色/紫色/粉色，深色模式使用更深的蓝色和紫色。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 通用中更改主题。"
+                        },
+                        {
+                            "text": "“系统”跟随您的操作系统的浅色/深色首选项。"
+                        },
+                        {
+                            "text": "深色模式针对弱光环境进行了优化。"
+                        },
+                        {
+                            "text": "动画背景梯度会根据浅色/深色模式自适应。"
+                        }
+                    ]
+                },
+                "accent-colors": {
+                    "title": "强调色",
+                    "summary": "8 种颜色预设，个性化应用外观。",
+                    "description": "从 8 种强调色预设中选择以个性化应用外观：靛蓝（默认）、玫瑰红、祖母绿、琥珀黄、天蓝色、紫罗兰、橙色或石板色。每种预设都有针对阅读优化过的、独立的浅色和深色模式变体。强调色用于整个应用中的按钮、激活状态、链接、徽章和高亮。强调色独立于浅色/深色主题。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 通用中更改强调色。"
+                        },
+                        {
+                            "text": "8 种预设：靛蓝、玫瑰红、祖母绿、琥珀黄、天蓝色、紫罗兰、橙色、石板色。"
+                        },
+                        {
+                            "text": "每种颜色都有优化的浅色和深色变体。"
+                        },
+                        {
+                            "text": "强调色独立于浅色/深色主题。"
+                        }
+                    ]
+                },
+                "font-density": {
+                    "title": "字体大小与邮件密度",
+                    "summary": "调整文本大小和列表间距。",
+                    "description": "字体缩放可调整整个应用的整体文本大小：小、默认、大或超大。邮件密度控制邮件列表中的间距：紧凑（显示更多邮件）、默认（均衡）或舒适（更多留白）。这两项设置可以结合使用 —— 使用大字体搭配舒适密度以提高可访问性，或使用小字体搭配紧凑密度以一次查看更多内容。",
+                    "tips": [
+                        {
+                            "text": "字体大小：小、默认、大、超大。"
+                        },
+                        {
+                            "text": "密度选项：紧凑、默认、舒适。"
+                        },
+                        {
+                            "text": "紧凑密度在邮件列表中显示更多会话。"
+                        },
+                        {
+                            "text": "大字体 + 舒适密度非常适合提高辅助功能。"
+                        }
+                    ]
+                },
+                "layout-customization": {
+                    "title": "布局自定义",
+                    "summary": "调整侧边栏、阅读窗格和列表宽度。",
+                    "description": "自定义您的工作区布局：将侧边栏折叠为仅限图标模式以获得更多屏幕空间，选择阅读窗格位置（右侧、底部或隐藏），拖动分隔符以调整邮件列表宽度，以及切换联系人侧边栏。所有布局首选项都会在启动时自动保存并恢复。侧边栏切换还具有用于快速访问的键盘快捷键。",
+                    "tips": [
+                        {
+                            "text": "切换侧边栏",
+                            "shortcut": "Ctrl+Shift+E"
+                        },
+                        {
+                            "text": "将侧边栏折叠为仅图标以获得更多空间。"
+                        },
+                        {
+                            "text": "拖动列表/窗格分隔线以调整宽度。"
+                        },
+                        {
+                            "text": "所有布局首选项在重启后依然保持。"
+                        }
+                    ]
+                },
+                "sidebar-customization": {
+                    "title": "侧边栏自定义",
+                    "summary": "隐藏、显示和重排侧边栏导航项目。",
+                    "description": "控制侧边栏中显示的项目及其顺序。前往 设置 > 通用 > 侧边栏，切换任何导航项目（星标、稍后提醒、已发送、草稿、已删除、垃圾邮件、所有邮件、任务、日历、附件）的可见性，并使用上/下箭头对它们进行重排。您也可以完全隐藏智能文件夹和标签部分。“收件箱”始终可见，无法隐藏。使用“恢复默认”来恢复原始布局。更改会立即生效并持续到下次启动。",
+                    "tips": [
+                        {
+                            "text": "隐藏您很少使用的项目以减少侧边栏杂乱。"
+                        },
+                        {
+                            "text": "重排项目，将您最常用的文件夹放在顶部。"
+                        },
+                        {
+                            "text": "关闭“智能文件夹”或“标签”以隐藏这些部分。"
+                        },
+                        {
+                            "text": "收件箱始终可见 —— 它无法被隐藏。"
+                        },
+                        {
+                            "text": "点击“恢复默认”以恢复原始顺序。"
+                        }
+                    ]
+                },
+                "multi-account": {
+                    "title": "多账号管理",
+                    "summary": "并排管理 Gmail 和 IMAP 账号。",
+                    "description": "添加和管理多个电子邮件账号 —— 随心混合使用 Gmail (OAuth) 和 IMAP/SMTP 账号。每个账号都有自己的收件箱、标签、过滤器和同步状态。使用侧边栏顶部的账号切换器在账号之间进行切换。当前活动账号的邮件会显示在主视图中。您可以在设置中添加、重新授权或移除账号。每个账号在自己的 60 秒循环周期内独立同步。",
+                    "tips": [
+                        {
+                            "text": "点击侧边栏顶部的账号切换器进行切换。"
+                        },
+                        {
+                            "text": "混合 Gmail 和 IMAP 账号 —— 它们并排工作。"
+                        },
+                        {
+                            "text": "每个账号都有独立的收件箱、标签和同步功能。"
+                        },
+                        {
+                            "text": "在设置 > 账号中添加或移除账号。"
+                        },
+                        {
+                            "text": "如果令牌过期，请重新授权 Gmail 账号。"
+                        }
+                    ]
+                },
+                "system-tray": {
+                    "title": "系统托盘与自动启动",
+                    "summary": "最小化到托盘并在开机时启动。",
+                    "description": "当您关闭应用窗口时，它会最小化到系统托盘而不是退出 —— 应用仍在后台运行，继续同步邮件并检查通知。点击托盘图标重新显示窗口，右键点击弹出菜单（显示、检查邮件、退出）。启用自动启动，让应用在电脑启动时自动运行 —— 它启动时会最小化到托盘，以便在不占用任务栏的情况下做好准备。",
+                    "tips": [
+                        {
+                            "text": "关闭窗口会最小化到托盘（不退出）。"
+                        },
+                        {
+                            "text": "右键点击托盘图标可进行：显示、检查邮件、退出。"
+                        },
+                        {
+                            "text": "在设置 > 通用中启用自动启动。"
+                        },
+                        {
+                            "text": "自动启动会以最小化方式启动 —— 应用在后台准备就绪。"
+                        },
+                        {
+                            "text": "在托盘中时，应用依然会继续同步和通知。"
+                        }
+                    ]
+                },
+                "global-compose": {
+                    "title": "全局撰写快捷键",
+                    "summary": "使用全系统快捷键从任何地方撰写邮件。",
+                    "description": "注册一个全系统的键盘快捷键，该快捷键可从您电脑的任何地方打开撰写窗口 —— 即使应用最小化到托盘或焦点在另一个应用上也是如此。这让您无需切换窗口即可快速发送邮件。快捷键可在 设置 > 快捷键 中自定义。应用窗口将出现，撰写器已准备就绪。",
+                    "tips": [
+                        {
+                            "text": "在设置 > 快捷键中设置全局撰写快捷键。"
+                        },
+                        {
+                            "text": "即使应用最小化到托盘也有效。"
+                        },
+                        {
+                            "text": "按下快捷键后，撰写窗口会立即打开。"
+                        },
+                        {
+                            "text": "在任何应用中都有效 —— 无需先切换到本应用。"
+                        }
+                    ]
+                },
+                "pop-out-windows": {
+                    "title": "弹出窗口",
+                    "summary": "在独立窗口中打开邮件会话。",
+                    "description": "在独立的窗口中打开任何邮件会话，以便并排阅读、查阅或进行多任务处理。弹出窗口具有其自己的全功能会话视图 —— 您可以阅读、回复、转发并执行操作，而无需返回主窗口。每个弹出窗口默认大小为 800x700 像素，且可以调整大小。可以同时弹出多个邮件会话。",
+                    "tips": [
+                        {
+                            "text": "点击会话操作栏中的弹出图标。"
+                        },
+                        {
+                            "text": "弹出窗口全功能 —— 可阅读、回复和操作。"
+                        },
+                        {
+                            "text": "可以在单独的窗口中打开多个邮件。"
+                        },
+                        {
+                            "text": "弹出窗口独立于主应用窗口。"
+                        }
+                    ]
+                },
+                "manual-sync": {
+                    "title": "手动同步",
+                    "summary": "立即触发当前文件夹的同步。",
+                    "description": "按 F5 立即同步当前文件夹或标签，而无需等待下一个 60 秒的后台同步周期。当您在等待某封邮件且不想等待时，或者在另一个客户端进行了更改后，这非常有用。对于 Gmail，这会获取新的历史记录更改；对于 IMAP，它会检查当前文件夹中的新 UID。",
+                    "tips": [
+                        {
+                            "text": "同步当前文件夹",
+                            "shortcut": "F5"
+                        },
+                        {
+                            "text": "后台同步每 60 秒自动运行一次。"
+                        },
+                        {
+                            "text": "当您在等待新邮件时，手动同步非常有用。"
+                        }
+                    ]
+                },
+                "offline-mode": {
+                    "title": "离线模式",
+                    "summary": "在没有网络连接的情况下继续工作。",
+                    "description": "即使在离线状态下，也可以归档、星标、删除、移动、标记和撰写邮件。更改会排队在本地，并在您的连接恢复时自动同步。离线时，屏幕顶部会出现一个横幅，侧边栏显示有多少个操作待处理。冗余的操作（比如先星标又取消星标）会自动合并，因此只有最终结果会进行同步。",
+                    "tips": [
+                        {
+                            "text": "所有操作在离线状态下依然有效 —— 归档、星标、删除、标记、撰写。"
+                        },
+                        {
+                            "text": "待处理的更改会在您重新连接时自动同步。"
+                        },
+                        {
+                            "text": "在设置 > 账号中检查待处理和失败的操作。"
+                        },
+                        {
+                            "text": "失败的操作可以从设置中重试或清除。"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "help": {
+        "title": "帮助",
+        "back_to_inbox": "返回到收件箱",
+        "search_placeholder": "搜索帮助文章...",
+        "no_results": "未找到关于 '{{query}}' 的结果",
+        "open_in_settings": "在设置中打开",
+        "categories": {
+            "getting-started": "开始使用",
+            "reading-email": "阅读邮件",
+            "composing": "撰写与发送",
+            "search-navigation": "搜索与导航",
+            "organization": "管理组织",
+            "productivity": "生产力",
+            "ai-features": "AI 功能",
+            "newsletters": "时事通讯与订阅",
+            "notifications-contacts": "通知与联系人",
+            "security": "安全与隐私",
+            "calendar": "日历",
+            "tasks": "任务",
+            "appearance": "外观与布局",
+            "accounts-system": "账号与系统维护"
+        },
+        "cards": {
+            "add-account": {
+                "title": "添加您的电子邮件账号",
+                "summary": "连接 Gmail 或 IMAP/SMTP 账号以开始使用应用。",
+                "description": "点击侧边栏顶部的账号切换器以添加账号。对于 Gmail，请按照 OAuth 登录流程使用您自己的 Google Cloud 凭据。对于其他提供商（Outlook、Yahoo、iCloud、Fastmail 等），选择“添加 IMAP 账号”并输入您的电子邮件和密码 —— 流行提供商的服务器设置会自动发现。您可以添加任何类型的多个账号并即时切换。每个账号独立同步，拥有自己的收件箱、标签和设置。",
+                "tips": [
+                    {
+                        "text": "账号切换器始终位于侧边栏顶部。"
+                    },
+                    {
+                        "text": "Gmail 账号使用 OAuth；IMAP 账号使用密码或应用专用密码。"
+                    },
+                    {
+                        "text": "每个账号都有自己的标签、过滤器和同步状态。"
+                    },
+                    {
+                        "text": "在设置 > 账号中删除或重新授权账号。"
+                    }
+                ]
+            },
+            "initial-sync": {
+                "title": "初始同步",
+                "summary": "首次同步会下载您的电子邮件历史记录。",
+                "description": "当您添加新账号时，应用会执行初始同步，下载您去年的电子邮件（可配置）。这会构建一个本地数据库，以便快速离线搜索和浏览。根据您的收件箱大小，这可能需要几分钟。同步在后台运行时，您可以正常使用应用 —— 阅读、撰写和发送无需等待。初始同步完成后，应用切换到增量同步（每 60 秒一次）以仅获取新更改。Gmail 使用 History API 进行增量同步；IMAP 使用基于 UID 的跟踪。",
+                "tips": [
+                    {
+                        "text": "在设置 > 账号中更改同步周期（30 天到 1 年）。"
+                    },
+                    {
+                        "text": "初始同步期间应用完全可用。"
+                    },
+                    {
+                        "text": "首次同步完成后，每 60 秒运行一次增量同步。"
+                    },
+                    {
+                        "text": "Gmail：如果同步历史记录过期（离线约 30 天），应用会自动回退到全量同步。"
+                    },
+                    {
+                        "text": "IMAP：如果文件夹 UIDVALIDITY 更改，应用会自动重新同步该文件夹。"
+                    }
+                ]
+            },
+            "client-id-setup": {
+                "title": "Google Client ID 设置",
+                "summary": "设置您自己的 Google Cloud OAuth 凭据（仅限 Gmail）。",
+                "description": "此步骤仅适用于 Gmail 账号。应用使用您自己的 Google Cloud 项目进行 OAuth 身份验证 —— 这意味着您的凭据保留在您的设备上，永远不会被分享。当您第一次添加 Gmail 账号时，设置向导会指导您创建 Google Cloud 项目、启用 Gmail 和 Calendar API 并生成 OAuth Client ID。该过程约需 5 分钟。应用使用 PKCE 身份验证，因此不需要 Client Secret。IMAP/SMTP 账号不需要 Client ID。",
+                "tips": [
+                    {
+                        "text": "访问 console.cloud.google.com 创建您的项目。"
+                    },
+                    {
+                        "text": "启用 Gmail API 和 Google Calendar API。"
+                    },
+                    {
+                        "text": "创建 OAuth 凭据时选择“桌面应用”。"
+                    },
+                    {
+                        "text": "您的 Client ID 存储在本地 —— 绝不会发送到外部服务器。"
+                    },
+                    {
+                        "text": "稍后可在 设置 > 关于 中更新您的 Client ID。"
+                    },
+                    {
+                        "text": "IMAP 账号完全跳过此步骤 —— 不需要 Google Cloud 项目。"
+                    }
+                ]
+            },
+            "imap-smtp-setup": {
+                "title": "IMAP/SMTP 账号设置",
+                "summary": "通过 IMAP 和 SMTP 添加非 Gmail 邮件账号。",
+                "description": "要添加 IMAP/SMTP 账号，请在账号切换器中点击“添加 IMAP 账号”。设置向导分为四个步骤：(1) 输入您的电子邮件、显示名称和密码或 OAuth2 凭据；(2) 配置 IMAP 服务器设置（主机、端口、安全性）；(3) 配置 SMTP 服务器设置；(4) 测试连接。对于 Outlook、Yahoo、iCloud、Fastmail、Zoho、AOL 和 GMX 等流行提供商，服务器设置会在您输入电子邮件地址时自动发现。Outlook/Hotmail 账号需要 OAuth2 身份验证（Microsoft 已禁用基本密码验证）。Yahoo 支持 OAuth2 和应用专用密码。您的凭据在本地存储之前使用 AES-256-GCM 加密。",
+                "tips": [
+                    {
+                        "text": "自动发现适用于 Outlook, Yahoo, iCloud, Fastmail, Zoho, AOL 和 GMX。"
+                    },
+                    {
+                        "text": "Outlook/Hotmail 需要 OAuth2 —— 在 Azure 门户中注册应用以获取 Client ID。"
+                    },
+                    {
+                        "text": "Yahoo 支持 OAuth2 或应用密码 —— 推荐使用 OAuth2。"
+                    },
+                    {
+                        "text": "对于 OAuth2，在应用注册中将重定向 URI 设置为 http://localhost:17248。"
+                    },
+                    {
+                        "text": "对于其他提供商，请查看其帮助页面了解 IMAP/SMTP 设置。"
+                    },
+                    {
+                        "text": "安全性选项：SSL/TSL（最安全）、STARTTLS 或无。"
+                    },
+                    {
+                        "text": "IMAP 和 SMTP 连接在保存前都会进行测试。"
+                    },
+                    {
+                        "text": "IMAP 文件夹会自动映射到侧边栏的标签。"
+                    }
+                ]
+            },
+            "outlook-setup": {
+                "title": "Outlook 账号设置",
+                "summary": "连接 Outlook、Hotmail 或 Live 账号的分步指南。",
+                "description": "Microsoft 要求 Outlook/Hotmail/Live 账号使用 OAuth2 —— 基本密码已被禁用。您需要在 Azure 门户中注册应用以获取 Client ID。大体流程如下：(1) 加入 Microsoft 365 开发人员计划以获取免费的 Azure 租户。(2) 使用您的 M365 开发人员账号登录 portal.azure.com。(3) 在 Microsoft Entra ID -> 应用注册中新建注册。设置重定向 URI 为“移动和桌面应用程序” -> http://localhost:17248。(4) 从概览页面复制应用程序 (客户端) ID。(5) 在 API 权限中添加 Microsoft Graph 的 delegated 权限：offline_access, email, openid, profile, User.Read。(6) 在身份验证设置中将“允许公共客户端流”设为“是”。(7) 在应用中，选择添加 IMAP 账号，输入您的电子邮件并粘贴 Client ID，点击“使用 Microsoft 登录”。",
+                "tips": [
+                    {
+                        "text": "加入 M365 开发人员计划以获取免费租户。"
+                    },
+                    {
+                        "text": "重定向 URI 必须完全一致：http://localhost:17248。"
+                    },
+                    {
+                        "text": "在身份验证 -> 高级设置中启用“允许公共客户端流”。"
+                    },
+                    {
+                        "text": "新账号可能需要长达 24 小时才能由 Microsoft 激活 IMAP/SMTP 访问。"
+                    }
+                ]
+            },
+            "thread-view": {
+                "title": "会话视图",
+                "summary": "电子邮件按对话分组。",
+                "description": "所有相关的电子邮件会自动分组为对话。点击邮件列表中的会话以打开它，并查看对话中的每条消息，最新的消息在底部。每条消息都显示发件人、时间戳和完整的格式化内容。内联附件和图像直接在邮件正文中显示。您可以直接对会话中的任何单条消息进行内联回复，而无需打开完整编辑器。",
+                "tips": [
+                    {
+                        "text": "打开会话",
+                        "shortcut": "o"
+                    },
+                    {
+                        "text": "在会话之间导航",
+                        "shortcut": "j / k"
+                    },
+                    {
+                        "text": "返回列表",
+                        "shortcut": "Escape"
+                    },
+                    {
+                        "text": "从操作栏将对话弹出到独立窗口。"
+                    },
+                    {
+                        "text": "内联回复让您无需离开会话即可响应特定消息。"
+                    }
+                ]
+            },
+            "reading-pane": {
+                "title": "阅读窗格位置",
+                "summary": "选择右侧、底部或隐藏布局。",
+                "description": "阅读窗格在邮件列表旁边显示所选会话的内容。您可以将其定位到邮件列表右侧（最适合宽屏）、下方（适合窄屏）或完全隐藏（点击打开模式）。邮件列表宽度也是可调节的 —— 拖动分隔线即可调整大小。您的布局偏好会自动保存并恢复。",
+                "tips": [
+                    {
+                        "text": "右侧窗格在大于 1400px 的屏幕上效果最佳。"
+                    },
+                    {
+                        "text": "底部窗格为阅读宽邮件提供更多水平空间。"
+                    },
+                    {
+                        "text": "隐藏模式仅显示邮件列表；点击会话以全宽打开它。"
+                    },
+                    {
+                        "text": "拖动列表和窗格之间的分隔线以调整宽度。"
+                    }
+                ]
+            },
+            "mark-as-read": {
+                "title": "已读标记行为",
+                "summary": "控制何时将邮件标记为已读。",
+                "description": "选择何时将打开的会话标记为已读：选择它时立即标记，在短暂延迟后标记（给您快速浏览的时间），或仅在您手动标记时标记。如果您将未读计数作为待办事项指标，并且不希望因为瞥了一眼就将会话标记为已读，此设置会很有帮助。",
+                "tips": [
+                    {
+                        "text": "“立即”在您打开会话时立即标记为已读。"
+                    },
+                    {
+                        "text": "“延迟后”在标记前等待几秒钟。"
+                    },
+                    {
+                        "text": "“仅手动”从不自动标记 —— 由您自己控制。"
+                    }
+                ]
+            },
+            "new-email": {
+                "title": "撰写新邮件",
+                "summary": "带有格式和附件的功能丰富的编辑器。",
+                "description": "编辑器使用由 TipTap 驱动的完整富文本编辑器。您可以设置文本格式（加粗、斜体、列表、链接、代码块）、添加文件附件、插入签名并选择模板 —— 所有这些都在一个地方完成。编辑器在屏幕底部作为面板打开。使用自动完成添加收件人（按您的发件频率排序），设置主题并撰写您的消息。",
+                "tips": [
+                    {
+                        "text": "打开编辑器",
+                        "shortcut": "c"
+                    },
+                    {
+                        "text": "发送邮件",
+                        "shortcut": "Ctrl+Enter"
+                    },
+                    {
+                        "text": "收件人自动完成按联系频率排序。"
+                    },
+                    {
+                        "text": "使用工具栏或 Markdown 风格的快捷键进行格式设置。"
+                    },
+                    {
+                        "text": "按 Escape 关闭编辑器（草稿会自动保存）。"
+                    }
+                ]
+            },
+            "reply-forward": {
+                "title": "回复、全部回复与转发",
+                "summary": "响应电子邮件或将其转发。",
+                "description": "回复仅将您的响应发送给原始发件人。全部回复包含会话中的每个人（收件人和抄送）。转发让您可以将邮件发送给新的人，并附上您自己的消息。您可以在撰写设置中设置默认回复操作，这样按下回复快捷键就会执行您期望的操作。内联回复功能还让您能直接在会话视图中对特定消息进行回复。",
+                "tips": [
+                    {
+                        "text": "回复",
+                        "shortcut": "r"
+                    },
+                    {
+                        "text": "全部回复",
+                        "shortcut": "a"
+                    },
+                    {
+                        "text": "转发",
+                        "shortcut": "f"
+                    },
+                    {
+                        "text": "在设置中设置默认回复模式（回复或全部回复）。"
+                    },
+                    {
+                        "text": "内联回复让您无需打开完整编辑器即可响应。"
+                    }
+                ]
+            },
+            "undo-send": {
+                "title": "撤销发送",
+                "summary": "取消已发送邮件的简短时间窗口。",
+                "description": "在您点击发送后，会出现一个带有“撤销”按钮的浮窗通知。点击它可以在邮件实际送达之前取消发送。您可以设置此窗口持续的时间 —— 从 5 秒到 30 秒。在撤销窗口期间，邮件在本地排队但尚未发送到服务器。一旦窗口过期，邮件将被发送且无法撤回。",
+                "tips": [
+                    {
+                        "text": "在设置 > 撰写中设置撤销延迟（5-30 秒）。"
+                    },
+                    {
+                        "text": "撤销浮窗在发送后出现在屏幕底部。"
+                    },
+                    {
+                        "text": "在撤销窗口期间关闭应用仍然会发送邮件。"
+                    }
+                ]
+            },
+            "schedule-send": {
+                "title": "定时发送",
+                "summary": "现在撰写，在选定的稍后时间发送。",
+                "description": "撰写一封电子邮件并计划在特定的日期和时间发送。这对于在下班后、周末或不同时区的撰写非常有用，而无需立即发送。从快速预设（明天早上、下周一早上）中选择或选择自定义日期和时间。定时邮件在发送前会出现在您的草稿中。您可以在发送时间之前取消或重新排程。",
+                "tips": [
+                    {
+                        "text": "点击发送按钮旁边的下拉箭头以进行定时。"
+                    },
+                    {
+                        "text": "快速预设：明天早晨 (9am), 明天下午 (1pm), 周一早晨。"
+                    },
+                    {
+                        "text": "在设置 > 撰写中查看和管理定时邮件。"
+                    },
+                    {
+                        "text": "在发送前的任何时间取消定时邮件。"
+                    }
+                ]
+            },
+            "signatures": {
+                "title": "签名",
+                "summary": "创建和管理电子邮件签名。",
+                "description": "为不同场景创建多个签名 —— 工作、个人、正式、非正式。签名支持富文本格式（加粗、链接、图像）。将一个设置为默认值以便在每次新撰写中自动插入，或者从编辑器中的选择器中选择不同的签名。签名在设置中管理并在本地持久化。",
+                "tips": [
+                    {
+                        "text": "在设置 > 撰写中创建签名。"
+                    },
+                    {
+                        "text": "设置一个自动插入到新邮件中的默认签名。"
+                    },
+                    {
+                        "text": "从编辑器中的签名选择器切换签名。"
+                    },
+                    {
+                        "text": "支持富文本：加粗、链接、图像等。"
+                    }
+                ]
+            },
+            "templates": {
+                "title": "模板",
+                "summary": "用于常见邮件的可复用正文文本。",
+                "description": "将常用的邮件正文保存为模板。在撰写时，打开模板选取器以一键将模板内容插入编辑器。模板非常适合重复性的邮件，如会议请求、状态更新或客户回复。您还可以为您最常用的模板分配键盘快捷键，以便更快访问。模板支持动态内容的变量。",
+                "tips": [
+                    {
+                        "text": "在设置 > 撰写中创建模板。"
+                    },
+                    {
+                        "text": "从编辑器工具栏的模板选取器图标插入模板。"
+                    },
+                    {
+                        "text": "为常用模板分配键盘快捷键。"
+                    },
+                    {
+                        "text": "模板支持变量，如 {{name}} 获取动态内容。"
+                    }
+                ]
+            },
+            "keyboard-shortcuts": {
+                "title": "键盘快捷键",
+                "summary": "无需鼠标即可导航和操作邮件。",
+                "description": "几乎每个动作都有键盘快捷键，灵感来自 Superhuman 的键盘优先设计。当您在输入框、文本区域或富文本编辑器中打字时，快捷键会被禁用以避免冲突。应用支持双键序列（按下 g 之后在 1 秒内按下另一个键）进行导航命令。所有快捷键都是完全可定制的 —— 在设置中重新绑定任何按键。",
+                "tips": [
+                    {
+                        "text": "查看所有快捷键",
+                        "shortcut": "?"
+                    },
+                    {
+                        "text": "导航：j/k（上/下），o（打开），Escape（返回）"
+                    },
+                    {
+                        "text": "会话内：向上/下箭头在消息之间导航"
+                    },
+                    {
+                        "text": "操作：e（归档），s（标星），#（删除），r（回复）"
+                    },
+                    {
+                        "text": "双键：先按 g 再按 i (收件箱), g 再按 s (已加星标), g 再按 t (已发送)"
+                    },
+                    {
+                        "text": "询问收件箱 (AI)",
+                        "shortcut": "i"
+                    },
+                    {
+                        "text": "同步当前文件夹",
+                        "shortcut": "F5"
+                    },
+                    {
+                        "text": "在设置 > 快捷键中自定义所有快捷键。"
+                    },
+                    {
+                        "text": "快捷键在文本输入时禁用以防止冲突。"
+                    }
+                ]
+            },
+            "search-operators": {
+                "title": "搜索操作符",
+                "summary": "Gmail 风格的操作符可精炼搜索结果。",
+                "description": "搜索使用 Gmail 风格的操作符进行精确过滤。结合多个操作符以找到您确切需要的内容。所有搜索都使用 FTS5 全文索引针对您的本地数据库运行，因此结果是即时的。操作符可以自由组合 —— 它们使用 AND 逻辑，因此每个额外的操作符都会进一步缩小结果范围。",
+                "tips": [
+                    {
+                        "text": "from:jane —— 来自特定发件人的邮件"
+                    },
+                    {
+                        "text": "to:team@ —— 发送到特定地址的邮件"
+                    },
+                    {
+                        "text": "subject:quarterly report —— 匹配主题行"
+                    },
+                    {
+                        "text": "has:attachment —— 仅限带有附件的邮件"
+                    },
+                    {
+                        "text": "is:unread / is:starred / is:read —— 按状态过滤"
+                    },
+                    {
+                        "text": "before:2024-06-01 / after:2024-01-01 —— 日期范围过滤"
+                    },
+                    {
+                        "text": "label:work —— 按标签过滤"
+                    },
+                    {
+                        "text": "自由组合：from:jane subject:report has:attachment after:2024-01-01"
+                    }
+                ]
+            },
+            "labels": {
+                "title": "标签",
+                "summary": "颜色编码的标记以组织您的邮件。",
+                "description": "标签的工作方式类似于标记 —— 将多个标签应用于单个会话以通过多种方式对其进行分类。创建带有颜色的自定义标签以视觉上区分各个类别。标签显示在侧边栏中以便快速过滤。您可以从侧边栏或设置中创建、编辑、重命名、更改颜色和删除标签。对于 Gmail 账号，标签会在设备间同步。对于 IMAP 账号，服务器文件夹会自动映射到侧边栏的标签（例如，收件箱、已发送、草稿、垃圾箱），自定义文件夹显示为用户标签。",
+                "tips": [
+                    {
+                        "text": "将会话拖放到侧边栏标签上以应用它们。"
+                    },
+                    {
+                        "text": "右键点击侧边栏中的标签进行编辑或删除。"
+                    },
+                    {
+                        "text": "点击侧边栏“标签”部分的 + 按钮创建一个标签。"
+                    },
+                    {
+                        "text": "一个会话可以同时拥有多个标签。"
+                    },
+                    {
+                        "text": "Gmail 标签在设备间同步；IMAP 文件夹会自动映射。"
+                    }
+                ]
+            },
+            "smart-folders": {
+                "title": "常用文件夹",
+                "summary": "作为动态文件夹运行的已保存搜索。",
+                "description": "常用文件夹是已保存的搜索查询，它们像普通文件夹一样出现在侧边栏中。它们动态地显示匹配查询的会话 —— 随着新邮件的到来，结果会自动更新。在查询中使用任何搜索操作符。动态日期标记（如 __LAST_7_DAYS__ 或 __TODAY__）使结果相对于当前日期保持。常用文件夹显示未读计数的徽章，就像普通文件夹一样。",
+                "tips": [
+                    {
+                        "text": "点击侧边栏“常用文件夹”部分的 + 按钮。"
+                    },
+                    {
+                        "text": "使用搜索操作符：is:unread from:boss"
+                    },
+                    {
+                        "text": "动态标记：__LAST_7_DAYS__, __LAST_30_DAYS__, __TODAY__"
+                    },
+                    {
+                        "text": "每个常用文件夹在侧边栏中显示其未读计数。"
+                    },
+                    {
+                        "text": "在设置 > 邮件规则中编辑或删除常用文件夹。"
+                    }
+                ]
+            },
+            "filters": {
+                "title": "过滤器与规则",
+                "summary": "按发件人、主题或内容自动对邮件进行排序。",
+                "description": "创建过滤器规则以自动处理传入的电子邮件。设置标准（按发件人地址、主题行或邮件内容匹配）并分配操作（应用标签、归档、移至回收站、标星或标记为已读）。标准使用不区分大小写的子字符串匹配和 AND 逻辑 —— 所有标准必须同时匹配。当多个过滤器匹配同一条消息时，它们的操作将合并。过滤器在每次同步期间对每条新消息自动运行。",
+                "tips": [
+                    {
+                        "text": "在设置 > 邮件规则中创建过滤器。"
+                    },
+                    {
+                        "text": "标准：按发件人、主题或内容匹配（AND 逻辑）。"
+                    },
+                    {
+                        "text": "操作：应用标签、归档、删除、标星、标记为已读。"
+                    },
+                    {
+                        "text": "多个匹配的过滤器会合并其操作。"
+                    },
+                    {
+                        "text": "过滤器在后台同步期间对每封新邮件运行。"
+                    }
+                ]
+            },
+            "smart-labels": {
+                "title": "智能标签",
+                "summary": "使用纯文本描述实现 AI 驱动的自动打标签。",
+                "description": "使用自然语言描述哪些邮件应该接收标签 —— 例如，“职位申请和职业机会” —— AI 在每次同步期间会自动为匹配的邮件打上标签。您还可以添加可选的传统标准（发件人、主题等），以便在 AI 回退之前进行即时确定性匹配。智能标签支持多标签分配，因此一个会话可以同时匹配几条规则。使用“应用于现有邮件”按钮将标签追溯到您当前的收件箱。",
+                "tips": [
+                    {
+                        "text": "在设置 > 邮件规则 > 智能标签中创建。"
+                    },
+                    {
+                        "text": "编写一段简单的描述，说明标签应该匹配哪些内容。"
+                    },
+                    {
+                        "text": "可选：添加传统标准（发件人、主题）以实现无需 AI 的即时匹配。"
+                    },
+                    {
+                        "text": "点击“应用于现有邮件”追溯现有收件箱。"
+                    },
+                    {
+                        "text": "需要有效的 AI 提供商（Claude, GPT, 或 Gemini）。"
+                    }
+                ]
+            },
+            "ai-provider": {
+                "title": "配置 AI 提供商",
+                "summary": "连接到 Claude、OpenAI、Gemini 或本地服务器。",
+                "description": "应用支持多种 AI 提供商来驱动智能功能。您可以连接到云端服务（Anthropic 的 Claude、OpenAI、Google 的 Gemini）或运行本地服务器（通过 Ollama 或 LMStudio）。要使用云端提供商，您需要从其各自的开发者仪表板获取 API Key。您的 Key 存储在本地，并安全地仅用于向模型发出请求。本地服务器不需要 API Key，并提供完全的数据隐私，因为处理永远不会离开您的机器。",
+                "tips": [
+                    {
+                        "text": "在设置 > AI 中配置您的提供商。"
+                    },
+                    {
+                        "text": "云端：获取 Claude、OpenAI 或 Gemini 的 API Key。"
+                    },
+                    {
+                        "text": "本地：连接到运行在 localhost:11434 的 Ollama。"
+                    },
+                    {
+                        "text": "使用“测试连接”按钮验证您的 Key 是否工作。"
+                    },
+                    {
+                        "text": "您可以随时切换提供商而不丢失设置。"
+                    }
+                ]
+            },
+            "auto-categorize": {
+                "title": "智能分类",
+                "summary": "自动将邮件移入主要、社交、促销等类别。",
+                "description": "AI 助手会自动分析每封传入的电子邮件，并将其分类为主要（个人邮件）、社交、促销、更新或时事通讯。这有助于保持您的主要收件箱专注于重要的沟通。您可以为每个类别配置操作 —— 例如，自动归档所有社交和促销邮件，以便它们甚至不会出现在收件箱中。分类逻辑会随着时间的推移学习您的偏好。",
+                "tips": [
+                    {
+                        "text": "在设置 > AI > 功能中启用智能分类。"
+                    },
+                    {
+                        "text": "类别：主要、社交、促销、更新、时事通讯。"
+                    },
+                    {
+                        "text": "在设置中为特定类别设置“自动归档”。"
+                    },
+                    {
+                        "text": "如果是 Gmail，这些映射到 Gmail 的原生类别。"
+                    }
+                ]
+            },
+            "auto-summarize": {
+                "title": "智能摘要",
+                "summary": "在列表视图中显示长邮件会话的简明摘要。",
+                "description": "不要只看最后一条消息的预览，而要看整个对话的 AI 生成摘要。智能摘要会提取长会话中的关键点、行动项和主要结论。这在您有包含多封邮件的复杂对话时非常有用。摘要直接显示在邮件列表中的主题行下方。此功能需要启用 AI 助手，并且在大约 2 秒的显示延迟后在本地生成并缓存。",
+                "tips": [
+                    {
+                        "text": "在设置 > AI > 功能中启用智能摘要。"
+                    },
+                    {
+                        "text": "摘要会自动显示在邮件列表中的主题下方。"
+                    },
+                    {
+                        "text": "专为长对话设计，提取关键要点。"
+                    },
+                    {
+                        "text": "摘要被缓存以便即时回看。"
+                    }
+                ]
+            }
+        }
     }
 }
